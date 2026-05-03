@@ -1,0 +1,19 @@
+# Local Overrides
+
+<!--
+  Copy this file to .agent/agent.local.md (gitignored).
+  Personal preferences that should not apply to the whole team.
+-->
+
+## My preferences
+
+<!-- Examples — uncomment and edit as needed -->
+
+<!-- Response style: concise -->
+<!-- Always show full file paths in suggestions -->
+<!-- Prefer functional style -->
+
+## My shortcuts
+
+<!-- When I say "ship it" — run lint, typecheck, test, then summarize what is ready -->
+<!-- When I say "check it" — run the /review command on staged changes -->

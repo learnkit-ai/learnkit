@@ -1,0 +1,13 @@
+# LearnKit AI v0 — implementation tasks
+# Usage: aiagentflow run --batch .agent/tasks/v0.txt --context .agent/agent.md
+# Run with --auto to skip approval gates: add --auto flag
+# Run with --dry-run to preview plan without executing
+
+Bootstrap pnpm + Turborepo monorepo with pnpm-workspace.yaml, turbo.json, tsconfig.base.json, and root package.json scripts
+Create packages/schemas with Zod schemas for LearningPathInput, LearningPath, and Lesson with fully inferred TypeScript types
+Create packages/core with generateLearningPath() deterministic generator, 5 role templates, getSupportedRoles(), getSupportedTools(), and Vitest unit tests
+Create packages/react with LearningPath, LessonCard, AIGuide components, useLearnKit hook, and tokens.css CSS custom properties for warm theme
+Create apps/web Next.js App Router with landing page, /demo interactive page, and /docs placeholder — all running on mock data with zero backend
+Create examples/nextjs-basic as standalone Next.js app showing minimal LearningPath integration
+Add .github/workflows/ci.yml running pnpm install, lint, typecheck, test, and build on push and pull_request
+Add root open-source docs: README.md, CONTRIBUTING.md, ROADMAP.md, and LICENSE (Apache-2.0)

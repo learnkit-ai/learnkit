@@ -52,9 +52,25 @@ export function FinalCTA() {
             justifyContent: 'center',
           }}
         >
-          <Button variant="primary" size="lg">
+          <a
+            href="/demo"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '16px 26px',
+              fontSize: 15,
+              borderRadius: 12,
+              background: 'var(--ink)',
+              color: 'var(--paper)',
+              border: '1px solid var(--ink)',
+              fontWeight: 500,
+              letterSpacing: '-0.005em',
+              textDecoration: 'none',
+            }}
+          >
             Run the demo <ArrowR />
-          </Button>
+          </a>
           <Button variant="ghost" size="lg">
             Talk to sales
           </Button>

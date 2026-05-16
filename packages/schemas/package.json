@@ -1,0 +1,37 @@
+{
+  "name": "@learnkit-ai/schemas",
+  "version": "0.1.0",
+  "description": "Zod schemas and inferred TypeScript types for LearnKit AI.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learnkit-ai/learnkit.git",
+    "directory": "packages/schemas"
+  },
+  "homepage": "https://learnkit-ai.com",
+  "bugs": "https://github.com/learnkit-ai/learnkit/issues",
+  "keywords": ["learnkit", "ai", "education", "zod", "schemas", "typescript"],
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": ["src"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json --emitDeclarationOnly false --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

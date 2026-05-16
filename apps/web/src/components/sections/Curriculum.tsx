@@ -1,17 +1,18 @@
 'use client';
 
-import { Button, ArrowR } from '@/components/ui/Button';
+import Link from 'next/link';
+import { ArrowR } from '@/components/ui/Button';
 import { Eyebrow, ToolIcon } from '@/components/ui/primitives';
 
 const TRACKS = [
-  { tool: 'Claude', mods: 8, hours: 14, hot: true },
-  { tool: 'Cursor', mods: 5, hours: 9, hot: true },
-  { tool: 'ChatGPT', mods: 6, hours: 11 },
-  { tool: 'Copilot', mods: 4, hours: 7 },
-  { tool: 'Midjourney', mods: 4, hours: 6 },
-  { tool: 'Notion AI', mods: 3, hours: 5 },
-  { tool: 'Perplexity', mods: 3, hours: 4 },
-  { tool: 'Gemini', mods: 4, hours: 7 },
+  { tool: 'Claude', slug: 'claude', mods: 8, hours: 14, hot: true },
+  { tool: 'Cursor', slug: 'cursor', mods: 5, hours: 9, hot: true },
+  { tool: 'ChatGPT', slug: 'chatgpt', mods: 6, hours: 11 },
+  { tool: 'Copilot', slug: 'copilot', mods: 4, hours: 7 },
+  { tool: 'Midjourney', slug: 'midjourney', mods: 4, hours: 6 },
+  { tool: 'Notion AI', slug: 'notion-ai', mods: 3, hours: 5 },
+  { tool: 'Perplexity', slug: 'perplexity', mods: 3, hours: 4 },
+  { tool: 'Gemini', slug: 'gemini', mods: 4, hours: 7 },
 ];
 
 export function Curriculum() {
@@ -47,15 +48,27 @@ export function Curriculum() {
               each tool&apos;s latest capabilities.
             </p>
           </div>
-          <Button variant="link" size="sm">
+          <Link
+            href="/tools"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              color: 'var(--ink)',
+              fontSize: 13,
+              fontWeight: 500,
+              textDecoration: 'none',
+            }}
+          >
             Browse all 40 tracks <ArrowR size={11} />
-          </Button>
+          </Link>
         </div>
 
         <div className="lk-grid-4 lk-curriculum-tracks" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
           {TRACKS.map((t) => (
-            <div
+            <Link
               key={t.tool}
+              href={`/tools/${t.slug}`}
               style={{
                 background: 'var(--surface)',
                 border: '1px solid var(--rule)',
@@ -64,14 +77,17 @@ export function Curriculum() {
                 cursor: 'pointer',
                 position: 'relative',
                 transition: 'all .2s ease',
+                textDecoration: 'none',
+                color: 'inherit',
+                display: 'block',
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-2px)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = 'var(--shadow-2)';
+                (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-2px)';
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = 'var(--shadow-2)';
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = '';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '';
+                (e.currentTarget as HTMLAnchorElement).style.transform = '';
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = '';
               }}
             >
               {t.hot && (
@@ -111,7 +127,7 @@ export function Curriculum() {
                 </span>
                 <span style={{ color: 'var(--ink-soft)' }}>→</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

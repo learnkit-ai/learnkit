@@ -35,11 +35,11 @@ export function Nav() {
       <Wordmark size={22} />
 
       <div className="lk-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28, fontSize: 13.5, color: 'var(--ink-soft)' }}>
-        <a href="#teams" style={navLink}>For teams</a>
-        <a href="#developers" style={navLink}>Developers</a>
-        <a href="#curriculum" style={navLink}>Curriculum</a>
-        <a href="#pricing" style={navLink}>Pricing</a>
-        <a href="#docs" style={navLink}>Docs</a>
+        <a href="/roles" style={navLink}>For teams</a>
+        <a href="/developers" style={navLink}>Developers</a>
+        <a href="/tools" style={navLink}>Curriculum</a>
+        <a href="/#pricing" style={navLink}>Pricing</a>
+        <a href="/blog" style={navLink}>Blog</a>
         <a
           href="https://github.com/learnkit-ai/learnkit"
           style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 5 }}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LearnKit — Landing & Flows</title>
+<link rel="stylesheet" href="styles/tokens.css" />
+<style>
+  html, body, #root { height: 100%; }
+  body { background: #2A2522; }
+</style>
+
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="components/wordmark.jsx"></script>
+<script type="text/babel" src="components/primitives.jsx"></script>
+<script type="text/babel" src="screens/landing.jsx"></script>
+<script type="text/babel" src="screens/demo.jsx"></script>
+<script type="text/babel" src="screens/api.jsx"></script>
+<script type="text/babel" src="screens/teams.jsx"></script>
+<script type="text/babel" src="screens/mobile-landing.jsx"></script>
+<script type="text/babel" src="screens/mobile-demo.jsx"></script>
+<script type="text/babel" src="screens/mobile-api.jsx"></script>
+<script type="text/babel" src="screens/mobile-teams.jsx"></script>
+<script type="text/babel" src="screens/tablet-landing.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "warm",
+  "ole": "subtle",
+  "demoVariant": "guided",
+  "showTweaksByDefault": false
+}/*EDITMODE-END*/;
+
+// Inject Olé visibility CSS based on tweak
+const applyOle = (mode) => {
+  let style = document.getElementById('__ole-mode');
+  if (!style) { style = document.createElement('style'); style.id = '__ole-mode'; document.head.appendChild(style); }
+  if (mode === 'off') {
+    style.textContent = `.ole-hideable { display: none !important; }`;
+  } else if (mode === 'featured') {
+    style.textContent = `.ole-hideable { transform: scale(1.08); }`;
+  } else {
+    style.textContent = '';
+  }
+};
+
+const App = () => {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(() => {
+    document.documentElement.dataset.theme = tweaks.theme === 'warm' ? '' : tweaks.theme;
+  }, [tweaks.theme]);
+
+  React.useEffect(() => {
+    applyOle(tweaks.ole);
+  }, [tweaks.ole]);
+
+  // Demo variants — toggle a body class so demo.jsx can read it
+  React.useEffect(() => {
+    document.body.dataset.demoVariant = tweaks.demoVariant;
+  }, [tweaks.demoVariant]);
+
+  return (
+    <>
+      <DesignCanvas
+        title="LearnKit"
+        subtitle="Landing page · Demo · API · Teams"
+        canvasBg="#2A2522"
+      >
+        <DCSection id="landing" title="Landing">
+          <DCArtboard id="lk-landing" label="LearnKit · Home" width={1280} height={3600}>
+            <LandingPage />
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="flows" title="Key flows">
+          <DCArtboard id="lk-demo" label="Demo · Build your path" width={1280} height={1100}>
+            <DemoFlow />
+          </DCArtboard>
+          <DCArtboard id="lk-api" label="Developers · API" width={1280} height={2000}>
+            <ApiScreen />
+          </DCArtboard>
+          <DCArtboard id="lk-teams" label="Teams · L&D" width={1280} height={2200}>
+            <TeamsScreen />
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="tablet" title="Tablet (768)">
+          <DCArtboard id="lk-tablet-landing" label="Tablet · Landing" width={768} height={2800}>
+            <TabletLanding />
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="mobile" title="Mobile (390)">
+          <DCArtboard id="lk-mobile" label="Mobile · Landing" width={390} height={1700}>
+            <MobileLanding />
+          </DCArtboard>
+          <DCArtboard id="lk-mobile-demo" label="Mobile · Demo" width={390} height={780}>
+            <MobileDemo />
+          </DCArtboard>
+          <DCArtboard id="lk-mobile-api" label="Mobile · API" width={390} height={1900}>
+            <MobileApi />
+          </DCArtboard>
+          <DCArtboard id="lk-mobile-teams" label="Mobile · Teams" width={390} height={2400}>
+            <MobileTeams />
+          </DCArtboard>
+        </DCSection>
+      </DesignCanvas>
+
+      <TweaksPanel title="Tweaks" defaultOpen={tweaks.showTweaksByDefault}>
+        <TweakSection title="Theme">
+          <TweakRadio
+            label="Color theme"
+            value={tweaks.theme}
+            onChange={v => setTweak('theme', v)}
+            options={[
+              { value: 'warm', label: 'Warm' },
+              { value: 'midnight', label: 'Midnight' },
+              { value: 'technical', label: 'Tech-dark' },
+            ]}
+          />
+        </TweakSection>
+        <TweakSection title="Olé (the AI tutor)">
+          <TweakRadio
+            label="Visibility"
+            value={tweaks.ole}
+            onChange={v => setTweak('ole', v)}
+            options={[
+              { value: 'off', label: 'Off' },
+              { value: 'subtle', label: 'Subtle' },
+              { value: 'featured', label: 'Featured' },
+            ]}
+          />
+        </TweakSection>
+        <TweakSection title="Demo flow">
+          <TweakRadio
+            label="Variant"
+            value={tweaks.demoVariant}
+            onChange={v => setTweak('demoVariant', v)}
+            options={[
+              { value: 'guided', label: 'Guided' },
+              { value: 'chat', label: 'Chat' },
+              { value: 'compact', label: 'Compact' },
+            ]}
+          />
+        </TweakSection>
+      </TweaksPanel>
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

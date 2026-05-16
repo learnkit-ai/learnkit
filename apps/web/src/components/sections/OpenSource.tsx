@@ -11,6 +11,7 @@ export function OpenSource() {
   return (
     <section
       id="developers"
+      className="lk-section-pad lk-section"
       style={{
         padding: '80px 56px',
         background: 'var(--paper-2)',
@@ -18,6 +19,7 @@ export function OpenSource() {
       }}
     >
       <div
+        className="lk-split"
         style={{
           maxWidth: 1280,
           margin: '0 auto',
@@ -30,7 +32,7 @@ export function OpenSource() {
         <div>
           <Eyebrow color="var(--accent-4)">Open SDKs</Eyebrow>
           <h2
-            className="serif"
+            className="serif lk-section-title-md"
             style={{
               fontSize: 40,
               lineHeight: 1.05,

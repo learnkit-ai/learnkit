@@ -3,6 +3,7 @@ import { Button, ArrowR } from '@/components/ui/Button';
 export function FinalCTA() {
   return (
     <section
+      className="lk-section-pad lk-section"
       style={{
         padding: '96px 56px',
         position: 'relative',
@@ -21,7 +22,7 @@ export function FinalCTA() {
         }}
       >
         <h2
-          className="serif"
+          className="serif lk-final-title"
           style={{
             fontSize: 56,
             lineHeight: 1.02,

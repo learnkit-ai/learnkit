@@ -12,6 +12,7 @@ const LESSON_LIST = [
 function WorkbenchMock() {
   return (
     <div
+      className="lk-workbench-mock"
       style={{
         background: 'var(--surface)',
         borderRadius: 18,
@@ -46,9 +47,10 @@ function WorkbenchMock() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: 14, height: 460 }}>
+      <div className="lk-workbench-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 280px', gap: 14, height: 460 }}>
         {/* Sidebar */}
         <div
+          className="lk-workbench-sidebar"
           style={{
             background: 'var(--paper-2)',
             borderRadius: 10,
@@ -214,6 +216,7 @@ function WorkbenchMock() {
 
         {/* Chat panel */}
         <div
+          className="lk-workbench-chat"
           style={{
             background: 'var(--paper-2)',
             borderRadius: 10,
@@ -305,12 +308,12 @@ function WorkbenchMock() {
 
 export function WorkbenchShowcase() {
   return (
-    <section style={{ padding: '40px 56px 96px', background: 'var(--paper-2)' }}>
+    <section className="lk-section-pad lk-section" style={{ padding: '40px 56px 96px', background: 'var(--paper-2)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ marginBottom: 36, maxWidth: 640 }}>
           <Eyebrow>The workbench</Eyebrow>
           <h2
-            className="serif"
+            className="serif lk-section-title-md"
             style={{
               fontSize: 40,
               lineHeight: 1.05,

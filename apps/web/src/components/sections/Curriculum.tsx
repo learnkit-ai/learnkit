@@ -16,7 +16,7 @@ const TRACKS = [
 
 export function Curriculum() {
   return (
-    <section id="curriculum" style={{ padding: '88px 56px' }}>
+    <section id="curriculum" className="lk-section-pad lk-section" style={{ padding: '88px 56px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div
           style={{
@@ -31,7 +31,7 @@ export function Curriculum() {
           <div style={{ maxWidth: 640 }}>
             <Eyebrow>Library</Eyebrow>
             <h2
-              className="serif"
+              className="serif lk-section-title-md"
               style={{
                 fontSize: 40,
                 lineHeight: 1.05,
@@ -52,7 +52,7 @@ export function Curriculum() {
           </Button>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+        <div className="lk-grid-4 lk-curriculum-tracks" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
           {TRACKS.map((t) => (
             <div
               key={t.tool}

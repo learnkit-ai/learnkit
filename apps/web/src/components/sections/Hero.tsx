@@ -37,6 +37,7 @@ function HeroLiveWorkbench() {
 
   return (
     <div
+      className="lk-hero-workbench"
       style={{
         background: 'var(--surface)',
         borderRadius: 18,
@@ -211,11 +212,13 @@ function HeroLiveWorkbench() {
 export function Hero() {
   return (
     <section
+      className="lk-hero-pad"
       style={{ padding: '72px 56px 40px', position: 'relative', overflow: 'hidden' }}
     >
       <AmbientArc style={{ top: -120, right: -120 }} size={460} color="var(--accent-2)" />
 
       <div
+        className="lk-hero-grid"
         style={{
           maxWidth: 1280,
           margin: '0 auto',
@@ -245,7 +248,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="serif"
+            className="serif lk-hero-title"
             style={{
               fontSize: 76,
               lineHeight: 0.98,
@@ -278,6 +281,7 @@ export function Hero() {
 
           {/* Audience tri-CTA */}
           <div
+            className="lk-hero-tri"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
@@ -339,6 +343,7 @@ export function Hero() {
 
           {/* Trust ribbon */}
           <div
+            className="lk-trust-ribbon"
             style={{
               marginTop: 22,
               display: 'flex',

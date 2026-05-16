@@ -26,6 +26,7 @@ const STEPS = [
 export function HowItWorks() {
   return (
     <section
+      className="lk-section-pad lk-section"
       style={{
         padding: '88px 56px 64px',
         background: 'var(--paper-2)',
@@ -36,7 +37,7 @@ export function HowItWorks() {
         <div style={{ marginBottom: 48, maxWidth: 720 }}>
           <Eyebrow>How it works</Eyebrow>
           <h2
-            className="serif"
+            className="serif lk-section-title"
             style={{
               fontSize: 48,
               lineHeight: 1.05,
@@ -55,6 +56,7 @@ export function HowItWorks() {
         </div>
 
         <div
+          className="lk-how-grid lk-grid-4"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',

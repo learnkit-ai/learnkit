@@ -32,13 +32,14 @@ export function PathsForEveryone() {
   return (
     <section
       id="audiences"
+      className="lk-section-pad lk-section"
       style={{ padding: '32px 56px 80px', borderTop: '1px solid var(--rule)' }}
     >
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ paddingTop: 48, marginBottom: 40, maxWidth: 720 }}>
           <Eyebrow>One product. Three doors.</Eyebrow>
           <h2
-            className="serif"
+            className="serif lk-section-title"
             style={{
               fontSize: 48,
               lineHeight: 1.04,
@@ -51,7 +52,7 @@ export function PathsForEveryone() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
+        <div className="lk-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
           {AUDIENCES.map((a) => (
             <div
               key={a.tag}

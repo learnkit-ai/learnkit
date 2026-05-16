@@ -10,10 +10,12 @@ const LINKS = [
 export function Footer() {
   return (
     <footer
+      className="lk-section-pad"
       style={{ padding: '56px 56px 36px', borderTop: '1px solid var(--rule)', background: 'var(--paper)' }}
     >
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div
+          className="lk-footer-cols lk-grid-5"
           style={{
             display: 'grid',
             gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr',
@@ -21,7 +23,7 @@ export function Footer() {
             paddingBottom: 40,
           }}
         >
-          <div>
+          <div className="lk-footer-brand">
             <Wordmark size={20} />
             <p
               style={{
@@ -60,6 +62,7 @@ export function Footer() {
           ))}
         </div>
         <div
+          className="lk-footer-bottom"
           style={{
             paddingTop: 24,
             borderTop: '1px solid var(--rule)',

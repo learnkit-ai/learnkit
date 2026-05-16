@@ -81,6 +81,7 @@ export function CurriculumView({
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 16 }}>
       {/* Summary bar */}
       <div
+        className="lk-curriculum-summary"
         style={{
           background: 'var(--surface)',
           borderRadius: 14,
@@ -93,7 +94,7 @@ export function CurriculumView({
           gap: 16,
         }}
       >
-        <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
+        <div className="lk-curriculum-stats" style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
           {SUMMARY.map((s) => (
             <div key={s.v}>
               <div

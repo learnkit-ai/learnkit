@@ -102,6 +102,7 @@ export function DemoFlow() {
     >
       {/* Mini header */}
       <div
+        className="lk-demo-header lk-subnav"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -124,6 +125,7 @@ export function DemoFlow() {
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <span className="lk-demo-steps" style={{ display: 'inline-flex', alignItems: 'center', gap: 14 }}>
           {[0, 1, 2, 3, 4].map((i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span
@@ -156,6 +158,7 @@ export function DemoFlow() {
               )}
             </div>
           ))}
+        </span>
           <Button size="sm" variant="ghost" onClick={reset}>
             Reset
           </Button>
@@ -164,6 +167,7 @@ export function DemoFlow() {
 
       {/* Main */}
       <div
+        className="lk-section-pad"
         style={{
           flex: 1,
           padding: '48px 56px',
@@ -184,11 +188,13 @@ export function DemoFlow() {
             sub="We tune your curriculum to your role. You can change it later."
           >
             <div
+              className="lk-demo-roles"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: 10,
                 maxWidth: 800,
+                width: '100%',
               }}
             >
               {ROLES.map((r) => (
@@ -229,11 +235,13 @@ export function DemoFlow() {
             sub="Pick what you use today — even if you barely know how. The AI Guide will fill the gaps."
           >
             <div
+              className="lk-demo-tools"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: 10,
                 maxWidth: 800,
+                width: '100%',
               }}
             >
               {ALL_TOOLS.map((t) => {

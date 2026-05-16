@@ -28,7 +28,7 @@ export function StepShell({
       <div style={{ animation: 'float-up .4s ease both' }}>
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1
-          className="serif"
+          className="serif lk-step-title"
           style={{
             fontSize: 56,
             lineHeight: 1.02,

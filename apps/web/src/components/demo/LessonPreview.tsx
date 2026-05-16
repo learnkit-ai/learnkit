@@ -44,6 +44,7 @@ export function LessonPreview({
       }}
     >
       <div
+        className="lk-lesson-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: '240px 1fr 320px',

@@ -1,10 +1,45 @@
 import { Wordmark, WordmarkMono } from '@/components/ui/Wordmark';
 
-const LINKS = [
-  { h: 'Product', l: ['Workbench', 'Library', 'AI Guide', 'Credentials'] },
-  { h: 'For', l: ['Individuals', 'Teams & L&D', 'Developers', 'Educators'] },
-  { h: 'Developers', l: ['Docs', 'API reference', 'SDKs · GitHub', 'Changelog'] },
-  { h: 'Company', l: ['About', 'Customers', 'Careers', 'Contact'] },
+interface FooterLink { label: string; href: string }
+interface FooterCol { h: string; l: FooterLink[] }
+
+const LINKS: FooterCol[] = [
+  {
+    h: 'Product',
+    l: [
+      { label: 'Build your path', href: '/demo' },
+      { label: 'Tools library', href: '/tools' },
+      { label: 'AI Guide', href: '/developers' },
+      { label: 'Pricing', href: '/#pricing' },
+    ],
+  },
+  {
+    h: 'For',
+    l: [
+      { label: 'Product Managers', href: '/roles/product-manager' },
+      { label: 'Software Engineers', href: '/roles/software-engineer' },
+      { label: 'Designers', href: '/roles/designer' },
+      { label: 'Founders', href: '/roles/founder' },
+    ],
+  },
+  {
+    h: 'Tools',
+    l: [
+      { label: 'Learn Claude', href: '/tools/claude' },
+      { label: 'Learn Cursor', href: '/tools/cursor' },
+      { label: 'Learn ChatGPT', href: '/tools/chatgpt' },
+      { label: 'Learn Gemini', href: '/tools/gemini' },
+    ],
+  },
+  {
+    h: 'Developers',
+    l: [
+      { label: 'Docs', href: '/developers' },
+      { label: 'API reference', href: '/developers#endpoints' },
+      { label: 'SDKs · GitHub', href: 'https://github.com/learnkit-ai/learnkit' },
+      { label: 'Blog', href: '/blog' },
+    ],
+  },
 ];
 
 export function Footer() {
@@ -53,8 +88,8 @@ export function Footer() {
               </div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {col.l.map((item) => (
-                  <li key={item} style={{ fontSize: 13.5, color: 'var(--ink-soft)' }}>
-                    <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>{item}</a>
+                  <li key={item.label} style={{ fontSize: 13.5, color: 'var(--ink-soft)' }}>
+                    <a href={item.href} style={{ color: 'inherit', textDecoration: 'none' }}>{item.label}</a>
                   </li>
                 ))}
               </ul>

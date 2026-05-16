@@ -8,11 +8,19 @@ import { Curriculum } from '@/components/sections/Curriculum';
 import { Proof } from '@/components/sections/Proof';
 import { OpenSource } from '@/components/sections/OpenSource';
 import { Pricing } from '@/components/sections/Pricing';
+import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
+import {
+  JsonLd,
+  ORGANIZATION_SCHEMA,
+  SOFTWARE_APP_SCHEMA,
+  FAQ_SCHEMA,
+} from '@/components/seo/JsonLd';
 
 export default function Home() {
   return (
     <main className="paper-grain" style={{ background: 'var(--paper)', minHeight: '100vh', overflow: 'hidden' }}>
+      <JsonLd data={[ORGANIZATION_SCHEMA, SOFTWARE_APP_SCHEMA, FAQ_SCHEMA]} />
       <Nav />
       <Hero />
       <PathsForEveryone />
@@ -22,6 +30,7 @@ export default function Home() {
       <Proof />
       <OpenSource />
       <Pricing />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </main>

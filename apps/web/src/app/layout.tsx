@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description:
     'LearnKit turns Claude, Cursor, ChatGPT and 40 other tools into a curriculum your people learn by building real things at work — reviewed by the AI Guide.',
   metadataBase: new URL('https://learnkit-ai.com'),
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

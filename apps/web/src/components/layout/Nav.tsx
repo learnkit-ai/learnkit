@@ -18,6 +18,7 @@ const GithubIcon = () => (
 export function Nav() {
   return (
     <nav
+      className="lk-nav"
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -33,7 +34,7 @@ export function Nav() {
     >
       <Wordmark size={22} />
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 28, fontSize: 13.5, color: 'var(--ink-soft)' }}>
+      <div className="lk-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28, fontSize: 13.5, color: 'var(--ink-soft)' }}>
         <a href="#teams" style={navLink}>For teams</a>
         <a href="#developers" style={navLink}>Developers</a>
         <a href="#curriculum" style={navLink}>Curriculum</a>
@@ -50,9 +51,11 @@ export function Nav() {
         </a>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <a href="#" style={{ ...navLink, fontSize: 13.5 }}>Sign in</a>
-        <Button size="sm" variant="ghost">Book a demo</Button>
+      <div className="lk-nav-cta" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <a href="#" className="lk-nav-cta-secondary" style={{ ...navLink, fontSize: 13.5 }}>Sign in</a>
+        <span className="lk-nav-cta-secondary">
+          <Button size="sm" variant="ghost">Book a demo</Button>
+        </span>
         <Button size="sm" variant="primary">
           Try free <ArrowR size={12} />
         </Button>

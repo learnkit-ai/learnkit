@@ -37,12 +37,12 @@ const TIERS = [
 
 export function Pricing() {
   return (
-    <section id="pricing" style={{ padding: '88px 56px' }}>
+    <section id="pricing" className="lk-section-pad lk-section" style={{ padding: '88px 56px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ marginBottom: 48, textAlign: 'center' }}>
           <Eyebrow>Plans</Eyebrow>
           <h2
-            className="serif"
+            className="serif lk-section-title"
             style={{
               fontSize: 44,
               lineHeight: 1.05,
@@ -56,6 +56,7 @@ export function Pricing() {
         </div>
 
         <div
+          className="lk-pricing-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',

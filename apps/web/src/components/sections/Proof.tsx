@@ -9,6 +9,7 @@ const STATS = [
 export function Proof() {
   return (
     <section
+      className="lk-section-pad lk-section"
       style={{
         padding: '88px 56px',
         background: 'var(--ink)',
@@ -22,6 +23,7 @@ export function Proof() {
 
         {/* Placeholder wordmarks */}
         <div
+          className="lk-proof-logos lk-grid-6"
           style={{
             marginTop: 24,
             marginBottom: 56,
@@ -56,6 +58,7 @@ export function Proof() {
         </div>
 
         <div
+          className="lk-proof-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: '1.5fr 1fr 1fr 1fr',
@@ -66,7 +69,7 @@ export function Proof() {
           }}
         >
           <blockquote
-            className="serif"
+            className="serif lk-proof-quote"
             style={{
               fontSize: 26,
               lineHeight: 1.25,

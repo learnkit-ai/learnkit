@@ -12,6 +12,7 @@ const ENDPOINTS = [
 export function EndpointGrid() {
   return (
     <div
+      className="lk-section-pad lk-section"
       style={{
         padding: '40px 56px 64px',
         maxWidth: 1320,
@@ -21,7 +22,7 @@ export function EndpointGrid() {
     >
       <Eyebrow>Reference</Eyebrow>
       <h2
-        className="serif"
+        className="serif lk-section-title-md"
         style={{
           fontSize: 36,
           letterSpacing: '-0.025em',

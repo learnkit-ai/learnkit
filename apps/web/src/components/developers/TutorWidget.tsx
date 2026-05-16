@@ -10,6 +10,7 @@ const FEATURES = [
 export function TutorWidget() {
   return (
     <section
+      className="lk-section-pad lk-section"
       style={{
         padding: '64px 56px',
         background: 'var(--paper-2)',
@@ -30,7 +31,7 @@ export function TutorWidget() {
         <div>
           <Eyebrow>{'<LearnKit.AIGuide />'}</Eyebrow>
           <h2
-            className="serif"
+            className="serif lk-section-title-md"
             style={{
               fontSize: 40,
               letterSpacing: '-0.025em',

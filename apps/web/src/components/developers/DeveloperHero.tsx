@@ -61,7 +61,7 @@ export function DeveloperHero() {
       </div>
 
       <section
-        className="lk-split"
+        className="lk-split lk-section-pad"
         style={{
           padding: '64px 56px 40px',
           display: 'grid',
@@ -75,7 +75,7 @@ export function DeveloperHero() {
         <div>
           <Eyebrow color="var(--accent-4)">Open SDKs · Apache-2.0</Eyebrow>
           <h1
-            className="serif"
+            className="serif lk-hero-title"
             style={{
               fontSize: 64,
               lineHeight: 1,

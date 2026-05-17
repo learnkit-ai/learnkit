@@ -2,8 +2,8 @@
 
 import type { CSSProperties } from 'react';
 import type { LearningPathInput, Lesson } from '@learnkit-ai/schemas';
-import { LessonCard } from './LessonCard.js';
-import { useLearnKit } from './useLearnKit.js';
+import { LessonCard } from './LessonCard';
+import { useLearnKit } from './useLearnKit';
 
 export type LearnKitTheme = 'warm' | 'midnight' | 'technical';
 

@@ -5,7 +5,7 @@
  * No Tailwind dependency. CSS custom properties only. Drop into any host theme.
  */
 
-export { LearningPath, type LearningPathProps, type LearnKitTheme } from './LearningPath.js';
-export { LessonCard, type LessonCardProps, type LessonStatus } from './LessonCard.js';
-export { AIGuide, type AIGuideProps } from './AIGuide.js';
-export { useLearnKit, type UseLearnKitResult } from './useLearnKit.js';
+export { LearningPath, type LearningPathProps, type LearnKitTheme } from './LearningPath';
+export { LessonCard, type LessonCardProps, type LessonStatus } from './LessonCard';
+export { AIGuide, type AIGuideProps } from './AIGuide';
+export { useLearnKit, type UseLearnKitResult } from './useLearnKit';

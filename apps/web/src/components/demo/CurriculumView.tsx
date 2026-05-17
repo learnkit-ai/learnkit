@@ -1,80 +1,40 @@
 'use client';
 
+import { generateLearningPath } from '@learnkit-ai/core';
 import { Button } from '@/components/ui/Button';
 import { ToolIcon } from '@/components/ui/primitives';
 
-interface Lesson {
-  d: string;
-  t: string;
-  mins: number;
-  tool: string;
-}
-
-interface Week {
-  week: string;
-  title: string;
-  accent: string;
-  lessons: Lesson[];
-}
-
-const SUMMARY = [
-  { k: '12', v: 'core lessons' },
-  { k: '4', v: 'shipped projects' },
-  { k: '~9h', v: 'total time' },
-  { k: '30', v: 'days' },
+const WEEK_ACCENTS = [
+  'var(--accent)',
+  'var(--accent-3)',
+  'var(--accent-4)',
+  'var(--accent-2)',
 ];
 
 export function CurriculumView({
   tools,
+  goal,
+  role,
   onLessonClick,
 }: {
   tools: string[];
+  goal?: string;
+  role?: string;
   onLessonClick: () => void;
 }) {
-  const primary = tools[0] ?? 'Claude';
-  const secondary = tools[1] ?? primary;
+  const path = generateLearningPath({
+    role: role ?? 'Product Manager',
+    tools: tools.length > 0 ? tools : ['Claude'],
+    goal: goal ?? 'Ship something useful this Friday',
+    level: 'beginner',
+  });
 
-  const path: Week[] = [
-    {
-      week: 'Week 1',
-      title: 'Fundamentals',
-      accent: 'var(--accent)',
-      lessons: [
-        { d: 'Day 1', t: 'Your first system prompt', mins: 12, tool: primary },
-        { d: 'Day 2', t: 'When AI lies (and how to catch it)', mins: 14, tool: primary },
-        { d: 'Day 3', t: 'Project: rewrite your daily standup', mins: 22, tool: primary },
-      ],
-    },
-    {
-      week: 'Week 2',
-      title: 'Workflows',
-      accent: 'var(--accent-3)',
-      lessons: [
-        { d: 'Day 8', t: 'Chaining prompts into pipelines', mins: 18, tool: secondary },
-        { d: 'Day 10', t: 'Tools, functions, and structured output', mins: 24, tool: secondary },
-        { d: 'Day 12', t: 'Project: a research agent for your team', mins: 45, tool: secondary },
-      ],
-    },
-    {
-      week: 'Week 3',
-      title: 'Production',
-      accent: 'var(--accent-4)',
-      lessons: [
-        { d: 'Day 15', t: 'Evals: how to know it actually works', mins: 20, tool: primary },
-        { d: 'Day 17', t: 'Fixing hallucinations the boring way', mins: 16, tool: primary },
-        { d: 'Day 20', t: 'Project: ship to your team Friday', mins: 60, tool: primary },
-      ],
-    },
-    {
-      week: 'Week 4',
-      title: 'Practicum',
-      accent: 'var(--accent-2)',
-      lessons: [
-        { d: 'Day 24', t: 'Prompt review with the AI Guide', mins: 30, tool: 'Guide' },
-        { d: 'Day 27', t: 'Office hours: bring your work', mins: 60, tool: 'Live' },
-        { d: 'Day 30', t: 'Earn the LearnKit Practitioner mark', mins: 90, tool: 'Cert' },
-      ],
-    },
+  const totalHours = Math.round(path.totalMinutes / 60);
+  const SUMMARY = [
+    { k: String(path.weeks.reduce((a, w) => a + w.lessons.length, 0)), v: 'core lessons' },
+    { k: String(path.weeks.reduce((a, w) => a + w.lessons.filter((l) => l.kind === 'project').length, 0)), v: 'shipped projects' },
+    { k: `~${totalHours}h`, v: 'total time' },
+    { k: '30', v: 'days' },
   ];
 
   return (
@@ -131,9 +91,9 @@ export function CurriculumView({
         </div>
       </div>
 
-      {path.map((w, wi) => (
+      {path.weeks.map((w, wi) => (
         <div
-          key={wi}
+          key={w.index}
           style={{
             background: 'var(--surface)',
             borderRadius: 14,
@@ -153,7 +113,14 @@ export function CurriculumView({
               background: 'var(--surface-2)',
             }}
           >
-            <span style={{ width: 6, height: 28, background: w.accent, borderRadius: 3 }} />
+            <span
+              style={{
+                width: 6,
+                height: 28,
+                background: WEEK_ACCENTS[wi] ?? 'var(--accent)',
+                borderRadius: 3,
+              }}
+            />
             <div
               className="serif"
               style={{ fontSize: 20, letterSpacing: '-0.02em', fontWeight: 500 }}
@@ -168,7 +135,7 @@ export function CurriculumView({
                   marginRight: 12,
                 }}
               >
-                {w.week}
+                Week {w.index}
               </span>
               {w.title}
             </div>
@@ -178,7 +145,7 @@ export function CurriculumView({
               const isPreview = wi === 0 && li === 0;
               return (
                 <div
-                  key={li}
+                  key={l.id}
                   onClick={isPreview ? onLessonClick : undefined}
                   style={{
                     padding: '14px 22px',
@@ -208,10 +175,10 @@ export function CurriculumView({
                       letterSpacing: '0.05em',
                     }}
                   >
-                    {l.d}
+                    Day {l.day}
                   </span>
                   <div style={{ flex: 1, fontSize: 15, color: 'var(--ink)' }}>
-                    {l.t}
+                    {l.title}
                     {isPreview && (
                       <span
                         style={{
@@ -234,7 +201,7 @@ export function CurriculumView({
                       fontFamily: 'var(--mono)',
                     }}
                   >
-                    {l.mins}m
+                    {l.minutes}m
                   </span>
                   <ToolIcon name={l.tool} size={20} />
                 </div>

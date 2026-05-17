@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { generateLearningPath } from '../generate.js';
+import { generateLearningPath } from '../generate';
 import type { LearningPathInput } from '@learnkit-ai/schemas';
 
 const SAMPLE: LearningPathInput = {

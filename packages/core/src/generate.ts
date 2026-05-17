@@ -6,9 +6,9 @@ import {
   type LessonKind,
   type Week,
 } from '@learnkit-ai/schemas';
-import { hashId } from './hash.js';
-import { normalizeRole } from './roles.js';
-import { normalizeTool } from './tools.js';
+import { hashId } from './hash';
+import { normalizeRole } from './roles';
+import { normalizeTool } from './tools';
 
 interface LessonTemplate {
   title: (ctx: { tool: string; role: string }) => string;

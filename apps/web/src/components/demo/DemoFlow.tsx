@@ -416,7 +416,12 @@ export function DemoFlow() {
             }
             sub={`Tuned for a ${role} working with ${tools.join(' + ')}. Reorder, swap, or skip — it's yours.`}
           >
-            <CurriculumView tools={tools} onLessonClick={() => setStep(5)} />
+            <CurriculumView
+              tools={tools}
+              role={role}
+              goal={goal || typedGoal}
+              onLessonClick={() => setStep(5)}
+            />
             <FlowFooter
               onBack={() => setStep(2)}
               nextLabel="Start day 1"

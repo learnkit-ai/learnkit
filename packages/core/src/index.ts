@@ -3,20 +3,20 @@
  * Apache-2.0. https://learnkit-ai.com
  */
 
-export { generateLearningPath } from './generate.js';
+export { generateLearningPath } from './generate';
 export {
   getSupportedRoles,
   isRoleSupported,
   normalizeRole,
   SUPPORTED_ROLES,
   type SupportedRole,
-} from './roles.js';
+} from './roles';
 export {
   getSupportedTools,
   normalizeTool,
   SUPPORTED_TOOLS,
   type SupportedTool,
-} from './tools.js';
+} from './tools';
 export {
   LearningPathInputSchema,
   LearningPathSchema,

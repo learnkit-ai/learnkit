@@ -72,9 +72,16 @@ export function FinalCTA() {
           >
             Run the demo <ArrowR />
           </a>
-          <Button variant="ghost" size="lg">
-            Talk to sales
-          </Button>
+          <a
+            href="https://github.com/learnkit-ai/learnkit"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none' }}
+          >
+            <Button variant="ghost" size="lg">
+              Star on GitHub
+            </Button>
+          </a>
         </div>
         <div
           style={{
@@ -84,7 +91,7 @@ export function FinalCTA() {
             fontFamily: 'var(--mono)',
           }}
         >
-          No credit card · 7-day trial · Cancel anytime
+          Apache-2.0 · No signup · No tracking · Run locally
         </div>
       </div>
     </section>

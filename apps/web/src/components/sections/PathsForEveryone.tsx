@@ -1,29 +1,42 @@
 import { Button, ArrowR } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/primitives';
 
-const AUDIENCES = [
+interface Audience {
+  tag: string;
+  title: string;
+  copy: string;
+  bullets: string[];
+  cta: string;
+  href: string;
+  tone: string;
+}
+
+const AUDIENCES: Audience[] = [
   {
     tag: 'For individuals',
     title: 'Get good at the AI tools your team already uses.',
     copy: 'Pick a role, pick your stack, ship something Friday. Adaptive curriculum, real projects, reviewed by the AI Guide.',
-    bullets: ['40+ tool tracks', 'Project-based assessments', 'LearnKit AI Practitioner credential'],
-    cta: 'Try free for 7 days',
+    bullets: ['40+ tool tracks', 'Project-based lessons', 'Practitioner portfolio'],
+    cta: 'Run the demo',
+    href: '/demo',
     tone: 'var(--accent)',
   },
   {
-    tag: 'For teams & L&D',
-    title: 'Roll out AI capability across hundreds of seats.',
-    copy: 'SCIM, SSO, role-mapped curricula, and dashboards that show what your team can build — not just what they watched.',
-    bullets: ['SSO + SCIM (Okta, Azure)', 'Role-mapped curricula', 'Manager evidence reports'],
-    cta: 'Book a 20-min demo',
+    tag: 'For teams',
+    title: 'Self-host the whole platform on your own infrastructure.',
+    copy: 'Clone the repo, deploy to your own infra, swap the lesson library for your stack. Apache-2.0 — no vendor lock-in.',
+    bullets: ['Role-mapped curricula', 'No tracking · no phone-home', 'Fork the eval rubrics'],
+    cta: 'Self-host on GitHub',
+    href: 'https://github.com/learnkit-ai/learnkit',
     tone: 'var(--accent-3)',
   },
   {
     tag: 'For developers',
     title: 'Open SDKs to embed the AI Guide in your own product.',
-    copy: 'Three lines of JS adds adaptive lessons, evals, and an in-product tutor to anything you ship.',
-    bullets: ['MIT-licensed SDKs · GitHub', 'REST + Webhooks', 'White-label AI Guide'],
+    copy: 'Three lines of JSX adds adaptive lessons and an in-product tutor to anything you ship.',
+    bullets: ['Apache-2.0 npm packages', 'TypeScript end to end', 'White-label theming'],
     cta: 'Read the docs',
+    href: '/developers',
     tone: 'var(--accent-4)',
   },
 ];
@@ -119,9 +132,19 @@ export function PathsForEveryone() {
                 ))}
               </ul>
               <div style={{ marginTop: 'auto' }}>
-                <Button variant="ghost" size="sm">
-                  {a.cta} <ArrowR size={11} />
-                </Button>
+                {a.href.startsWith('http') ? (
+                  <a href={a.href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                    <Button variant="ghost" size="sm">
+                      {a.cta} <ArrowR size={11} />
+                    </Button>
+                  </a>
+                ) : (
+                  <a href={a.href} style={{ textDecoration: 'none' }}>
+                    <Button variant="ghost" size="sm">
+                      {a.cta} <ArrowR size={11} />
+                    </Button>
+                  </a>
+                )}
               </div>
             </div>
           ))}

@@ -1,12 +1,12 @@
 {
-  "name": "@learnkit-ai/web",
-  "version": "0.0.1",
+  "name": "@learnkit-ai/example-nextjs-basic",
+  "version": "0.0.0",
   "private": true,
+  "description": "Minimal Next.js example using @learnkit-ai/react.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "start": "next start -p 3001",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

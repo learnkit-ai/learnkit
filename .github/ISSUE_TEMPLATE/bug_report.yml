@@ -1,0 +1,45 @@
+name: 🐛 Bug report
+description: Something is broken or behaving unexpectedly.
+labels: ['bug', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. The more specific you can be, the faster we can fix it.
+  - type: input
+    id: version
+    attributes:
+      label: Package and version
+      description: e.g. `@learnkit-ai/core@0.1.0`
+      placeholder: '@learnkit-ai/core@0.1.0'
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: Code, repo link, or step-by-step that lets us reproduce the bug locally.
+      render: typescript
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Node version, OS, browser if relevant.
+      placeholder: 'Node 20.11, macOS 14, Chrome 124'
+    validations:
+      required: true

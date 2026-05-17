@@ -1,0 +1,44 @@
+name: 🛠️ Add a tool track
+description: Propose a new AI tool curriculum (Claude, Cursor, etc.).
+labels: ['tool-track', 'help wanted']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New tool tracks are one of the best ways to contribute. Pick a tool, write up the curriculum outline, and we'll work with you to land it.
+  - type: input
+    id: tool
+    attributes:
+      label: Tool name
+      placeholder: 'Replit Agent'
+    validations:
+      required: true
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor
+      placeholder: 'Replit'
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this tool, and why now?
+      description: Who uses this tool, and what would they learn from a LearnKit track?
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: Proposed curriculum outline
+      description: Week-by-week or module-by-module list of lessons.
+      value: |
+        Week 1 — Fundamentals:
+        - Lesson 1: ...
+        - Lesson 2: ...
+        - Project: ...
+
+        Week 2 — Workflows:
+        - ...
+    validations:
+      required: true

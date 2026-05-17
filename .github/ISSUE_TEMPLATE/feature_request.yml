@@ -1,0 +1,41 @@
+name: ✨ Feature request
+description: Suggest a new feature or improvement.
+labels: ['feature', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea? Tell us about it. Focused proposals get built faster than open-ended brainstorms.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the user problem or limitation, not the implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would you like LearnKit AI to behave?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What else did you consider and reject? Why?
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Which package(s) does this affect?
+      multiple: true
+      options:
+        - '@learnkit-ai/schemas'
+        - '@learnkit-ai/core'
+        - '@learnkit-ai/react'
+        - 'apps/web'
+        - 'examples/*'
+        - 'docs'
+    validations:
+      required: true

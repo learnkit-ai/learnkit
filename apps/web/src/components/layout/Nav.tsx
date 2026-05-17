@@ -38,7 +38,7 @@ export function Nav() {
         <a href="/roles" style={navLink}>For teams</a>
         <a href="/developers" style={navLink}>Developers</a>
         <a href="/tools" style={navLink}>Curriculum</a>
-        <a href="/#pricing" style={navLink}>Pricing</a>
+        <a href="/#install" style={navLink}>Install</a>
         <a href="/blog" style={navLink}>Blog</a>
         <a
           href="https://github.com/learnkit-ai/learnkit"
@@ -52,13 +52,20 @@ export function Nav() {
       </div>
 
       <div className="lk-nav-cta" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <a href="#" className="lk-nav-cta-secondary" style={{ ...navLink, fontSize: 13.5 }}>Sign in</a>
-        <span className="lk-nav-cta-secondary">
-          <Button size="sm" variant="ghost">Book a demo</Button>
-        </span>
-        <Button size="sm" variant="primary">
-          Try free <ArrowR size={12} />
-        </Button>
+        <a
+          href="https://github.com/learnkit-ai/learnkit"
+          className="lk-nav-cta-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ ...navLink, fontSize: 13.5 }}
+        >
+          Star us
+        </a>
+        <a href="/demo" style={{ textDecoration: 'none' }}>
+          <Button size="sm" variant="primary">
+            Run the demo <ArrowR size={12} />
+          </Button>
+        </a>
       </div>
     </nav>
   );

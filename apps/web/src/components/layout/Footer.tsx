@@ -10,7 +10,7 @@ const LINKS: FooterCol[] = [
       { label: 'Build your path', href: '/demo' },
       { label: 'Tools library', href: '/tools' },
       { label: 'AI Guide', href: '/developers' },
-      { label: 'Pricing', href: '/#pricing' },
+      { label: 'Install', href: '/#install' },
     ],
   },
   {

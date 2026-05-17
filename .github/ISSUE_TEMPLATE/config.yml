@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation
+    url: https://learnkit-ai.com/developers
+    about: Read the docs and developer reference before opening an issue.
+  - name: 💬 Discussions
+    url: https://github.com/learnkit-ai/learnkit/discussions
+    about: Ask questions and share ideas with the community.
+  - name: 🔒 Security
+    url: https://github.com/learnkit-ai/learnkit/security/policy
+    about: Report a security vulnerability privately.

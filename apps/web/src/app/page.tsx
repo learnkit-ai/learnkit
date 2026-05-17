@@ -7,7 +7,7 @@ import { WorkbenchShowcase } from '@/components/sections/WorkbenchShowcase';
 import { Curriculum } from '@/components/sections/Curriculum';
 import { Proof } from '@/components/sections/Proof';
 import { OpenSource } from '@/components/sections/OpenSource';
-import { Pricing } from '@/components/sections/Pricing';
+import { UseItYourWay } from '@/components/sections/UseItYourWay';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import {
@@ -29,7 +29,7 @@ export default function Home() {
       <Curriculum />
       <Proof />
       <OpenSource />
-      <Pricing />
+      <UseItYourWay />
       <FAQ />
       <FinalCTA />
       <Footer />

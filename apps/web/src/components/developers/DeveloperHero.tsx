@@ -42,22 +42,28 @@ export function DeveloperHero() {
               fontFamily: 'var(--mono)',
             }}
           >
-            api.learnkit-ai.com / v1
+            @learnkit-ai · v0.1.0
           </span>
         </a>
         <div
           className="lk-subnav-links"
           style={{ display: 'flex', gap: 24, fontSize: 13, color: 'var(--ink-soft)' }}
         >
-          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Reference</a>
-          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Guides</a>
-          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Webhooks</a>
-          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>SDKs</a>
-          <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Status</a>
+          <a href="#endpoints" style={{ color: 'inherit', textDecoration: 'none' }}>Public API</a>
+          <a href="/example" style={{ color: 'inherit', textDecoration: 'none' }}>Live example</a>
+          <a href="https://github.com/learnkit-ai/learnkit" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Source</a>
+          <a href="/blog" style={{ color: 'inherit', textDecoration: 'none' }}>Blog</a>
         </div>
-        <Button size="sm" variant="primary">
-          Get an API key <ArrowR size={12} />
-        </Button>
+        <a
+          href="https://github.com/learnkit-ai/learnkit"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}
+        >
+          <Button size="sm" variant="primary">
+            Star on GitHub <ArrowR size={12} />
+          </Button>
+        </a>
       </div>
 
       <section
@@ -134,9 +140,9 @@ export function DeveloperHero() {
               Type-safe end to end
             </span>
             <span>Zero-config Next.js</span>
-            <span>Edge-ready</span>
-            <span>~140ms p95</span>
-            <span>JS · TS · Edge</span>
+            <span>Runs in any React app</span>
+            <span>No build step required</span>
+            <span>Apache-2.0</span>
           </div>
         </div>
 

@@ -1,0 +1,26 @@
+{
+  "name": "@learnkit-ai/example-nextjs-basic",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Minimal Next.js example using @learnkit-ai/react.",
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@learnkit-ai/core": "workspace:*",
+    "@learnkit-ai/react": "workspace:*",
+    "@learnkit-ai/schemas": "workspace:*",
+    "next": "^15.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "@types/react": "^18.3.21",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.7.3"
+  }
+}

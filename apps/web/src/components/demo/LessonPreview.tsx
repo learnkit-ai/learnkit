@@ -278,9 +278,13 @@ export function LessonPreview({
       </div>
       <FlowFooter
         onBack={onBack}
-        nextLabel="Sign up to keep going"
+        nextLabel="Install the npm package"
         canNext
-        onNext={() => {}}
+        onNext={() => {
+          if (typeof window !== 'undefined') {
+            window.open('https://github.com/learnkit-ai/learnkit', '_blank', 'noopener');
+          }
+        }}
       />
     </div>
   );

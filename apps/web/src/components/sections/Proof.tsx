@@ -1,9 +1,10 @@
 import { Eyebrow } from '@/components/ui/primitives';
 
-const STATS = [
-  { k: '94%', v: 'completion rate', sub: 'across 240 ICs' },
-  { k: '6.2×', v: 'tools per IC', sub: 'after week 4' },
-  { k: '38', v: 'shipped projects', sub: 'in Q1' },
+const STACK = [
+  { k: 'Apache-2.0', v: 'license', sub: 'commercial use allowed' },
+  { k: 'TypeScript', v: 'strict mode', sub: 'inferred from Zod' },
+  { k: '0', v: 'tracking pixels', sub: 'no phone-home, ever' },
+  { k: 'Node 20+', v: 'pnpm workspaces', sub: 'Turborepo · Next.js 15' },
 ];
 
 export function Proof() {
@@ -19,101 +20,72 @@ export function Proof() {
       }}
     >
       <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 2 }}>
-        <Eyebrow color="var(--accent-2)">Working at</Eyebrow>
+        <Eyebrow color="var(--accent-2)">What you actually get</Eyebrow>
 
-        {/* Placeholder wordmarks */}
         <div
-          className="lk-proof-logos lk-grid-6"
           style={{
-            marginTop: 24,
-            marginBottom: 56,
             display: 'grid',
-            gridTemplateColumns: 'repeat(6, 1fr)',
-            gap: 20,
-            alignItems: 'center',
+            gridTemplateColumns: '1.4fr 1fr',
+            gap: 56,
+            alignItems: 'flex-start',
+            marginTop: 28,
           }}
+          className="lk-split"
         >
-          {[
-            { n: 'Ramp', w: 600 },
-            { n: 'Figma', w: 500 },
-            { n: 'Linear', w: 400 },
-            { n: 'Vercel', w: 600 },
-            { n: 'Notion', w: 500 },
-            { n: 'Replit', w: 600 },
-          ].map((c) => (
-            <div
-              key={c.n}
-              className="serif"
-              style={{
-                fontSize: 24,
-                fontWeight: c.w / 100,
-                letterSpacing: '-0.025em',
-                color: 'rgba(244,239,227,0.55)',
-                textAlign: 'center',
-              }}
-            >
-              {c.n}
-            </div>
-          ))}
+          <h2
+            className="serif"
+            style={{
+              fontSize: 40,
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+              fontWeight: 400,
+              margin: 0,
+            }}
+          >
+            Real source code.{' '}
+            <span style={{ fontStyle: 'italic', color: 'var(--accent-2)' }}>
+              No vendor strings
+            </span>{' '}
+            attached.
+          </h2>
+          <p
+            style={{
+              fontSize: 16,
+              lineHeight: 1.6,
+              color: 'rgba(244,239,227,0.75)',
+              margin: 0,
+              paddingTop: 8,
+            }}
+          >
+            LearnKit AI is built in the open under Apache-2.0. The packages on npm, the
+            marketing site you are reading right now, and the demo flow are all the same
+            source — clone it, fork it, run it locally, deploy it. No license keys, no SaaS
+            tier, no telemetry to disable.
+          </p>
         </div>
 
         <div
-          className="lk-proof-grid"
+          className="lk-grid-4"
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.5fr 1fr 1fr 1fr',
+            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: 32,
             alignItems: 'flex-start',
             borderTop: '1px solid rgba(244,239,227,0.12)',
             paddingTop: 36,
+            marginTop: 48,
           }}
         >
-          <blockquote
-            className="serif lk-proof-quote"
-            style={{
-              fontSize: 26,
-              lineHeight: 1.25,
-              letterSpacing: '-0.015em',
-              margin: 0,
-              fontWeight: 400,
-              fontStyle: 'italic',
-            }}
-          >
-            &ldquo;Six weeks in, our PMs were shipping AI features without engineers
-            babysitting them. That&apos;s the ROI nobody believes until they see it.&rdquo;
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                marginTop: 18,
-                fontStyle: 'normal',
-              }}
-            >
-              <div
-                style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, var(--accent), var(--accent-2))',
-                }}
-              />
-              <div style={{ fontSize: 13, color: 'rgba(244,239,227,0.7)' }}>
-                <strong style={{ color: 'var(--paper)' }}>Maya Krishnan</strong> · VP Eng · Ramp
-              </div>
-            </div>
-          </blockquote>
-
-          {STATS.map((s) => (
+          {STACK.map((s) => (
             <div key={s.v}>
               <div
                 className="serif"
                 style={{
-                  fontSize: 44,
+                  fontSize: 32,
                   fontWeight: 400,
                   letterSpacing: '-0.02em',
                   color: 'var(--accent-2)',
-                  lineHeight: 1,
+                  lineHeight: 1.05,
                 }}
               >
                 {s.k}

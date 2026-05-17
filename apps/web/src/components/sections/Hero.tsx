@@ -291,13 +291,13 @@ export function Hero() {
             }}
           >
             {[
-              { tag: 'For me', cta: 'Try free', sub: '$24/mo · 7-day trial', accent: 'var(--ink)', primary: true },
-              { tag: 'For my team', cta: 'Book a demo', sub: '$18/seat · SSO + SCIM', accent: 'var(--accent-3)' },
-              { tag: 'For developers', cta: 'Open the docs', sub: 'REST · open SDKs', accent: 'var(--accent-4)' },
+              { tag: 'For me', cta: 'Run the demo', sub: '90 seconds · no signup', accent: 'var(--ink)', primary: true, href: '/demo' },
+              { tag: 'For my team', cta: 'Self-host it', sub: 'Apache-2.0 · deploys anywhere', accent: 'var(--accent-3)', href: 'https://github.com/learnkit-ai/learnkit' },
+              { tag: 'For developers', cta: 'Read the docs', sub: 'TypeScript · open SDKs', accent: 'var(--accent-4)', href: '/developers' },
             ].map((p) => (
               <a
                 key={p.tag}
-                href="#"
+                href={p.href}
                 style={{
                   display: 'block',
                   padding: '14px 14px',

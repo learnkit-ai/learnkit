@@ -193,8 +193,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and [CODE_OF_CONDUCT.md](C
 - [x] v0: schemas, core, react packages, marketing site
 - [ ] v0.2: SSR-safe streaming for `<AIGuide />`
 - [ ] v0.3: Eval rubrics in `@learnkit-ai/evals`
-- [ ] v1: `apps/api` — hosted REST surface mirroring the SDKs
-- [ ] v1: Team dashboard, SSO, SCIM
+- [ ] v0.4: 40-tool curriculum library (currently 8)
+- [ ] v1: stable public API, full docs site, deployment recipes
+
+Nothing on the roadmap will be paid-only. The license is Apache-2.0 for the long haul — fork it, ship it, run it without us.
 
 ## License
 

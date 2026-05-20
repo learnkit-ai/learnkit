@@ -97,16 +97,17 @@ useLearnKit(input: LearningPathInput): { path, loading, error }
 No fake social proof: no customer logos, no testimonials, no GitHub star counts,
 no compliance badges (SOC 2, HIPAA, GDPR), no user or revenue metrics.
 
-## Do not build in v0
+## Out of scope (project is pure OSS — no hosted SaaS)
 
 - Any backend server (NestJS, Express, Hono, or any HTTP server)
 - Any database (Prisma, Postgres, SQLite, or any persistence layer)
 - Authentication of any kind
-- Billing of any kind
+- Billing or pricing of any kind — Apache-2.0, no paid tier, ever
 - Real LLM API calls (Anthropic, OpenAI, Gemini, or any LLM provider)
 - Docker or docker-compose
 - Team dashboard, HR analytics, SSO, SCIM
-- apps/api (planned for v1)
+- A hosted REST API (`apps/api`) — the engine is client-side only
+- Tracking, analytics, telemetry, phone-home
 
 ## Rules
 

@@ -61,4 +61,59 @@ export const BLOG_POSTS: BlogPost[] = [
       'You can try the demo at /demo, read the docs at /developers, or star the repo at github.com/learnkit-ai/learnkit.',
     ],
   },
+  {
+    slug: 'why-we-chose-zero-llm-calls',
+    title: 'Why generateLearningPath() makes zero LLM calls',
+    description:
+      'A deterministic pure function is more trustworthy than a stochastic AI call for generating a learning curriculum. Here is why we designed it that way.',
+    date: '2026-05-15',
+    readMin: 5,
+    category: 'Engineering',
+    excerpt:
+      'A deterministic pure function is more trustworthy than a stochastic AI call for generating a learning curriculum — same input, same path, every time.',
+    body: [
+      'The obvious design for a "AI-powered learning path generator" is to call an LLM. Pass the user\'s role, tools, and goal to Claude or GPT-4, prompt it to generate a 4-week curriculum, and stream the response. We seriously considered this. We did not build it.',
+      'The core problem is trust. A stochastic function cannot be unit-tested, cannot be audited, cannot be reproduced. Every time a PM at a company configures a learning path for their team, they need to know what they are getting. Not "roughly this". Exactly this. If the same input produces different output on Tuesday than it did on Monday, something went wrong — even if both outputs are technically good.',
+      'So generateLearningPath() is a pure function. A djb2 hash of the input produces stable lesson IDs across runs. The week structure, lesson count, and durations are computed deterministically from the role, level, and tools. You can test it with Vitest. You can snapshot it. You can pin a version and know that every engineer who joins your team will get the same week one as the engineer who joined six months ago.',
+      'The tradeoff is expressiveness. A pure function cannot write prose as varied as GPT-4, cannot adapt to a user\'s previous session history, cannot interpolate from a corpus of real practitioners\' notes. We accepted that tradeoff. Version 0 of LearnKit AI ships zero LLM calls and zero API keys. The AI Guide component is a UI primitive, not a live model. If you want LLM personalization on top, the hook-based API makes it easy to swap in your own inference layer.',
+      'This is the right first trade. Build the substrate deterministic and testable, then add stochasticity where the variance is a feature, not a bug.',
+    ],
+  },
+  {
+    slug: 'how-to-fork-and-customize-learnkit',
+    title: 'How to fork LearnKit AI and add your own lesson templates',
+    description:
+      'A step-by-step guide to cloning the monorepo, editing the core lesson generator, and shipping a white-labeled learning path for your own product.',
+    date: '2026-05-19',
+    readMin: 7,
+    category: 'Engineering',
+    excerpt:
+      'Clone the repo, edit packages/core/src/generate.ts, and ship a white-labeled learning path in an afternoon. Here is the full walkthrough.',
+    body: [
+      'LearnKit AI ships as a monorepo under Apache-2.0. Everything is editable. The lesson templates are plain TypeScript objects in packages/core/src/generate.ts. Forking the whole stack and adding your company\'s specific tools, terminology, and focus areas takes about an afternoon.',
+      'Start by cloning and installing: git clone https://github.com/learnkit-ai/learnkit && cd learnkit && pnpm install. The dev server starts with pnpm dev. You will see the full landing page at localhost:3000 and the interactive demo at /demo.',
+      'The lesson generator is in packages/core/src/generate.ts. The function buildLessonsForWeek() accepts a week number and returns three Lesson objects. The lesson titles, descriptions, and tool assignments are plain strings — search for "week === 1" to find week one, edit the title and description fields to match your stack. Run pnpm test after every change to catch regressions in the schema.',
+      'To add a new role, append a string to the SUPPORTED_ROLES array in packages/core/src/data.ts. To add a new tool, append to SUPPORTED_TOOLS. Both are just string arrays — no type changes required, because the schemas are Zod-validated at runtime.',
+      'For white-labeling the React components, the easiest path is to override CSS custom properties. Drop :root { --accent: #7C3AED; --paper: #FAFAF8; } into your global stylesheet and the warm theme will inherit your brand colors. For deeper changes, the component source is in packages/react/src/ — no Tailwind dependency, just inline styles and CSS custom properties.',
+      'The whole stack — schemas, core, react, and the Next.js demo app — is under Apache-2.0. Fork it, ship it commercially, embed it in a closed-source product. The only requirement is preserving the license notice. PRs back to main welcome.',
+    ],
+  },
+  {
+    slug: 'embedding-learnkit-in-a-saas-product',
+    title: 'Embedding AI learning paths in your SaaS onboarding flow',
+    description:
+      'How to use @learnkit-ai/react to drop a personalized 30-day learning path into a SaaS onboarding modal — with role detection, theme matching, and lesson-click callbacks.',
+    date: '2026-05-21',
+    readMin: 6,
+    category: 'Engineering',
+    excerpt:
+      'Use @learnkit-ai/react to drop a personalized 30-day learning path into any SaaS onboarding modal. Role detection, theme matching, and callbacks included.',
+    body: [
+      'SaaS products that sell AI features have a new cold-start problem: users sign up, land in the product, and have no idea how to build a prompt that actually works. The standard fix is a tooltip tour. That is not enough.',
+      'LearnKit AI is designed to sit inside your product and give each user a personalized 30-day curriculum tuned to their role and the specific AI tools your product exposes. The React component takes a role, a set of tools, and a goal, and renders a full path with no backend required.',
+      'The implementation is three steps. First, detect or ask for the user\'s role at signup — store it in your user record. Second, install @learnkit-ai/react and drop <LearningPath input={{ role: user.role, tools: yourProductTools, goal: yourDefaultGoal, level: user.level }} theme="warm" onLessonClick={openWorkbench} /> into your onboarding modal or help sidebar. Third, wire the onLessonClick callback to open whatever lesson viewer you want — the component just fires the Lesson object.',
+      'The useLearnKit() hook gives you a headless alternative if your design system does not match the built-in themes. It returns { path, error } and memoizes the result, so re-renders are safe.',
+      'One detail worth knowing: the path is fully generated client-side. There is no network call in generateLearningPath(). That means it works in SSR, in edge functions, in offline mode. It also means you can pregenerate paths for your most common role/level combinations and cache them at build time — a pattern we use on /demo to make the initial render instant.',
+    ],
+  },
 ];

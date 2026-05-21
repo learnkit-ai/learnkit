@@ -8,9 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/demo`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE_URL}/teams`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${SITE_URL}/docs`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${SITE_URL}/developers`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/tools`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
-    { url: `${SITE_URL}/roles`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/tools`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/roles`, lastModified: now, changeFrequency: 'weekly', priority: 0.75 },
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
   ];
 

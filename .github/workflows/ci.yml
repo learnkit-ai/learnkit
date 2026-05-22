@@ -47,9 +47,10 @@ jobs:
         run: |
           pnpm --filter @learnkit-ai/schemas test
           pnpm --filter @learnkit-ai/core test
+          pnpm --filter @learnkit-ai/react test
 
   build:
-    name: Build apps/web
+    name: Build packages + apps/web
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,6 +63,12 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: |
+          pnpm --filter @learnkit-ai/schemas build
+          pnpm --filter @learnkit-ai/core build
+          pnpm --filter @learnkit-ai/react build
 
       - name: Build apps/web
         run: pnpm --filter @learnkit-ai/web build

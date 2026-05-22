@@ -412,6 +412,334 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
     GENERIC_WEEKS[2]!,
     GENERIC_WEEKS[3]!,
   ],
+
+  'Marketer': [
+    {
+      title: 'Copy & content',
+      templates: [
+        {
+          title: () => 'Writing brand-consistent copy with AI',
+          summary: ({ tool }) =>
+            `Build a ${tool} prompt that internalizes your brand voice, audience, and taboo words. Use it to produce first drafts that need editing, not rewriting.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Repurposing one asset into ten',
+          summary: ({ tool }) =>
+            `Take a blog post or webinar transcript and use ${tool} to spin it into a Twitter thread, three LinkedIn posts, an email nurture, and a one-pager — in under an hour.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-generated campaign brief',
+          summary: ({ tool, goal }) =>
+            `Write a campaign brief using ${tool}: audience, message, channels, and success metrics. Have it pressure-tested against your brand guidelines. Goal: ${goal}.`,
+          minutes: 30,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Research & intelligence',
+      templates: [
+        {
+          title: () => 'Audience research at scale',
+          summary: ({ tool }) =>
+            `Use ${tool} to synthesize Reddit threads, review sites, and social mentions into a structured portrait of what your audience actually worries about.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Competitive positioning in 30 minutes',
+          summary: ({ tool }) =>
+            `Feed competitor landing pages and messaging into ${tool}. Identify positioning gaps and get a draft differentiation statement your team can pressure-test.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: messaging matrix',
+          summary: ({ goal }) =>
+            `Build a full messaging matrix: audience segments, jobs-to-be-done, proof points, and objection handles — researched and drafted with AI. Goal: ${goal}.`,
+          minutes: 45,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Campaigns & automation',
+      templates: [
+        {
+          title: () => 'Building an AI-assisted email sequence',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft a 5-email nurture sequence. Define personas and triggers up front so every email lands in context — not in the bin.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'SEO content at scale without sacrificing quality',
+          summary: ({ tool }) =>
+            `Use ${tool} to generate content briefs from keyword clusters, then draft outlines you edit rather than write. Keep the brand voice tight across every piece.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: automated campaign reporting',
+          summary: ({ goal }) =>
+            `Build a prompt that turns raw campaign metrics into a one-page performance narrative for your stakeholders — every week, in minutes. Goal: ${goal}.`,
+          minutes: 40,
+          kind: 'project',
+        },
+      ],
+    },
+    GENERIC_WEEKS[3]!,
+  ],
+
+  'Founder': [
+    {
+      title: 'Strategy & decisions',
+      templates: [
+        {
+          title: () => 'Using AI as a thinking partner',
+          summary: ({ tool }) =>
+            `Learn to use ${tool} as a sounding board that pushes back. Write prompts that force the model to steelman your plan, then attack it — before the market does.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Rapid market validation with AI',
+          summary: ({ tool }) =>
+            `Use ${tool} to synthesize your target market's pain points from public signals: job postings, forums, reviews. Get to a hypothesis before spending a dollar on ads.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-assisted business model stress-test',
+          summary: ({ tool, goal }) =>
+            `Write your current business model in one page. Use ${tool} to identify the three assumptions that kill it if wrong. Goal: ${goal}.`,
+          minutes: 30,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Operating faster',
+      templates: [
+        {
+          title: () => 'Delegating writing to AI without losing your voice',
+          summary: ({ tool }) =>
+            `Build a ${tool} persona that writes in your voice — for investor updates, hiring emails, and team memos. Train it with 5 examples before you trust it.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Automating founder-mode research',
+          summary: ({ tool }) =>
+            `Use ${tool} to produce weekly competitive intelligence, funding round summaries, and hiring market signals — in the time it used to take to read one newsletter.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-powered investor memo',
+          summary: ({ goal }) =>
+            `Draft a one-page investor memo with AI: traction, market, team, and ask — structured and pressure-tested for the objections you hear most. Goal: ${goal}.`,
+          minutes: 45,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Building with AI',
+      templates: [
+        {
+          title: () => 'Prototyping with AI before writing a line of code',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft UX flows, API contracts, and user stories. Validate the product with words and diagrams before a single sprint is planned.`,
+          minutes: 22,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Hiring and culture at AI speed',
+          summary: ({ tool }) =>
+            `Use ${tool} to write job descriptions, structure interviews, and draft offer letters that reflect your actual culture — not the generic startup template.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: 90-day operating plan',
+          summary: ({ goal }) =>
+            `Write a 90-day operating plan: goals, experiments, metrics, and the kill criteria for each bet — drafted with AI, owned by you. Goal: ${goal}.`,
+          minutes: 50,
+          kind: 'project',
+        },
+      ],
+    },
+    GENERIC_WEEKS[3]!,
+  ],
+
+  'Operations': [
+    {
+      title: 'Process & documentation',
+      templates: [
+        {
+          title: () => 'Writing SOPs that people actually follow',
+          summary: ({ tool }) =>
+            `Use ${tool} to rewrite a tangled internal process as a clear, step-by-step SOP. Test it with a new hire before publishing.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Turning meetings into structured outputs',
+          summary: ({ tool }) =>
+            `Feed raw meeting notes into ${tool}. Get back a structured decision log, action items with owners, and a one-paragraph summary — in 90 seconds.`,
+          minutes: 12,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-assisted process audit',
+          summary: ({ tool, goal }) =>
+            `Pick one recurring process and document it end-to-end with ${tool}'s help. Identify bottlenecks and propose one AI-assisted improvement. Goal: ${goal}.`,
+          minutes: 28,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Scaling with AI',
+      templates: [
+        {
+          title: () => 'Building a team knowledge base with AI',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft, organise, and cross-link your team's knowledge base from scattered docs, Slack threads, and Notion pages.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Vendor and contract analysis at speed',
+          summary: ({ tool }) =>
+            `Use ${tool} to extract key terms, obligations, and risks from contracts. Build a prompt that surfaces the three things your legal team should actually read.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-assisted onboarding programme',
+          summary: ({ goal }) =>
+            `Build a week-one onboarding programme: schedule, readings, checkpoints, and a 30-60-90 plan — structured and drafted with AI. Goal: ${goal}.`,
+          minutes: 45,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Metrics & reporting',
+      templates: [
+        {
+          title: () => 'Automating weekly ops reporting',
+          summary: ({ tool }) =>
+            `Build a ${tool} prompt that turns your weekly ops data into a structured stakeholder report: what happened, what it means, and what comes next.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Risk identification and escalation',
+          summary: ({ tool }) =>
+            `Use ${tool} to scan project updates and flag risks before they become incidents. Build a lightweight signal-to-escalation workflow your team can run daily.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: ops dashboard narrative',
+          summary: ({ goal }) =>
+            `Write a monthly ops narrative that translates your key metrics into leadership language — built with AI, signed off by you. Goal: ${goal}.`,
+          minutes: 35,
+          kind: 'project',
+        },
+      ],
+    },
+    GENERIC_WEEKS[3]!,
+  ],
+
+  'Researcher': [
+    {
+      title: 'Research & synthesis',
+      templates: [
+        {
+          title: () => 'Literature review at 10× speed',
+          summary: ({ tool }) =>
+            `Use ${tool} to summarise papers, extract key findings, and identify gaps in a body of literature. Build the habit of AI-assisted, human-verified synthesis.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Turning transcripts into structured findings',
+          summary: ({ tool }) =>
+            `Paste interview or focus group transcripts into ${tool}. Get structured themes, representative quotes, and a research memo ready for stakeholder review.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-assisted literature summary',
+          summary: ({ tool, goal }) =>
+            `Synthesise 10 papers or data sources into a structured research brief using ${tool}. Include methodology notes and confidence levels. Goal: ${goal}.`,
+          minutes: 35,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Analysis & validation',
+      templates: [
+        {
+          title: () => 'Generating and stress-testing hypotheses',
+          summary: ({ tool }) =>
+            `Use ${tool} to generate competing hypotheses from your data, then argue against each. Surface the one your data can actually distinguish.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Checking for bias in AI-assisted analysis',
+          summary: ({ tool }) =>
+            `Learn where ${tool} introduces framing bias in synthesis tasks. Build verification steps into your workflow so the AI finds patterns but you validate them.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: mixed-methods analysis sprint',
+          summary: ({ goal }) =>
+            `Run a mixed-methods sprint: use AI for quantitative pattern detection, qualitative theme extraction, and cross-validation. Goal: ${goal}.`,
+          minutes: 50,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Communication & dissemination',
+      templates: [
+        {
+          title: () => 'Writing for multiple audiences from one dataset',
+          summary: ({ tool }) =>
+            `Use ${tool} to adapt the same research findings for a technical paper, an executive summary, and a public-facing blog post — each with the right framing.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Drafting grant and project proposals with AI',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft the rationale, methodology, and impact sections of a proposal. Review every claim against your evidence before submitting.`,
+          minutes: 22,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: research communication package',
+          summary: ({ goal }) =>
+            `Build a communication package for a real project: abstract, one-pager, and 5-slide deck — each audience-appropriate and drafted with AI. Goal: ${goal}.`,
+          minutes: 45,
+          kind: 'project',
+        },
+      ],
+    },
+    GENERIC_WEEKS[3]!,
+  ],
 };
 
 // ---------------------------------------------------------------------------

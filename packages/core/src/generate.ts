@@ -788,7 +788,8 @@ function parseCompanyContext(ctx: string): ParsedContext {
 
   // Team size: first number followed by "person", "people", "member", "engineer", "developer"
   const sizeMatch = lower.match(/(\d+)[- ](?:person|people|member|engineer|developer)/);
-  const size = sizeMatch ? parseInt(sizeMatch[1], 10) : null;
+  const sizeStr = sizeMatch?.[1];
+  const size = sizeStr != null ? parseInt(sizeStr, 10) : null;
   const teamHint = size !== null
     ? size <= 5
       ? 'a small team'

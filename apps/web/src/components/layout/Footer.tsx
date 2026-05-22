@@ -34,9 +34,9 @@ const LINKS: FooterCol[] = [
   {
     h: 'Developers',
     l: [
-      { label: 'Docs', href: '/developers' },
-      { label: 'API reference', href: '/developers#endpoints' },
-      { label: 'SDKs · GitHub', href: 'https://github.com/learnkit-ai/learnkit' },
+      { label: 'Docs', href: '/docs' },
+      { label: 'API reference', href: '/developers' },
+      { label: 'GitHub', href: 'https://github.com/learnkit-ai/learnkit' },
       { label: 'Blog', href: '/blog' },
     ],
   },
@@ -69,7 +69,7 @@ export function Footer() {
                 maxWidth: 280,
               }}
             >
-              The AI workbench for teams that ship.
+              Open-source TypeScript engine for embedding personalized AI learning paths. Apache-2.0.
             </p>
           </div>
           {LINKS.map((col) => (
@@ -113,9 +113,9 @@ export function Footer() {
             <span style={{ fontSize: 12, color: 'var(--muted)' }}>© 2026 LearnKit AI, Inc. · learnkit-ai.com</span>
           </div>
           <div style={{ display: 'flex', gap: 16, fontSize: 12, color: 'var(--muted)' }}>
-            {['Privacy', 'Terms', 'Security', 'Apache-2.0'].map((item) => (
-              <a key={item} href="#" style={{ color: 'inherit', textDecoration: 'none' }}>{item}</a>
-            ))}
+            <a href="https://github.com/learnkit-ai/learnkit/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Security</a>
+            <a href="https://github.com/learnkit-ai/learnkit/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Apache-2.0</a>
+            <a href="https://github.com/learnkit-ai/learnkit/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Contributing</a>
           </div>
         </div>
       </div>

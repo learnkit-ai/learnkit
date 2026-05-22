@@ -36,8 +36,8 @@ const LINKS: FooterCol[] = [
     l: [
       { label: 'Docs', href: '/docs' },
       { label: 'API reference', href: '/developers' },
+      { label: 'Changelog', href: '/changelog' },
       { label: 'GitHub', href: 'https://github.com/learnkit-ai/learnkit' },
-      { label: 'Blog', href: '/blog' },
     ],
   },
 ];

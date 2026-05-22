@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'LearnKit AI — The AI workbench for teams that ship';
+export const alt = 'LearnKit AI — Open-source AI learning paths for every role';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -35,16 +35,15 @@ export default function OGImage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           <div
             style={{
-              fontSize: 84,
+              fontSize: 80,
               lineHeight: 1.0,
               letterSpacing: '-0.035em',
               fontWeight: 400,
             }}
           >
-            Make your team
+            Personalized AI paths
             <br />
-            good at AI by{' '}
-            <span style={{ fontStyle: 'italic', color: '#C8472A' }}>Friday</span>.
+            for <span style={{ fontStyle: 'italic', color: '#C8472A' }}>every role</span>.
           </div>
           <div
             style={{
@@ -54,8 +53,8 @@ export default function OGImage() {
               lineHeight: 1.35,
             }}
           >
-            The AI workbench for teams that ship. Learn Claude, Cursor, ChatGPT and 40+ tools by
-            building real things at work.
+            Open-source TypeScript engine for embedding role-aware AI learning paths in any product.
+            No API key. No backend. No paid tier.
           </div>
         </div>
 
@@ -70,11 +69,11 @@ export default function OGImage() {
         >
           <div>learnkit-ai.com</div>
           <div style={{ display: 'flex', gap: 24 }}>
-            <span>Open source</span>
-            <span>·</span>
             <span>Apache-2.0</span>
             <span>·</span>
-            <span>TypeScript + Next.js</span>
+            <span>@learnkit-ai/core</span>
+            <span>·</span>
+            <span>@learnkit-ai/react</span>
           </div>
         </div>
       </div>

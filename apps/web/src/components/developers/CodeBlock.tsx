@@ -60,11 +60,19 @@ function highlight(line: string) {
 export function CodeBlock() {
   const [tab, setTab] = useState<Lang>('install');
   const [step, setStep] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const id = setInterval(() => setStep((s) => (s + 1) % 4), 2200);
     return () => clearInterval(id);
   }, []);
+
+  function handleCopy() {
+    navigator.clipboard.writeText(SNIPPETS[tab]).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    }).catch(() => undefined);
+  }
 
   return (
     <div
@@ -121,18 +129,20 @@ export function CodeBlock() {
             {tab === 'install' ? 'shell' : `${tab === 'core' ? '@learnkit-ai/core' : '@learnkit-ai/react'} · v0.1.0`}
           </span>
           <button
+            onClick={handleCopy}
             style={{
-              background: 'rgba(255,255,255,0.06)',
+              background: copied ? 'rgba(107,143,110,0.25)' : 'rgba(255,255,255,0.06)',
               border: 'none',
-              color: 'rgba(244,239,227,0.7)',
+              color: copied ? 'rgba(107,200,113,0.9)' : 'rgba(244,239,227,0.7)',
               padding: '4px 10px',
               borderRadius: 6,
               fontSize: 11,
               fontFamily: 'var(--mono)',
               cursor: 'pointer',
+              transition: 'background 0.2s, color 0.2s',
             }}
           >
-            copy
+            {copied ? 'copied!' : 'copy'}
           </button>
         </div>
       </div>

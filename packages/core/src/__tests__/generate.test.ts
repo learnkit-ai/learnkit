@@ -70,4 +70,26 @@ describe('generateLearningPath', () => {
       }
     }
   });
+
+  it.each([
+    'Marketer',
+    'Founder',
+    'Operations',
+    'Researcher',
+  ])('generates a valid four-week path for %s', (role) => {
+    const path = generateLearningPath({ ...SAMPLE, role });
+    expect(path.weeks).toHaveLength(4);
+    for (const w of path.weeks) {
+      expect(w.lessons.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('generates different paths for different levels', () => {
+    const roles = ['Marketer', 'Founder', 'Operations', 'Researcher'];
+    for (const role of roles) {
+      const beg = generateLearningPath({ ...SAMPLE, role, level: 'beginner' });
+      const adv = generateLearningPath({ ...SAMPLE, role, level: 'advanced' });
+      expect(adv.totalMinutes).toBeLessThan(beg.totalMinutes);
+    }
+  });
 });

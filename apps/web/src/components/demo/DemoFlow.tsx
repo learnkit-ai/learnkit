@@ -39,12 +39,23 @@ const GOAL_SAMPLES = [
   'Stop hallucinated answers in our customer support bot',
 ];
 
+const LEVELS = [
+  { value: 'beginner', label: 'Beginner', hint: 'New to AI tools' },
+  { value: 'intermediate', label: 'Intermediate', hint: 'Use them daily' },
+  { value: 'advanced', label: 'Advanced', hint: 'Build with APIs' },
+] as const;
+
+type Level = 'beginner' | 'intermediate' | 'advanced';
+
 export function DemoFlow() {
   const [step, setStep] = useState(0);
   const [role, setRole] = useState('Product Manager');
   const [tools, setTools] = useState<string[]>(['Claude', 'Cursor']);
   const [goal, setGoal] = useState('');
   const [typedGoal, setTypedGoal] = useState('');
+  const [level, setLevel] = useState<Level>('beginner');
+  const [companyContext, setCompanyContext] = useState('');
+  const [showContext, setShowContext] = useState(false);
   const [genProgress, setGenProgress] = useState(0);
 
   // Auto-type goal placeholder
@@ -88,6 +99,9 @@ export function DemoFlow() {
     setStep(0);
     setGoal('');
     setTypedGoal('');
+    setLevel('beginner');
+    setCompanyContext('');
+    setShowContext(false);
   };
 
   return (
@@ -380,6 +394,108 @@ export function DemoFlow() {
                 </Chip>
               ))}
             </div>
+
+            {/* Level picker */}
+            <div style={{ maxWidth: 720, width: '100%', marginTop: 28 }}>
+              <div
+                style={{
+                  fontSize: 12,
+                  fontFamily: 'var(--mono)',
+                  color: 'var(--muted)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  marginBottom: 10,
+                }}
+              >
+                Your current level
+              </div>
+              <div style={{ display: 'flex', gap: 10 }}>
+                {LEVELS.map(({ value, label, hint }) => (
+                  <button
+                    key={value}
+                    onClick={() => setLevel(value)}
+                    style={{
+                      flex: 1,
+                      padding: '14px 16px',
+                      borderRadius: 12,
+                      background: level === value ? 'var(--ink)' : 'var(--surface)',
+                      color: level === value ? 'var(--paper)' : 'var(--ink)',
+                      border: `1.5px solid ${level === value ? 'var(--ink)' : 'var(--rule)'}`,
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      transition: 'all .15s ease',
+                    }}
+                  >
+                    <div style={{ fontSize: 15, fontWeight: 500, fontFamily: 'var(--serif)', letterSpacing: '-0.01em' }}>
+                      {label}
+                    </div>
+                    <div style={{ fontSize: 11, color: level === value ? 'rgba(244,239,227,0.65)' : 'var(--muted)', fontFamily: 'var(--mono)', marginTop: 3 }}>
+                      {hint}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Optional company context */}
+            <div style={{ maxWidth: 720, width: '100%', marginTop: 16 }}>
+              {!showContext ? (
+                <button
+                  onClick={() => setShowContext(true)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--muted)',
+                    fontSize: 12,
+                    fontFamily: 'var(--mono)',
+                    cursor: 'pointer',
+                    padding: 0,
+                    textDecoration: 'underline',
+                    textUnderlineOffset: 3,
+                  }}
+                >
+                  + Add company context (optional)
+                </button>
+              ) : (
+                <div>
+                  <div
+                    style={{
+                      fontSize: 12,
+                      fontFamily: 'var(--mono)',
+                      color: 'var(--muted)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      marginBottom: 8,
+                    }}
+                  >
+                    Company context <span style={{ textTransform: 'none', letterSpacing: 0 }}>(max 500 chars)</span>
+                  </div>
+                  <textarea
+                    value={companyContext}
+                    onChange={(e) => setCompanyContext(e.target.value.slice(0, 500))}
+                    placeholder="e.g. B2B SaaS, 40-person team, Python + React stack, ships weekly"
+                    style={{
+                      width: '100%',
+                      minHeight: 80,
+                      padding: '12px 16px',
+                      fontFamily: 'var(--mono)',
+                      fontSize: 13,
+                      lineHeight: 1.5,
+                      background: 'var(--surface)',
+                      border: '1.5px solid var(--rule-strong)',
+                      borderRadius: 10,
+                      resize: 'none',
+                      color: 'var(--ink)',
+                      outline: 'none',
+                    }}
+                  />
+                  <div style={{ fontSize: 11, color: 'var(--muted)', fontFamily: 'var(--mono)', marginTop: 4 }}>
+                    {companyContext.length}/500
+                  </div>
+                </div>
+              )}
+            </div>
+
             <FlowFooter
               onBack={() => setStep(1)}
               onNext={advance}
@@ -420,6 +536,8 @@ export function DemoFlow() {
               tools={tools}
               role={role}
               goal={goal || typedGoal}
+              level={level}
+              companyContext={companyContext || undefined}
               onLessonClick={() => setStep(5)}
             />
             <FlowFooter

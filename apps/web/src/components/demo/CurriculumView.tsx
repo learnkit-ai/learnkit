@@ -15,18 +15,23 @@ export function CurriculumView({
   tools,
   goal,
   role,
+  level = 'beginner',
+  companyContext,
   onLessonClick,
 }: {
   tools: string[];
   goal?: string;
   role?: string;
+  level?: 'beginner' | 'intermediate' | 'advanced';
+  companyContext?: string;
   onLessonClick: () => void;
 }) {
   const path = generateLearningPath({
     role: role ?? 'Product Manager',
     tools: tools.length > 0 ? tools : ['Claude'],
     goal: goal ?? 'Ship something useful this Friday',
-    level: 'beginner',
+    level,
+    ...(companyContext ? { companyContext } : {}),
   });
 
   const totalHours = Math.round(path.totalMinutes / 60);

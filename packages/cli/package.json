@@ -14,7 +14,9 @@
   "bin": {
     "learnkit-ai": "./dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -35,6 +37,7 @@
     "@learnkit-ai/schemas": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^22.19.19",
     "tsup": "^8.0.0",
     "typescript": "^5.7.3",
     "vitest": "^2.1.9"

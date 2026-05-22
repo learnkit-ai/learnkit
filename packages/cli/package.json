@@ -20,7 +20,8 @@
       "types": "./dist/index.d.ts",
       "source": "./src/index.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "default": "./src/index.ts"
     }
   },
   "scripts": {

@@ -15,5 +15,8 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true
   },
+  "paths": {
+    "@learnkit-ai/schemas": ["../schemas/src/index.ts"]
+  },
   "include": ["src/**/*.ts"]
 }

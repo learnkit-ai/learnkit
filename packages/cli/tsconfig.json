@@ -3,7 +3,8 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["ES2022", "DOM"],
+    "lib": ["ES2022"],
+    "types": ["node"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -15,7 +16,8 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "paths": {
-      "@learnkit-ai/schemas": ["../schemas/src/index.ts"]
+      "@learnkit-ai/schemas": ["../schemas/src/index.ts"],
+      "@learnkit-ai/core": ["../core/src/index.ts"]
     }
   },
   "include": ["src/**/*.ts"]

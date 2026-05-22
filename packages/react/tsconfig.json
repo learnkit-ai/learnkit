@@ -14,7 +14,11 @@
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true
+    "noImplicitOverride": true,
+    "paths": {
+      "@learnkit-ai/schemas": ["../schemas/src/index.ts"],
+      "@learnkit-ai/core": ["../core/src/index.ts"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

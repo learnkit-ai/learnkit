@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import { Wordmark } from '@/components/ui/Wordmark';
 import { Button, ArrowR } from '@/components/ui/Button';
 
@@ -15,30 +18,57 @@ const GithubIcon = () => (
   </svg>
 );
 
+const NAV_LINKS = [
+  { label: 'For teams', href: '/teams' },
+  { label: 'Docs', href: '/docs' },
+  { label: 'API', href: '/developers' },
+  { label: 'Blog', href: '/blog' },
+];
+
 export function Nav() {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [open]);
+
+  // Close on route navigation (hash or pathname change)
+  useEffect(() => { setOpen(false); }, []);
+
   return (
     <nav
       className="lk-nav"
+      ref={menuRef}
       style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '20px 56px',
-        borderBottom: '1px solid var(--rule)',
+        borderBottom: open ? 'none' : '1px solid var(--rule)',
         position: 'sticky',
         top: 0,
         background: 'var(--paper)',
         zIndex: 50,
         backdropFilter: 'blur(8px)',
+        flexWrap: 'wrap',
+        gap: open ? 0 : undefined,
       }}
     >
       <Wordmark size={22} />
 
+      {/* Desktop links */}
       <div className="lk-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28, fontSize: 13.5, color: 'var(--ink-soft)' }}>
-        <a href="/teams" style={navLink}>For teams</a>
-        <a href="/docs" style={navLink}>Docs</a>
-        <a href="/developers" style={navLink}>API</a>
-        <a href="/blog" style={navLink}>Blog</a>
+        {NAV_LINKS.map((l) => (
+          <a key={l.href} href={l.href} style={navLink}>{l.label}</a>
+        ))}
         <a
           href="https://github.com/learnkit-ai/learnkit"
           style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 5 }}
@@ -50,6 +80,7 @@ export function Nav() {
         </a>
       </div>
 
+      {/* Desktop CTA */}
       <div className="lk-nav-cta" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
         <a
           href="https://github.com/learnkit-ai/learnkit"
@@ -66,6 +97,93 @@ export function Nav() {
           </Button>
         </a>
       </div>
+
+      {/* Mobile hamburger button — visible only when lk-nav-links is hidden */}
+      <button
+        className="lk-nav-hamburger"
+        onClick={() => setOpen((o) => !o)}
+        aria-label={open ? 'Close menu' : 'Open menu'}
+        aria-expanded={open}
+        style={{
+          display: 'none', // shown by CSS on mobile
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          padding: '4px 6px',
+          color: 'var(--ink)',
+        }}
+      >
+        {open ? (
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+            <line x1="4" y1="4" x2="16" y2="16" />
+            <line x1="16" y1="4" x2="4" y2="16" />
+          </svg>
+        ) : (
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+          </svg>
+        )}
+      </button>
+
+      {/* Mobile dropdown menu */}
+      {open && (
+        <div
+          className="lk-nav-mobile-menu"
+          style={{
+            display: 'none', // shown by CSS on mobile
+            width: '100%',
+            borderTop: '1px solid var(--rule)',
+            paddingTop: 16,
+            paddingBottom: 20,
+            flexDirection: 'column',
+            gap: 4,
+          }}
+        >
+          {NAV_LINKS.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              style={{
+                ...navLink,
+                display: 'block',
+                padding: '10px 4px',
+                fontSize: 16,
+                borderBottom: '1px solid var(--rule)',
+              }}
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="https://github.com/learnkit-ai/learnkit"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            style={{
+              ...navLink,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '10px 4px',
+              fontSize: 16,
+              borderBottom: '1px solid var(--rule)',
+            }}
+          >
+            <GithubIcon />
+            GitHub
+          </a>
+          <div style={{ paddingTop: 12 }}>
+            <a href="/demo" style={{ textDecoration: 'none' }} onClick={() => setOpen(false)}>
+              <Button size="sm" variant="primary" style={{ width: '100%', justifyContent: 'center' }}>
+                Run the demo <ArrowR size={12} />
+              </Button>
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

@@ -92,4 +92,28 @@ describe('generateLearningPath', () => {
       expect(adv.totalMinutes).toBeLessThan(beg.totalMinutes);
     }
   });
+
+  it('appends context suffix to project lessons when companyContext is provided', () => {
+    const path = generateLearningPath({ ...SAMPLE, companyContext: 'React/TypeScript team, ships weekly' });
+    const projects = path.weeks.flatMap((w) => w.lessons.filter((l) => l.kind === 'project'));
+    for (const p of projects) {
+      expect(p.summary).toMatch(/react\/typescript|shipping weekly/i);
+    }
+  });
+
+  it('leaves non-project lessons unchanged when companyContext is provided', () => {
+    const base = generateLearningPath(SAMPLE);
+    const withCtx = generateLearningPath({ ...SAMPLE, companyContext: 'Python team, ships weekly' });
+    const baseLessons = base.weeks.flatMap((w) => w.lessons.filter((l) => l.kind === 'lesson'));
+    const ctxLessons = withCtx.weeks.flatMap((w) => w.lessons.filter((l) => l.kind === 'lesson'));
+    for (let i = 0; i < baseLessons.length; i++) {
+      expect(ctxLessons[i]!.summary).toBe(baseLessons[i]!.summary);
+    }
+  });
+
+  it('produces different path id when companyContext differs', () => {
+    const a = generateLearningPath(SAMPLE);
+    const b = generateLearningPath({ ...SAMPLE, companyContext: 'B2B SaaS, 20-person team, Python stack' });
+    expect(a.id).not.toBe(b.id);
+  });
 });

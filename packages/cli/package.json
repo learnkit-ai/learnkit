@@ -1,20 +1,22 @@
 {
-  "name": "@learnkit-ai/core",
+  "name": "@learnkit-ai/cli",
   "version": "0.1.0",
-  "description": "Deterministic learning-path engine for LearnKit AI. Pure, no network, no LLM.",
+  "description": "CLI for @learnkit-ai/core — generate AI learning paths from the terminal",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/learnkit-ai/learnkit.git",
-    "directory": "packages/core"
+    "url": "https://github.com/learnkit-ai/learnkit.git",
+    "directory": "packages/cli"
   },
-  "homepage": "https://learnkit-ai.com",
-  "bugs": "https://github.com/learnkit-ai/learnkit/issues",
-  "keywords": ["learnkit", "ai", "education", "curriculum", "learning-path", "typescript"],
-  "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "learnkit-ai": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -24,7 +26,6 @@
       "default": "./src/index.ts"
     }
   },
-  "files": ["dist", "src"],
   "scripts": {
     "build": "tsup",
     "lint": "tsc -p tsconfig.json --noEmit",
@@ -32,14 +33,13 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@learnkit-ai/schemas": "workspace:*",
-    "zod": "^3.23.8"
+    "@learnkit-ai/core": "workspace:*",
+    "@learnkit-ai/schemas": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^22.19.19",
+    "tsup": "^8.0.0",
     "typescript": "^5.7.3",
     "vitest": "^2.1.9"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

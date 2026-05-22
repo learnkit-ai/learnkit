@@ -753,6 +753,63 @@ const LEVEL_BIAS: Record<LearningPathInput['level'], number> = {
 };
 
 // ---------------------------------------------------------------------------
+// Company context parsing
+// ---------------------------------------------------------------------------
+
+const STACK_KEYWORDS = [
+  'react', 'vue', 'angular', 'svelte', 'next.js', 'nextjs',
+  'typescript', 'javascript', 'python', 'go', 'rust', 'java', 'kotlin', 'swift',
+  'node', 'django', 'rails', 'laravel', 'fastapi',
+] as const;
+
+interface ParsedContext {
+  stackHint: string | null;
+  paceHint: string | null;
+  teamHint: string | null;
+}
+
+function parseCompanyContext(ctx: string): ParsedContext {
+  const lower = ctx.toLowerCase();
+
+  // Stack: find first two recognisable tech keywords
+  const found = STACK_KEYWORDS.filter((k) => lower.includes(k));
+  const stackHint = found.length > 0
+    ? `your ${found.slice(0, 2).join('/')} stack`
+    : null;
+
+  // Pace: keyword scan
+  const paceHint = lower.includes('daily') || lower.includes('ships daily')
+    ? 'shipping daily'
+    : lower.includes('weekly') || lower.includes('week')
+      ? 'shipping weekly'
+      : lower.includes('quarterly')
+        ? 'quarterly releases'
+        : null;
+
+  // Team size: first number followed by "person", "people", "member", "engineer", "developer"
+  const sizeMatch = lower.match(/(\d+)[- ](?:person|people|member|engineer|developer)/);
+  const sizeStr = sizeMatch?.[1];
+  const size = sizeStr != null ? parseInt(sizeStr, 10) : null;
+  const teamHint = size !== null
+    ? size <= 5
+      ? 'a small team'
+      : size <= 20
+        ? `a ${size}-person team`
+        : `a ${size}-person org`
+    : null;
+
+  return { stackHint, paceHint, teamHint };
+}
+
+function buildContextSuffix(parsed: ParsedContext): string {
+  const parts: string[] = [];
+  if (parsed.stackHint) parts.push(`Adapt this for ${parsed.stackHint}.`);
+  if (parsed.paceHint) parts.push(`Your cadence (${parsed.paceHint}) means you can validate in one sprint.`);
+  if (parsed.teamHint) parts.push(`Scope the deliverable for ${parsed.teamHint}.`);
+  return parts.length > 0 ? ' ' + parts.join(' ') : '';
+}
+
+// ---------------------------------------------------------------------------
 // Main function
 // ---------------------------------------------------------------------------
 
@@ -765,18 +822,22 @@ export function generateLearningPath(rawInput: LearningPathInput): LearningPath 
   const primaryTool = normalizedTools[0] ?? 'Claude';
   const secondaryTool = normalizedTools[1] ?? primaryTool;
 
-  const stableSeed = `${role}|${normalizedTools.join(',')}|${input.goal}|${input.level}`;
+  const stableSeed = `${role}|${normalizedTools.join(',')}|${input.goal}|${input.level}|${input.companyContext ?? ''}`;
+
+  const parsedCtx = input.companyContext ? parseCompanyContext(input.companyContext) : null;
+  const ctxSuffix = parsedCtx ? buildContextSuffix(parsedCtx) : '';
 
   const weeks = (ROLE_WEEKS[role] ?? GENERIC_WEEKS).map((w, wi) => {
     const tool = wi % 2 === 0 ? primaryTool : secondaryTool;
     const lessons: Lesson[] = w.templates.map((template, li) => {
       const dayBase = wi * 7 + li * 2 + 1;
       const minutesAdjusted = Math.max(8, template.minutes + LEVEL_BIAS[input.level]);
+      const baseSummary = template.summary({ tool, role, goal: input.goal });
       return {
         id: hashId('l', stableSeed, wi, li),
         day: dayBase,
         title: template.title({ tool, role }),
-        summary: template.summary({ tool, role, goal: input.goal }),
+        summary: template.kind === 'project' ? baseSummary + ctxSuffix : baseSummary,
         tool,
         minutes: minutesAdjusted,
         kind: template.kind,

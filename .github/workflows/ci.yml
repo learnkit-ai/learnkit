@@ -39,6 +39,7 @@ jobs:
           pnpm --filter @learnkit-ai/schemas typecheck
           pnpm --filter @learnkit-ai/core typecheck
           pnpm --filter @learnkit-ai/react typecheck
+          pnpm --filter @learnkit-ai/cli typecheck
 
       - name: Typecheck apps/web
         run: pnpm --filter @learnkit-ai/web typecheck
@@ -48,6 +49,7 @@ jobs:
           pnpm --filter @learnkit-ai/schemas test
           pnpm --filter @learnkit-ai/core test
           pnpm --filter @learnkit-ai/react test
+          pnpm --filter @learnkit-ai/cli test
 
   build:
     name: Build packages + apps/web
@@ -69,6 +71,7 @@ jobs:
           pnpm --filter @learnkit-ai/schemas build
           pnpm --filter @learnkit-ai/core build
           pnpm --filter @learnkit-ai/react build
+          pnpm --filter @learnkit-ai/cli build
 
       - name: Build apps/web
         run: pnpm --filter @learnkit-ai/web build

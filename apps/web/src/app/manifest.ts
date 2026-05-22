@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'LearnKit AI',
     short_name: 'LearnKit',
     description:
-      'The AI workbench for teams that ship. Learn Claude, Cursor, ChatGPT and 40+ tools by building real things at work.',
+      'Open-source TypeScript engine for embedding personalized, role-aware AI learning paths in any product. Apache-2.0.',
     start_url: '/',
     display: 'standalone',
     background_color: '#FAF7F0',

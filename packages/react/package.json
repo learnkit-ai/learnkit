@@ -10,15 +10,32 @@
   },
   "homepage": "https://learnkit-ai.com",
   "bugs": "https://github.com/learnkit-ai/learnkit/issues",
-  "keywords": ["learnkit", "ai", "react", "education", "components", "typescript"],
+  "keywords": [
+    "learnkit",
+    "ai",
+    "react",
+    "education",
+    "components",
+    "typescript"
+  ],
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
   },
-  "files": ["src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
+    "build": "tsup",
     "lint": "tsc -p tsconfig.json --noEmit",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run"
@@ -32,8 +49,11 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^18.3.21",
     "@types/react-dom": "^18.3.5",
+    "happy-dom": "^20.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.7.3",

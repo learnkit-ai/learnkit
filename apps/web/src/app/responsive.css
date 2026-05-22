@@ -20,8 +20,8 @@
   .lk-workbench-grid { grid-template-columns: 200px 1fr !important; }
   .lk-workbench-chat { display: none !important; }
 
-  /* Nav: hide some links */
-  .lk-nav-links a:nth-child(n+5) { display: none !important; }
+  /* Nav: hide last two links on tablet */
+  .lk-nav-links a:nth-child(n+4) { display: none !important; }
 
   /* Hero typography */
   .lk-hero-title { font-size: 56px !important; }
@@ -65,8 +65,9 @@
   /* Mobile nav */
   .lk-nav { padding: 14px 20px !important; }
   .lk-nav-links { display: none !important; }
-  .lk-nav-cta { gap: 6px !important; }
-  .lk-nav-cta .lk-nav-cta-secondary { display: none !important; }
+  .lk-nav-cta { display: none !important; }
+  .lk-nav-hamburger { display: flex !important; }
+  .lk-nav-mobile-menu { display: flex !important; }
 
   .lk-subnav { flex-wrap: wrap !important; gap: 12px !important; padding: 14px 20px !important; }
   .lk-subnav-links { display: none !important; }

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { Eyebrow } from '@/components/ui/primitives';
+import { DocsSidebar } from '@/components/docs/DocsSidebar';
 import { SITE_URL } from '@/lib/seo-data';
 
 export const metadata: Metadata = {
@@ -96,14 +97,6 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
-const NAV_ITEMS = [
-  { id: 'quickstart', label: 'Quickstart' },
-  { id: 'core', label: '@learnkit-ai/core' },
-  { id: 'react', label: '@learnkit-ai/react' },
-  { id: 'schemas', label: 'Types & schemas' },
-  { id: 'theming', label: 'Theming' },
-  { id: 'self-hosting', label: 'Self-hosting' },
-];
 
 export default function DocsPage() {
   return (
@@ -125,63 +118,7 @@ export default function DocsPage() {
         }}
       >
         {/* Sidebar */}
-        <aside
-          className="lk-docs-sidebar"
-          style={{ position: 'sticky', top: 96 }}
-        >
-          <div
-            style={{
-              fontFamily: 'var(--mono)',
-              fontSize: 11,
-              color: 'var(--muted)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              marginBottom: 12,
-            }}
-          >
-            On this page
-          </div>
-          <nav style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                style={{
-                  fontSize: 13.5,
-                  color: 'var(--ink-soft)',
-                  textDecoration: 'none',
-                  padding: '5px 0',
-                  borderLeft: '2px solid transparent',
-                  paddingLeft: 10,
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div style={{ marginTop: 28, paddingTop: 20, borderTop: '1px solid var(--rule)' }}>
-            <Link
-              href="https://github.com/learnkit-ai/learnkit"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontSize: 12.5,
-                color: 'var(--ink-soft)',
-                textDecoration: 'none',
-                display: 'block',
-                marginBottom: 8,
-              }}
-            >
-              ↗ GitHub
-            </Link>
-            <Link
-              href="/demo"
-              style={{ fontSize: 12.5, color: 'var(--ink-soft)', textDecoration: 'none', display: 'block' }}
-            >
-              ↗ Live demo
-            </Link>
-          </div>
-        </aside>
+        <DocsSidebar />
 
         {/* Content */}
         <article style={{ minWidth: 0 }}>
@@ -287,9 +224,9 @@ export default function OnboardingPage() {
           <CodePane>{`import { getSupportedRoles } from '@learnkit-ai/core';
 
 getSupportedRoles();
-// ['Software Engineer', 'Product Manager', 'Designer',
-//  'Data Scientist', 'DevOps Engineer', 'Security Engineer',
-//  'Technical Writer', 'QA Engineer']`}</CodePane>
+// ['Product Manager', 'Software Engineer', 'Designer',
+//  'Data Analyst', 'Marketer', 'Founder',
+//  'Operations', 'Researcher']`}</CodePane>
 
           <SubAnchor id="get-tools" label="getSupportedTools()" />
           <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 12px' }}>

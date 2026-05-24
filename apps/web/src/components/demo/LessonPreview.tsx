@@ -1,37 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { generateLearningPath, generateLessonContent } from '@learnkit-ai/core';
 import { Button, ArrowR } from '@/components/ui/Button';
 import { Ole } from '@/components/ui/primitives';
 import { FlowFooter } from './StepShell';
 
-const OUTLINE = [
-  'What a system prompt does',
-  'Anatomy of a great prompt',
-  'Try one: rewriting your standup',
-  'Common mistakes',
-  'Practice & ship',
-];
-
 export function LessonPreview({
   role,
   tools,
+  goal,
+  level,
   onBack,
 }: {
   role: string;
   tools: string[];
+  goal?: string;
+  level?: 'beginner' | 'intermediate' | 'advanced';
   onBack: () => void;
 }) {
-  const [section, setSection] = useState(1);
-  const primaryTool = tools[0] ?? 'Claude';
-  const roleShort = (role || 'Product Manager').split(' ').slice(-1)[0].toLowerCase();
+  const path = generateLearningPath({
+    role: role || 'Product Manager',
+    tools: tools.length > 0 ? tools : ['Claude'],
+    goal: goal || 'Ship an AI feature this sprint',
+    level: level ?? 'beginner',
+  });
 
-  const exampleForTool = () => {
-    if (primaryTool === 'Cursor') return '"You are a senior engineer. Refactor this file."';
-    if (primaryTool === 'Claude') return `"You are a senior ${roleShort}. Review this spec."`;
-    if (primaryTool === 'ChatGPT') return '"You are a research assistant. Summarize this report."';
-    return `"You are a ${roleShort}'s assistant. Help with this task."`;
-  };
+  const firstLesson = path.weeks[0]!.lessons[0]!;
+  const content = generateLessonContent(firstLesson);
+  const [firstPara, secondPara] = content.body.split('\n\n');
+  const firstExercise = content.exercises[0]!;
 
   return (
     <div
@@ -52,7 +49,7 @@ export function LessonPreview({
           minHeight: 540,
         }}
       >
-        {/* Outline */}
+        {/* Outline: week 1 lessons */}
         <div
           style={{
             background: 'var(--surface)',
@@ -71,22 +68,21 @@ export function LessonPreview({
               marginBottom: 12,
             }}
           >
-            Outline
+            Week 1 — {path.weeks[0]!.title}
           </div>
-          {OUTLINE.map((t, i) => (
+          {path.weeks[0]!.lessons.map((l, i) => (
             <div
-              key={i}
-              onClick={() => setSection(i)}
+              key={l.id}
               style={{
                 display: 'flex',
                 gap: 10,
                 padding: '8px 8px',
                 borderRadius: 6,
                 marginBottom: 2,
-                background: section === i ? 'var(--paper-3)' : 'transparent',
+                background: i === 0 ? 'var(--paper-3)' : 'transparent',
                 cursor: 'pointer',
                 fontSize: 12.5,
-                fontWeight: section === i ? 500 : 400,
+                fontWeight: i === 0 ? 500 : 400,
                 color: 'var(--ink)',
               }}
             >
@@ -96,16 +92,17 @@ export function LessonPreview({
                   fontFamily: 'var(--mono)',
                   fontSize: 11,
                   width: 16,
+                  flexShrink: 0,
                 }}
               >
                 {i + 1}
               </span>
-              {t}
+              {l.title}
             </div>
           ))}
         </div>
 
-        {/* Content */}
+        {/* Content: real lesson body */}
         <div
           style={{
             background: 'var(--surface)',
@@ -113,6 +110,9 @@ export function LessonPreview({
             borderRadius: 14,
             padding: '32px 36px',
             overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 16,
           }}
         >
           <div
@@ -122,75 +122,79 @@ export function LessonPreview({
               color: 'var(--accent)',
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              marginBottom: 8,
             }}
           >
-            Section 02 · Anatomy
+            Day {firstLesson.day} · {firstLesson.kind} · {firstLesson.minutes}m
           </div>
           <h2
             className="serif"
             style={{
-              fontSize: 32,
-              lineHeight: 1.1,
-              letterSpacing: '-0.025em',
-              margin: '0 0 16px',
+              fontSize: 26,
+              lineHeight: 1.15,
+              letterSpacing: '-0.02em',
+              margin: 0,
               fontWeight: 500,
             }}
           >
-            A great system prompt has{' '}
-            <span style={{ fontStyle: 'italic' }}>three</span> things.
+            {firstLesson.title}
           </h2>
           <p
             style={{
-              fontSize: 15,
+              fontSize: 14.5,
               color: 'var(--ink-soft)',
               lineHeight: 1.65,
-              margin: '0 0 20px',
+              margin: 0,
             }}
           >
-            Most people open ChatGPT and start asking. The pros write a{' '}
-            <strong style={{ color: 'var(--ink)' }}>persona</strong>, define a{' '}
-            <strong style={{ color: 'var(--ink)' }}>process</strong>, and set{' '}
-            <strong style={{ color: 'var(--ink)' }}>boundaries</strong>. That&apos;s it. Three
-            knobs.
+            {firstPara}
           </p>
+          {secondPara && (
+            <p
+              style={{
+                fontSize: 14.5,
+                color: 'var(--ink-soft)',
+                lineHeight: 1.65,
+                margin: 0,
+              }}
+            >
+              {secondPara}
+            </p>
+          )}
           <div
             style={{
               background: 'var(--paper-2)',
-              borderRadius: 12,
-              padding: 16,
-              fontFamily: 'var(--mono)',
-              fontSize: 12.5,
-              color: 'var(--ink)',
-              lineHeight: 1.7,
+              borderRadius: 10,
+              padding: '14px 16px',
               border: '1px solid var(--rule)',
             }}
           >
-            <div style={{ color: 'var(--muted)' }}># persona</div>
-            <div>
-              You are a <span style={{ color: 'var(--accent)' }}>skeptical senior PM</span>
+            <div
+              style={{
+                fontSize: 11,
+                fontFamily: 'var(--mono)',
+                color: 'var(--muted)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                marginBottom: 8,
+              }}
+            >
+              Exercise 1
             </div>
-            <div style={{ marginTop: 8, color: 'var(--muted)' }}># process</div>
-            <div>For each user input, you:</div>
-            <div style={{ paddingLeft: 16 }}>1. Ask one clarifying question</div>
-            <div style={{ paddingLeft: 16 }}>2. List 3 alternatives</div>
-            <div style={{ paddingLeft: 16 }}>3. Pick one with rationale</div>
-            <div style={{ marginTop: 8, color: 'var(--muted)' }}># boundaries</div>
-            <div>Never invent metrics. If unsure, say so.</div>
+            <p
+              style={{
+                fontSize: 13.5,
+                color: 'var(--ink)',
+                lineHeight: 1.6,
+                margin: 0,
+                fontWeight: 500,
+              }}
+            >
+              {firstExercise.prompt}
+            </p>
           </div>
-          <p
-            style={{
-              fontSize: 14,
-              color: 'var(--ink-soft)',
-              lineHeight: 1.65,
-              margin: '20px 0 0',
-            }}
-          >
-            Try it now in the workbench on the right →
-          </p>
         </div>
 
-        {/* AI Guide chat */}
+        {/* AI Guide */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           <div
             style={{
@@ -217,62 +221,27 @@ export function LessonPreview({
                 lineHeight: 1.5,
               }}
             >
-              I noticed you picked{' '}
-              <strong style={{ color: 'var(--ink)' }}>{primaryTool}</strong> as your main tool —
-              I swapped the example to fit. Spot the missing knob:
+              This is your first lesson as a{' '}
+              <strong style={{ color: 'var(--ink)' }}>{role}</strong>. Your primary tool is{' '}
+              <strong style={{ color: 'var(--ink)' }}>{firstLesson.tool}</strong>. The exercise
+              below is a real task — not a tutorial. Do it before reading ahead.
             </div>
             <div
               style={{
                 background: 'var(--paper-2)',
                 padding: '10px 12px',
                 borderRadius: 10,
-                fontFamily: 'var(--mono)',
-                fontSize: 11.5,
-                lineHeight: 1.5,
+                fontSize: 12.5,
+                lineHeight: 1.55,
+                color: 'var(--ink-soft)',
               }}
             >
-              {exampleForTool()}
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 6,
-                marginTop: 4,
-              }}
-            >
-              {['Persona', 'Process', 'Boundaries'].map((o, i) => (
-                <button
-                  key={o}
-                  style={{
-                    padding: '10px 12px',
-                    borderRadius: 10,
-                    fontSize: 13,
-                    border: '1px solid var(--rule)',
-                    background: i === 1 ? 'var(--paper-2)' : 'var(--surface)',
-                    textAlign: 'left',
-                    cursor: 'pointer',
-                    color: 'var(--ink)',
-                    fontFamily: 'var(--sans)',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'var(--mono)',
-                      fontSize: 11,
-                      color: 'var(--muted)',
-                      marginRight: 8,
-                    }}
-                  >
-                    {String.fromCharCode(65 + i)}
-                  </span>
-                  {o}
-                </button>
-              ))}
+              <strong style={{ color: 'var(--ink)' }}>Reviewer note:</strong>{' '}
+              {firstExercise.rubricHint}
             </div>
           </div>
           <Button variant="accent" size="md" style={{ justifyContent: 'center' }}>
-            Continue to section 03 <ArrowR size={12} />
+            Continue to exercise 2 <ArrowR size={12} />
           </Button>
         </div>
       </div>

@@ -1,15 +1,17 @@
 'use client';
 
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import type { LearningPathInput, Lesson } from '@learnkit-ai/schemas';
 import { LessonCard } from './LessonCard';
+import type { LessonStatus } from './LessonCard';
 import { useLearnKit } from './useLearnKit';
 
-export type LearnKitTheme = 'warm' | 'midnight' | 'technical';
+export type LearnKitTheme = 'warm' | 'midnight' | 'technical' | 'light';
 
 export interface LearningPathProps {
   input: LearningPathInput;
   onLessonClick?: (lesson: Lesson) => void;
+  renderItem?: (lesson: Lesson, status: LessonStatus) => ReactNode;
   theme?: LearnKitTheme;
   className?: string;
   style?: CSSProperties;
@@ -49,11 +51,23 @@ export const THEMES: Record<LearnKitTheme, CSSProperties> = {
     ['--lk-rule' as string]: 'rgba(230, 230, 230, 0.08)',
     ['--lk-rule-strong' as string]: 'rgba(230, 230, 230, 0.16)',
   },
+  light: {
+    ['--lk-surface' as string]: '#FFFFFF',
+    ['--lk-ink' as string]: '#111827',
+    ['--lk-ink-soft' as string]: '#374151',
+    ['--lk-muted' as string]: '#9CA3AF',
+    ['--lk-accent' as string]: '#6366F1',
+    ['--lk-accent-2' as string]: '#EC4899',
+    ['--lk-accent-3' as string]: '#10B981',
+    ['--lk-rule' as string]: 'rgba(17, 24, 39, 0.08)',
+    ['--lk-rule-strong' as string]: 'rgba(17, 24, 39, 0.16)',
+  },
 };
 
 export function LearningPath({
   input,
   onLessonClick,
+  renderItem,
   theme = 'warm',
   className,
   style,
@@ -143,20 +157,24 @@ export function LearningPath({
             {week.title}
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {week.lessons.map((lesson, li) => (
-              <LessonCard
-                key={lesson.id}
-                lesson={lesson}
-                status={
-                  week.index === 1 && li === 0
-                    ? 'in-progress'
-                    : week.index === 4
-                      ? 'locked'
-                      : 'available'
-                }
-                onClick={onLessonClick}
-              />
-            ))}
+            {week.lessons.map((lesson, li) => {
+              const status: LessonStatus =
+                week.index === 1 && li === 0
+                  ? 'in-progress'
+                  : week.index === 4
+                    ? 'locked'
+                    : 'available';
+              return renderItem ? (
+                <div key={lesson.id}>{renderItem(lesson, status)}</div>
+              ) : (
+                <LessonCard
+                  key={lesson.id}
+                  lesson={lesson}
+                  status={status}
+                  onClick={onLessonClick}
+                />
+              );
+            })}
           </div>
         </section>
       ))}

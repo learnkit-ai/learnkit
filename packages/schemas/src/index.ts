@@ -28,6 +28,7 @@ export const LessonSchema = z.object({
   tool: z.string(),
   minutes: z.number().int().min(1),
   kind: LessonKindSchema,
+  prerequisiteIds: z.array(z.string()),
 });
 export type Lesson = z.infer<typeof LessonSchema>;
 

@@ -11,6 +11,7 @@ const LESSON: Lesson = {
   tool: 'Claude',
   minutes: 12,
   kind: 'lesson',
+  prerequisiteIds: [],
 };
 
 describe('LessonCard', () => {

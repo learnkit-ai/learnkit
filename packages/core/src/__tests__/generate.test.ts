@@ -71,6 +71,31 @@ describe('generateLearningPath', () => {
     }
   });
 
+  it('first lesson has no prerequisites', () => {
+    const path = generateLearningPath(SAMPLE);
+    expect(path.weeks[0]!.lessons[0]!.prerequisiteIds).toHaveLength(0);
+  });
+
+  it('subsequent lessons have exactly one prerequisite', () => {
+    const path = generateLearningPath(SAMPLE);
+    const allLessons = path.weeks.flatMap((w) => w.lessons);
+    for (let i = 1; i < allLessons.length; i++) {
+      expect(allLessons[i]!.prerequisiteIds).toHaveLength(1);
+    }
+  });
+
+  it('prerequisite ids reference real lesson ids', () => {
+    const path = generateLearningPath(SAMPLE);
+    const allIds = new Set(path.weeks.flatMap((w) => w.lessons.map((l) => l.id)));
+    for (const w of path.weeks) {
+      for (const l of w.lessons) {
+        for (const pid of l.prerequisiteIds) {
+          expect(allIds.has(pid)).toBe(true);
+        }
+      }
+    }
+  });
+
   it.each([
     'Marketer',
     'Founder',

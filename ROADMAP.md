@@ -43,20 +43,20 @@ Core engine, React component, and public website shipped.
 - [x] More supported tools: Windsurf, Replit, Linear, Figma AI, v0 (13 total)
 - [x] More roles: Sales, Customer Success, Finance (11 total)
 - [x] `generateLessonContent(lesson)` — returns full lesson body, exercises, and rubric
+- [x] Lesson prerequisite graph — sequential `prerequisiteIds[]` on each lesson; ProgressTracker locks accordingly
 - [ ] `progress` field in `LearningPath` to track completed lessons
-- [ ] Lesson prerequisite graph — reorder-aware sequencing
 
 ### React package
-- [x] `<ProgressTracker />` component — persists lesson completion state to localStorage
-- [ ] `<LessonDetail />` — renders full lesson body returned by `generateLessonContent()`
-- [ ] `light` theme variant (in addition to `warm`, `midnight`, `technical`)
-- [ ] Headless mode: all components accept `renderItem` render-prop overrides
+- [x] `<ProgressTracker />` component — persists lesson completion state to localStorage; prerequisite-aware lesson locking
+- [x] `<LessonDetail />` — renders full lesson body, exercises, and rubric from `generateLessonContent()`
+- [x] `light` theme variant (in addition to `warm`, `midnight`, `technical`)
+- [x] Headless mode: `renderItem` render-prop on `LearningPath` and `ProgressTracker`
 
 ### Web
 - [x] `/changelog` page — versioned release notes
 - [x] `/compare/[slug]` pages — Claude vs ChatGPT, Cursor vs Copilot, Windsurf vs Cursor, and more
 - [x] `/guides/[slug]` — Next.js integration, theming, CLI, generateLessonContent guides
-- [ ] Per-role `opengraph-image` for `/roles/[slug]` pages
+- [x] `opengraph-image` for `/roles/[slug]` and `/tools/[slug]` pages
 
 ### Developer experience
 - [x] `@learnkit-ai/cli` — `npx @learnkit-ai/cli generate` outputs a JSON learning path

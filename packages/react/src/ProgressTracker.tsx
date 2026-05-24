@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { generateLearningPath } from '@learnkit-ai/core';
 import type { LearningPathInput, Lesson } from '@learnkit-ai/schemas';
 import { LessonCard } from './LessonCard';
@@ -13,6 +13,7 @@ export interface ProgressTrackerProps {
   input: LearningPathInput;
   theme?: LearnKitTheme;
   onLessonClick?: (lesson: Lesson) => void;
+  renderItem?: (lesson: Lesson, status: LessonStatus) => ReactNode;
   className?: string;
   style?: CSSProperties;
 }
@@ -36,16 +37,32 @@ function writeStorage(key: string, ids: Set<string>): void {
   }
 }
 
-function deriveStatus(lessonId: string, allIds: string[], completedIds: Set<string>): LessonStatus {
-  if (completedIds.has(lessonId)) return 'completed';
-  const firstIncomplete = allIds.find((id) => !completedIds.has(id));
-  return lessonId === firstIncomplete ? 'in-progress' : 'available';
+function isEffectiveDone(lessonId: string, allLessons: Lesson[], completedIds: Set<string>): boolean {
+  if (!completedIds.has(lessonId)) return false;
+  const lesson = allLessons.find((l) => l.id === lessonId);
+  if (!lesson) return false;
+  return lesson.prerequisiteIds.every((pid) => isEffectiveDone(pid, allLessons, completedIds));
+}
+
+function deriveStatus(lesson: Lesson, allLessons: Lesson[], completedIds: Set<string>): LessonStatus {
+  if (isEffectiveDone(lesson.id, allLessons, completedIds)) return 'completed';
+  const prereqsMet = lesson.prerequisiteIds.every((pid) =>
+    isEffectiveDone(pid, allLessons, completedIds),
+  );
+  if (!prereqsMet) return 'locked';
+  const firstAvailable = allLessons.find(
+    (l) =>
+      !isEffectiveDone(l.id, allLessons, completedIds) &&
+      l.prerequisiteIds.every((pid) => isEffectiveDone(pid, allLessons, completedIds)),
+  );
+  return lesson.id === firstAvailable?.id ? 'in-progress' : 'available';
 }
 
 export function ProgressTracker({
   input,
   theme = 'warm',
   onLessonClick,
+  renderItem,
   className,
   style,
 }: ProgressTrackerProps) {
@@ -101,8 +118,11 @@ export function ProgressTracker({
     );
   }
 
-  const allIds = path.weeks.flatMap((w) => w.lessons.map((l) => l.id));
-  const completedCount = allIds.filter((id) => completedIds.has(id)).length;
+  const allLessons = path.weeks.flatMap((w) => w.lessons);
+  const allIds = allLessons.map((l) => l.id);
+  const completedCount = allIds.filter((id) =>
+    isEffectiveDone(id, allLessons, completedIds),
+  ).length;
 
   return (
     <div
@@ -159,14 +179,19 @@ export function ProgressTracker({
             {week.title}
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {week.lessons.map((lesson) => (
-              <LessonCard
-                key={lesson.id}
-                lesson={lesson}
-                status={deriveStatus(lesson.id, allIds, completedIds)}
-                onClick={toggle}
-              />
-            ))}
+            {week.lessons.map((lesson) => {
+              const status = deriveStatus(lesson, allLessons, completedIds);
+              return renderItem ? (
+                <div key={lesson.id}>{renderItem(lesson, status)}</div>
+              ) : (
+                <LessonCard
+                  key={lesson.id}
+                  lesson={lesson}
+                  status={status}
+                  onClick={toggle}
+                />
+              );
+            })}
           </div>
         </section>
       ))}

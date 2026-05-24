@@ -10,3 +10,4 @@ export { LessonCard, type LessonCardProps, type LessonStatus } from './LessonCar
 export { AIGuide, type AIGuideProps } from './AIGuide';
 export { useLearnKit, type UseLearnKitResult } from './useLearnKit';
 export { ProgressTracker, type ProgressTrackerProps } from './ProgressTracker';
+export { LessonDetail, type LessonDetailProps } from './LessonDetail';

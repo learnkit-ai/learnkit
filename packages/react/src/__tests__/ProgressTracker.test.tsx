@@ -57,11 +57,41 @@ describe('ProgressTracker', () => {
     expect(screen.getByText(/role is required|Invalid|Unable/i)).toBeInTheDocument();
   });
 
-  it('renders without throwing for all three themes', () => {
-    const themes = ['warm', 'midnight', 'technical'] as const;
+  it('renders without throwing for all four themes', () => {
+    const themes = ['warm', 'midnight', 'technical', 'light'] as const;
     for (const theme of themes) {
       const { unmount } = render(<ProgressTracker input={INPUT} theme={theme} />);
       unmount();
     }
+  });
+
+  it('second lesson is locked until the first is complete', () => {
+    render(<ProgressTracker input={INPUT} />);
+    const buttons = screen.getAllByRole('button');
+    // Button at index 1 should be disabled (locked — prerequisites not met)
+    expect(buttons[1]).toBeDisabled();
+  });
+
+  it('second lesson unlocks after first is completed', () => {
+    render(<ProgressTracker input={INPUT} />);
+    const buttons = screen.getAllByRole('button');
+    fireEvent.click(buttons[0]!);
+    // Now buttons[1] should be enabled (in-progress)
+    expect(screen.getAllByRole('button')[1]).not.toBeDisabled();
+  });
+
+  it('calls renderItem instead of default LessonCard when provided', () => {
+    const rendered: string[] = [];
+    render(
+      <ProgressTracker
+        input={INPUT}
+        renderItem={(lesson) => {
+          rendered.push(lesson.id);
+          return <div>{lesson.title}</div>;
+        }}
+      />,
+    );
+    expect(rendered.length).toBe(12);
+    expect(screen.queryAllByRole('button')).toHaveLength(0);
   });
 });

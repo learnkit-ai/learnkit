@@ -1073,12 +1073,25 @@ export function generateLearningPath(rawInput: LearningPathInput): LearningPath 
   const parsedCtx = input.companyContext ? parseCompanyContext(input.companyContext) : null;
   const ctxSuffix = parsedCtx ? buildContextSuffix(parsedCtx) : '';
 
-  const weeks = (ROLE_WEEKS[role] ?? GENERIC_WEEKS).map((w, wi) => {
+  const weekDefs = ROLE_WEEKS[role] ?? GENERIC_WEEKS;
+
+  const weeks = weekDefs.map((w, wi) => {
     const tool = wi % 2 === 0 ? primaryTool : secondaryTool;
     const lessons: Lesson[] = w.templates.map((template, li) => {
       const dayBase = wi * 7 + li * 2 + 1;
       const minutesAdjusted = Math.max(8, template.minutes + LEVEL_BIAS[input.level]);
       const baseSummary = template.summary({ tool, role, goal: input.goal });
+
+      let prerequisiteIds: string[] = [];
+      if (wi === 0 && li === 0) {
+        prerequisiteIds = [];
+      } else if (li === 0) {
+        const prevTemplates = weekDefs[wi - 1]!.templates;
+        prerequisiteIds = [hashId('l', stableSeed, wi - 1, prevTemplates.length - 1)];
+      } else {
+        prerequisiteIds = [hashId('l', stableSeed, wi, li - 1)];
+      }
+
       return {
         id: hashId('l', stableSeed, wi, li),
         day: dayBase,
@@ -1087,6 +1100,7 @@ export function generateLearningPath(rawInput: LearningPathInput): LearningPath 
         tool,
         minutes: minutesAdjusted,
         kind: template.kind,
+        prerequisiteIds,
       };
     });
     return { index: (wi + 1) as 1 | 2 | 3 | 4, title: w.title, lessons } satisfies Week;

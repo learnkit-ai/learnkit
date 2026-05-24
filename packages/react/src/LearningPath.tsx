@@ -15,7 +15,7 @@ export interface LearningPathProps {
   style?: CSSProperties;
 }
 
-const THEMES: Record<LearnKitTheme, CSSProperties> = {
+export const THEMES: Record<LearnKitTheme, CSSProperties> = {
   warm: {
     ['--lk-surface' as string]: '#FFFFFF',
     ['--lk-ink' as string]: '#1A2547',

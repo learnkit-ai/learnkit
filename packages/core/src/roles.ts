@@ -7,6 +7,9 @@ export const SUPPORTED_ROLES = [
   'Founder',
   'Operations',
   'Researcher',
+  'Sales',
+  'Customer Success',
+  'Finance',
 ] as const;
 
 export type SupportedRole = (typeof SUPPORTED_ROLES)[number];
@@ -33,6 +36,20 @@ const ROLE_ALIASES: Record<string, SupportedRole> = {
   operations: 'Operations',
   researcher: 'Researcher',
   research: 'Researcher',
+  sales: 'Sales',
+  ae: 'Sales',
+  sdr: 'Sales',
+  bdr: 'Sales',
+  'account executive': 'Sales',
+  'customer success': 'Customer Success',
+  'customer-success': 'Customer Success',
+  csm: 'Customer Success',
+  'account manager': 'Customer Success',
+  finance: 'Finance',
+  cfo: 'Finance',
+  'financial analyst': 'Finance',
+  fp: 'Finance',
+  'fp&a': 'Finance',
 };
 
 export function normalizeRole(role: string): SupportedRole {

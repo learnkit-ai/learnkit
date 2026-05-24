@@ -36,30 +36,30 @@ Core engine, React component, and public website shipped.
 
 ---
 
-## v1 — Depth (planned)
+## v1 — Depth (in progress)
 
 ### Engine
-- [ ] `companyContext` field used in lesson personalisation (currently accepted but not applied)
-- [ ] More supported tools (target: 20+), including Windsurf, Replit, Linear, Figma AI, v0
-- [ ] More roles: Sales, Customer Success, Legal, Finance, Executive
+- [x] `companyContext` field personalises project lesson summaries (stack, pace, team-size hints)
+- [x] More supported tools: Windsurf, Replit, Linear, Figma AI, v0 (13 total)
+- [x] More roles: Sales, Customer Success, Finance (11 total)
+- [x] `generateLessonContent(lesson)` — returns full lesson body, exercises, and rubric
 - [ ] `progress` field in `LearningPath` to track completed lessons
 - [ ] Lesson prerequisite graph — reorder-aware sequencing
-- [ ] `generateLessonContent(lesson)` — returns full lesson body, exercises, and rubric
 
 ### React package
-- [ ] `<ProgressTracker />` component — persist lesson state to localStorage
+- [x] `<ProgressTracker />` component — persists lesson completion state to localStorage
 - [ ] `<LessonDetail />` — renders full lesson body returned by `generateLessonContent()`
 - [ ] `light` theme variant (in addition to `warm`, `midnight`, `technical`)
 - [ ] Headless mode: all components accept `renderItem` render-prop overrides
 
 ### Web
-- [ ] `/changelog` page — versioned release notes
-- [ ] `/compare` pages — e.g. "Claude vs ChatGPT for engineers"
-- [ ] `/guides/[slug]` — long-form integration guides
+- [x] `/changelog` page — versioned release notes
+- [x] `/compare/[slug]` pages — Claude vs ChatGPT, Cursor vs Copilot, Windsurf vs Cursor, and more
+- [x] `/guides/[slug]` — Next.js integration, theming, CLI, generateLessonContent guides
 - [ ] Per-role `opengraph-image` for `/roles/[slug]` pages
 
 ### Developer experience
-- [ ] `@learnkit-ai/cli` — `npx @learnkit-ai/cli generate` outputs a JSON learning path
+- [x] `@learnkit-ai/cli` — `npx @learnkit-ai/cli generate` outputs a JSON learning path
 - [ ] VS Code extension — sidebar learning path panel
 - [ ] Storybook for `@learnkit-ai/react` components
 

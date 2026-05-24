@@ -46,3 +46,33 @@ export const LearningPathSchema = z.object({
   generatedAt: z.string().datetime(),
 });
 export type LearningPath = z.infer<typeof LearningPathSchema>;
+
+export const ExerciseSchema = z.object({
+  prompt: z.string(),
+  expectedOutput: z.string(),
+  rubricHint: z.string(),
+});
+export type Exercise = z.infer<typeof ExerciseSchema>;
+
+export const RubricItemSchema = z.object({
+  criterion: z.string(),
+  excellent: z.string(),
+  acceptable: z.string(),
+  needsWork: z.string(),
+});
+export type RubricItem = z.infer<typeof RubricItemSchema>;
+
+export const LessonContentSchema = z.object({
+  lessonId: z.string(),
+  body: z.string(),
+  exercises: z.array(ExerciseSchema).min(1).max(5),
+  rubric: z.array(RubricItemSchema).min(1).max(5),
+});
+export type LessonContent = z.infer<typeof LessonContentSchema>;
+
+export const LearningPathProgressSchema = z.object({
+  pathId: z.string(),
+  completedLessonIds: z.array(z.string()),
+  updatedAt: z.string().datetime(),
+});
+export type LearningPathProgress = z.infer<typeof LearningPathProgressSchema>;

@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { BLOG_POSTS } from '@/lib/blog-posts';
+import { COMPARISONS } from '@/lib/compare-data';
+import { GUIDES } from '@/lib/guides-data';
 import { ROLES, SITE_URL, TOOLS } from '@/lib/seo-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -38,5 +40,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }));
 
-  return [...core, ...toolPages, ...rolePages, ...blogPages];
+  const comparePages: MetadataRoute.Sitemap = COMPARISONS.map((c) => ({
+    url: `${SITE_URL}/compare/${c.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  const guidePages: MetadataRoute.Sitemap = GUIDES.map((g) => ({
+    url: `${SITE_URL}/guides/${g.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
+  return [...core, ...toolPages, ...rolePages, ...blogPages, ...comparePages, ...guidePages];
 }

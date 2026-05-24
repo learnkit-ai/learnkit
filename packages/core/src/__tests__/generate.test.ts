@@ -76,6 +76,9 @@ describe('generateLearningPath', () => {
     'Founder',
     'Operations',
     'Researcher',
+    'Sales',
+    'Customer Success',
+    'Finance',
   ])('generates a valid four-week path for %s', (role) => {
     const path = generateLearningPath({ ...SAMPLE, role });
     expect(path.weeks).toHaveLength(4);
@@ -85,7 +88,7 @@ describe('generateLearningPath', () => {
   });
 
   it('generates different paths for different levels', () => {
-    const roles = ['Marketer', 'Founder', 'Operations', 'Researcher'];
+    const roles = ['Marketer', 'Founder', 'Operations', 'Researcher', 'Sales', 'Customer Success', 'Finance'];
     for (const role of roles) {
       const beg = generateLearningPath({ ...SAMPLE, role, level: 'beginner' });
       const adv = generateLearningPath({ ...SAMPLE, role, level: 'advanced' });

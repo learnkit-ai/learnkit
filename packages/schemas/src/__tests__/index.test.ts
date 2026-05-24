@@ -59,6 +59,7 @@ describe('LessonSchema', () => {
       tool: 'Claude',
       minutes: 12,
       kind: 'lesson' as const,
+      prerequisiteIds: [],
     };
     expect(LessonSchema.safeParse({ ...base, day: 0 }).success).toBe(false);
     expect(LessonSchema.safeParse({ ...base, day: 31 }).success).toBe(false);
@@ -94,6 +95,7 @@ describe('LearningPathSchema', () => {
           tool: 'Claude',
           minutes: 10,
           kind: 'lesson' as const,
+          prerequisiteIds: [],
         },
       ],
     });

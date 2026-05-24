@@ -74,6 +74,9 @@ export type LessonContent = z.infer<typeof LessonContentSchema>;
 export const LearningPathProgressSchema = z.object({
   pathId: z.string(),
   completedLessonIds: z.array(z.string()),
+  completedCount: z.number().int().min(0),
+  totalCount: z.number().int().min(0),
+  percentComplete: z.number().int().min(0).max(100),
   updatedAt: z.string().datetime(),
 });
 export type LearningPathProgress = z.infer<typeof LearningPathProgressSchema>;

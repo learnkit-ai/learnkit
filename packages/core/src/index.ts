@@ -5,6 +5,7 @@
 
 export { generateLearningPath } from './generate';
 export { generateLessonContent } from './lesson-content';
+export { computeProgress } from './progress';
 export {
   getSupportedRoles,
   isRoleSupported,

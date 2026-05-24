@@ -30,12 +30,27 @@ describe('LearningPath', () => {
     expect(screen.getByText(/Invalid LearningPathInput/)).toBeInTheDocument();
   });
 
-  it('renders without throwing for all three themes', () => {
-    const themes = ['warm', 'midnight', 'technical'] as const;
+  it('renders without throwing for all four themes', () => {
+    const themes = ['warm', 'midnight', 'technical', 'light'] as const;
     for (const theme of themes) {
       const { unmount } = render(<LearningPath input={INPUT} theme={theme} />);
       unmount();
     }
+  });
+
+  it('calls renderItem instead of the default LessonCard when provided', () => {
+    const rendered: string[] = [];
+    render(
+      <LearningPath
+        input={INPUT}
+        renderItem={(lesson) => {
+          rendered.push(lesson.id);
+          return <div data-testid={`custom-${lesson.id}`}>{lesson.title}</div>;
+        }}
+      />,
+    );
+    expect(rendered.length).toBe(12);
+    expect(screen.queryAllByRole('button')).toHaveLength(0);
   });
 
   it('shows lesson count summary line', () => {

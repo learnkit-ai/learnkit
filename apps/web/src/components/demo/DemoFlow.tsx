@@ -19,6 +19,9 @@ const ROLES = [
   'Founder',
   'Operations',
   'Researcher',
+  'Sales',
+  'Customer Success',
+  'Finance',
 ];
 
 const ALL_TOOLS = [
@@ -30,6 +33,11 @@ const ALL_TOOLS = [
   'Notion AI',
   'Perplexity',
   'Gemini',
+  'Windsurf',
+  'Replit',
+  'Linear',
+  'Figma AI',
+  'v0',
 ];
 
 const GOAL_SAMPLES = [
@@ -558,7 +566,7 @@ export function DemoFlow() {
               </>
             }
           >
-            <LessonPreview role={role} tools={tools} onBack={() => setStep(4)} />
+            <LessonPreview role={role} tools={tools} goal={goal} level={level} onBack={() => setStep(4)} />
           </StepShell>
         )}
       </div>

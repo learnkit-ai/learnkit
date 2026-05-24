@@ -4,6 +4,7 @@
  */
 
 export { generateLearningPath } from './generate';
+export { generateLessonContent } from './lesson-content';
 export {
   getSupportedRoles,
   isRoleSupported,
@@ -18,14 +19,22 @@ export {
   type SupportedTool,
 } from './tools';
 export {
+  ExerciseSchema,
   LearningPathInputSchema,
+  LearningPathProgressSchema,
   LearningPathSchema,
+  LessonContentSchema,
   LessonSchema,
   LevelSchema,
+  RubricItemSchema,
+  type Exercise,
   type LearningPath,
   type LearningPathInput,
+  type LearningPathProgress,
   type Lesson,
+  type LessonContent,
   type LessonKind,
   type Level,
+  type RubricItem,
   type Week,
 } from '@learnkit-ai/schemas';

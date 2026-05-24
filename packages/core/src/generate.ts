@@ -740,6 +740,252 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
     },
     GENERIC_WEEKS[3]!,
   ],
+
+  'Sales': [
+    {
+      title: 'Prospecting & outreach',
+      templates: [
+        {
+          title: () => 'Researching accounts at scale with AI',
+          summary: ({ tool }) =>
+            `Use ${tool} to build an account brief in minutes: company priorities, recent news, likely pain points, and a hook that is actually relevant to their world.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Writing cold outreach that gets replies',
+          summary: ({ tool }) =>
+            `Build a ${tool} prompt that generates personalised first-touch emails — not templates with [NAME] placeholders, but messages that reference what the buyer actually cares about.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: outbound sequence for one target segment',
+          summary: ({ tool, goal }) =>
+            `Build a full outbound sequence for one ICP segment using ${tool}: account research prompt, first-touch email, follow-up cadence, and a voicemail script. Goal: ${goal}.`,
+          minutes: 35,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Discovery & qualification',
+      templates: [
+        {
+          title: () => 'Preparing for discovery calls with AI',
+          summary: ({ tool }) =>
+            `Use ${tool} to generate a call prep brief: the five questions you must ask, the red flags to watch for, and a hypothesis about the buyer's top priority before you dial.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Turning call notes into structured CRM updates',
+          summary: ({ tool }) =>
+            `Paste raw call notes into ${tool} and get back a structured MEDDIC or BANT summary, next steps, and a draft follow-up email — in under 90 seconds.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-assisted deal qualification scorecard',
+          summary: ({ goal }) =>
+            `Build a deal qualification prompt that scores an opportunity against your ICP criteria and surfaces the one question you still need to answer. Goal: ${goal}.`,
+          minutes: 40,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Closing & follow-up',
+      templates: [
+        {
+          title: () => 'Writing proposals that move faster',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft proposal sections: executive summary, business case, and ROI model. Get a first draft that frames the value in the buyer's language, not yours.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Handling objections with AI-prepared responses',
+          summary: ({ tool }) =>
+            `Feed your most common objections into ${tool} and build a bank of responses with the evidence, the reframe, and the next question. Review and own every word before you use it.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: end-to-end deal support package',
+          summary: ({ goal }) =>
+            `Build a full deal support package for one active opportunity: account brief, discovery questions, objection bank, and a draft proposal intro — all AI-assisted. Goal: ${goal}.`,
+          minutes: 50,
+          kind: 'project',
+        },
+      ],
+    },
+    GENERIC_WEEKS[3]!,
+  ],
+
+  'Customer Success': [
+    {
+      title: 'Onboarding & activation',
+      templates: [
+        {
+          title: () => 'Building personalised onboarding plans with AI',
+          summary: ({ tool }) =>
+            `Use ${tool} to generate a customer-specific onboarding plan: milestones mapped to the customer's stated goals, the right sequence, and the first-week checklist that actually lands.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Writing success plans customers keep open',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft a success plan that speaks the customer's language, not your internal jargon. Define milestones in terms of outcomes the customer can measure, not features they will unlock.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-assisted onboarding kit',
+          summary: ({ tool, goal }) =>
+            `Build a reusable onboarding kit for one customer segment using ${tool}: welcome email, day-one checklist, 30-day success plan, and a champion enablement guide. Goal: ${goal}.`,
+          minutes: 35,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Health monitoring & churn prevention',
+      templates: [
+        {
+          title: () => 'Spotting churn signals in customer data',
+          summary: ({ tool }) =>
+            `Use ${tool} to analyse usage notes, support tickets, and sentiment from calls. Build a prompt that surfaces the one or two signals that precede churn in your accounts.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Writing at-risk outreach that re-engages',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft outreach for at-risk accounts: acknowledge the gap, offer a concrete next step, and avoid the "just checking in" trap. Test it on a real account before sending.`,
+          minutes: 14,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: customer health review workflow',
+          summary: ({ goal }) =>
+            `Build a monthly customer health review workflow: a prompt that turns account data into a one-page health summary with risk flags and recommended actions. Goal: ${goal}.`,
+          minutes: 45,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'QBRs, expansion & advocacy',
+      templates: [
+        {
+          title: () => 'Preparing QBR materials in half the time',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft the QBR narrative: what happened, what it means for the customer's goals, and what you recommend next — structured and editable before the meeting.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Identifying expansion opportunities in account data',
+          summary: ({ tool }) =>
+            `Use ${tool} to scan your account notes and identify gaps between what the customer is using and what they could be using — surfacing natural expansion conversations.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: QBR pack for one strategic account',
+          summary: ({ goal }) =>
+            `Build a full QBR pack for one account: executive summary, metrics narrative, risk and opportunity analysis, and the three things you want to leave the room having agreed on. Goal: ${goal}.`,
+          minutes: 50,
+          kind: 'project',
+        },
+      ],
+    },
+    GENERIC_WEEKS[3]!,
+  ],
+
+  'Finance': [
+    {
+      title: 'Analysis & modelling',
+      templates: [
+        {
+          title: () => 'Using AI to build and stress-test financial models',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft model structures, check formula logic, and document assumptions — so the model survives the next person who opens it, not just the person who built it.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Turning raw data into executive-ready analysis',
+          summary: ({ tool }) =>
+            `Give ${tool} a table of numbers and a business question. Get back the three-sentence story, the table that supports it, and the caveat the CFO will ask about — drafted in minutes.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: AI-assisted financial model documentation',
+          summary: ({ tool, goal }) =>
+            `Take a live model and use ${tool} to write a model guide: assumptions, sensitivities, data sources, and version history. Goal: ${goal}.`,
+          minutes: 35,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Reporting & forecasting',
+      templates: [
+        {
+          title: () => 'Building a repeatable monthly close narrative',
+          summary: ({ tool }) =>
+            `Use ${tool} to generate the monthly close narrative from your actuals vs budget data. Define the template once, feed it numbers each month, and get a first draft in minutes.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'AI-assisted variance analysis',
+          summary: ({ tool }) =>
+            `Use ${tool} to draft variance commentary: what drove the delta, whether it is a timing issue or a real miss, and what it implies for the rest of the year. Edit for accuracy, not for words.`,
+          minutes: 16,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: automated board reporting narrative',
+          summary: ({ goal }) =>
+            `Build a prompt that turns your monthly financial data into a board-ready narrative: headline performance, key variances, updated full-year outlook, and the one decision the board needs to make. Goal: ${goal}.`,
+          minutes: 45,
+          kind: 'project',
+        },
+      ],
+    },
+    {
+      title: 'Risk, compliance & FP&A',
+      templates: [
+        {
+          title: () => 'Using AI to flag risks in contracts and filings',
+          summary: ({ tool }) =>
+            `Use ${tool} to extract key obligations, risk clauses, and financial covenants from contracts or regulatory filings. Build a prompt that surfaces the items your team must act on.`,
+          minutes: 18,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'FP&A scenario modelling with AI',
+          summary: ({ tool }) =>
+            `Use ${tool} to generate and document multiple forecast scenarios: base, upside, and downside — each with the assumptions and the metric impacts written in language leadership can read.`,
+          minutes: 20,
+          kind: 'lesson',
+        },
+        {
+          title: () => 'Project: scenario analysis package',
+          summary: ({ goal }) =>
+            `Build a scenario analysis package for a live business decision: three scenarios, key assumptions, financial impact, and a recommendation memo — drafted with AI, validated by you. Goal: ${goal}.`,
+          minutes: 50,
+          kind: 'project',
+        },
+      ],
+    },
+    GENERIC_WEEKS[3]!,
+  ],
 };
 
 // ---------------------------------------------------------------------------

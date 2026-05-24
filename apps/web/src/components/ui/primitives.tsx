@@ -81,6 +81,11 @@ export function ToolIcon({ name, size = 22 }: { name: string; size?: number }) {
     'Notion AI': { bg: '#111', glyph: 'N' },
     Perplexity: { bg: '#1FB8CD', glyph: 'P' },
     Gemini: { bg: '#4285F4', glyph: '✦' },
+    Windsurf: { bg: '#0E7C7B', glyph: 'W' },
+    Replit: { bg: '#F26207', glyph: 'R' },
+    Linear: { bg: '#5E6AD2', glyph: 'L' },
+    'Figma AI': { bg: '#A259FF', glyph: 'F' },
+    v0: { bg: '#000', glyph: 'v' },
   };
   const t = map[name] ?? { bg: 'var(--ink)', glyph: name?.[0] ?? '·' };
   return (

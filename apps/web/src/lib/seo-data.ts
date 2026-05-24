@@ -98,6 +98,66 @@ export const TOOLS = [
     color: '#4285F4',
     keywords: ['gemini tutorial', 'learn google gemini', 'gemini api training'],
   },
+  {
+    slug: 'windsurf',
+    name: 'Windsurf',
+    vendor: 'Codeium',
+    tagline: 'Windsurf: the AI IDE that writes and reasons',
+    blurb:
+      'Flows, Cascade, and multi-file reasoning — Windsurf goes beyond autocomplete to understand your codebase and make decisions across files.',
+    modules: 5,
+    hours: 9,
+    color: '#0E7C7B',
+    keywords: ['windsurf ai ide', 'codeium windsurf tutorial', 'learn windsurf', 'windsurf cascade'],
+  },
+  {
+    slug: 'replit',
+    name: 'Replit',
+    vendor: 'Replit',
+    tagline: 'Replit AI: build and ship from the browser',
+    blurb:
+      'Replit Agent, Ghostwriter, and deployments — prototype, iterate, and ship full-stack apps without a local environment.',
+    modules: 4,
+    hours: 7,
+    color: '#F26207',
+    keywords: ['replit ai tutorial', 'replit agent training', 'learn replit', 'replit ghostwriter'],
+  },
+  {
+    slug: 'linear',
+    name: 'Linear',
+    vendor: 'Linear',
+    tagline: 'Linear with AI: ship faster without process overhead',
+    blurb:
+      'Linear\'s AI issue creation, triage, and workflow automation — so your team spends time building, not managing tickets.',
+    modules: 3,
+    hours: 5,
+    color: '#5E6AD2',
+    keywords: ['linear ai tutorial', 'linear project management ai', 'learn linear', 'linear automation'],
+  },
+  {
+    slug: 'figma-ai',
+    name: 'Figma AI',
+    vendor: 'Figma',
+    tagline: 'Figma AI for design teams that move fast',
+    blurb:
+      'First Draft, Auto Layout with AI, and Make Designs — use Figma\'s built-in AI features to explore more, polish faster, and stay in the file.',
+    modules: 4,
+    hours: 6,
+    color: '#A259FF',
+    keywords: ['figma ai tutorial', 'figma first draft', 'learn figma ai', 'figma make designs'],
+  },
+  {
+    slug: 'v0',
+    name: 'v0',
+    vendor: 'Vercel',
+    tagline: 'v0 by Vercel: generate production UI in seconds',
+    blurb:
+      'From text prompt to deployable React component — v0 turns design intent into working code you can edit, deploy, and own.',
+    modules: 3,
+    hours: 5,
+    color: '#000000',
+    keywords: ['v0 vercel tutorial', 'v0 ai ui generator', 'learn v0', 'vercel v0 components'],
+  },
 ] as const;
 
 export type ToolSlug = (typeof TOOLS)[number]['slug'];
@@ -214,6 +274,48 @@ export const ROLES = [
       'Reproducible research pipelines',
     ],
     tools: ['Claude', 'Perplexity', 'ChatGPT'],
+  },
+  {
+    slug: 'sales',
+    name: 'Sales',
+    tagline: 'AI training for Sales professionals',
+    blurb:
+      'Research accounts in minutes, write outreach that gets replies, and cut proposal time in half — without losing the human touch that closes deals.',
+    skills: [
+      'Account research and call prep at scale',
+      'Personalised outbound that does not sound like AI',
+      'CRM notes and follow-ups in under two minutes',
+      'Proposals and objection handling with AI drafts',
+    ],
+    tools: ['Claude', 'ChatGPT', 'Perplexity'],
+  },
+  {
+    slug: 'customer-success',
+    name: 'Customer Success',
+    tagline: 'AI training for Customer Success managers',
+    blurb:
+      'Spot churn before it happens, build onboarding plans in minutes, and run QBRs that actually lead to expansion.',
+    skills: [
+      'AI-assisted onboarding plans that fit each customer',
+      'Churn signal detection from account data and call notes',
+      'QBR prep and narrative in half the usual time',
+      'Expansion opportunity identification at scale',
+    ],
+    tools: ['Claude', 'ChatGPT', 'Notion AI'],
+  },
+  {
+    slug: 'finance',
+    name: 'Finance',
+    tagline: 'AI training for Finance professionals',
+    blurb:
+      'Turn raw numbers into board-ready narratives, automate variance commentary, and stress-test models before the CFO does.',
+    skills: [
+      'Financial model documentation and assumption logging',
+      'Variance commentary that writes itself from actuals',
+      'Scenario analysis packages leadership can act on',
+      'Risk and contract analysis without a legal review queue',
+    ],
+    tools: ['Claude', 'ChatGPT', 'Gemini'],
   },
 ] as const;
 

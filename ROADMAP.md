@@ -44,7 +44,7 @@ Core engine, React component, and public website shipped.
 - [x] More roles: Sales, Customer Success, Finance (11 total)
 - [x] `generateLessonContent(lesson)` — returns full lesson body, exercises, and rubric
 - [x] Lesson prerequisite graph — sequential `prerequisiteIds[]` on each lesson; ProgressTracker locks accordingly
-- [ ] `progress` field in `LearningPath` to track completed lessons
+- [x] `computeProgress(path, completedIds)` — returns `LearningPathProgress` with completedCount, totalCount, percentComplete
 
 ### React package
 - [x] `<ProgressTracker />` component — persists lesson completion state to localStorage; prerequisite-aware lesson locking
@@ -61,7 +61,7 @@ Core engine, React component, and public website shipped.
 ### Developer experience
 - [x] `@learnkit-ai/cli` — `npx @learnkit-ai/cli generate` outputs a JSON learning path
 - [ ] VS Code extension — sidebar learning path panel
-- [ ] Storybook for `@learnkit-ai/react` components
+- [x] Storybook for `@learnkit-ai/react` components — LessonCard, LearningPath, LessonDetail, ProgressTracker with all themes
 
 ---
 

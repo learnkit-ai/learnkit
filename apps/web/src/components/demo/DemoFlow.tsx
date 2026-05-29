@@ -133,7 +133,16 @@ export function DemoFlow() {
           borderBottom: '1px solid var(--rule)',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <a
+          href="/"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
+            textDecoration: 'none',
+            color: 'inherit',
+          }}
+        >
           <Wordmark size={20} />
           <span style={{ width: 1, height: 18, background: 'var(--rule-strong)' }} />
           <span
@@ -145,7 +154,7 @@ export function DemoFlow() {
           >
             build your path
           </span>
-        </div>
+        </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
         <span className="lk-demo-steps" style={{ display: 'inline-flex', alignItems: 'center', gap: 14 }}>
           {[0, 1, 2, 3, 4].map((i) => (

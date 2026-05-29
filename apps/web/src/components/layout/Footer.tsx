@@ -59,7 +59,9 @@ export function Footer() {
           }}
         >
           <div className="lk-footer-brand">
-            <Wordmark size={20} />
+            <a href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'inline-flex' }}>
+              <Wordmark size={20} />
+            </a>
             <p
               style={{
                 fontSize: 13,

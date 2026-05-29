@@ -62,7 +62,9 @@ export function Nav() {
         gap: open ? 0 : undefined,
       }}
     >
-      <Wordmark size={22} />
+      <a href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'inline-flex' }}>
+        <Wordmark size={22} />
+      </a>
 
       {/* Desktop links */}
       <div className="lk-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28, fontSize: 13.5, color: 'var(--ink-soft)' }}>

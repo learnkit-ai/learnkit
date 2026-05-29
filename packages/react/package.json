@@ -1,6 +1,6 @@
 {
   "name": "@learnkit-ai/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React components for embedding LearnKit AI learning paths in any React app.",
   "license": "Apache-2.0",
   "repository": {

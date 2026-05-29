@@ -1,6 +1,6 @@
 {
   "name": "@learnkit-ai/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Deterministic learning-path engine for LearnKit AI. Pure, no network, no LLM.",
   "license": "Apache-2.0",
   "repository": {
@@ -10,7 +10,14 @@
   },
   "homepage": "https://learnkit-ai.com",
   "bugs": "https://github.com/learnkit-ai/learnkit/issues",
-  "keywords": ["learnkit", "ai", "education", "curriculum", "learning-path", "typescript"],
+  "keywords": [
+    "learnkit",
+    "ai",
+    "education",
+    "curriculum",
+    "learning-path",
+    "typescript"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -24,7 +31,10 @@
       "default": "./src/index.ts"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "tsup",
     "lint": "tsc -p tsconfig.json --noEmit",

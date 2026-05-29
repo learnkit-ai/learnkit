@@ -1,0 +1,94 @@
+name: Release
+
+# Step 1 of 3: bump all package versions on a branch and open a PR.
+# Step 2 is tag-on-merge.yml — creates the git tag + GitHub Release when this PR lands.
+# Step 3 is publish.yml — publishes all packages to npm when the release is created.
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run CI checks
+        run: |
+          pnpm --filter @learnkit-ai/schemas typecheck
+          pnpm --filter @learnkit-ai/core typecheck
+          pnpm --filter @learnkit-ai/react typecheck
+          pnpm --filter @learnkit-ai/cli typecheck
+          pnpm --filter @learnkit-ai/schemas test
+          pnpm --filter @learnkit-ai/core test
+          pnpm --filter @learnkit-ai/react test
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump all package versions
+        id: bump
+        run: |
+          OLD=$(node -p "require('./packages/core/package.json').version")
+          node -e "
+            const fs = require('fs');
+            const semver = require('./node_modules/.pnpm/semver@*/node_modules/semver') || { inc: (v,t) => { const p=v.split('.').map(Number); if('${{ inputs.bump }}'==='major'){p[0]++;p[1]=0;p[2]=0}else if('${{ inputs.bump }}'==='minor'){p[1]++;p[2]=0}else{p[2]++};return p.join('.'); } };
+            const bump = '${{ inputs.bump }}';
+            const pkgs = ['packages/schemas/package.json','packages/core/package.json','packages/react/package.json','packages/cli/package.json'];
+            let newV;
+            pkgs.forEach(f => {
+              const p = JSON.parse(fs.readFileSync(f,'utf8'));
+              const parts = p.version.split('.').map(Number);
+              if(bump==='major'){parts[0]++;parts[1]=0;parts[2]=0}
+              else if(bump==='minor'){parts[1]++;parts[2]=0}
+              else{parts[2]++}
+              newV = parts.join('.');
+              p.version = newV;
+              fs.writeFileSync(f, JSON.stringify(p,null,2)+'\n');
+              console.log(f, newV);
+            });
+          "
+          NEW=$(node -p "require('./packages/core/package.json').version")
+          echo "old=$OLD" >> $GITHUB_OUTPUT
+          echo "new=$NEW" >> $GITHUB_OUTPUT
+
+      - name: Push branch and open PR
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="chore/bump-v${{ steps.bump.outputs.new }}"
+          git push origin --delete "$BRANCH" 2>/dev/null || true
+          git checkout -b "$BRANCH"
+          git add packages/schemas/package.json packages/core/package.json packages/react/package.json packages/cli/package.json
+          git commit -m "Bump version to ${{ steps.bump.outputs.new }}"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Bump version to ${{ steps.bump.outputs.new }}" \
+            --body "Automated version bump from \`${{ steps.bump.outputs.old }}\` to \`${{ steps.bump.outputs.new }}\`. Merging this PR will trigger tag creation and npm publish of all packages." \
+            --base main \
+            --head "$BRANCH"

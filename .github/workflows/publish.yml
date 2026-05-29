@@ -1,0 +1,60 @@
+name: Publish to npm
+
+# Step 3 of 3: fires when a GitHub Release is published (triggered by tag-on-merge.yml).
+# Publishes @learnkit-ai/schemas, @learnkit-ai/core, @learnkit-ai/react, @learnkit-ai/cli.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Tag or branch to publish (e.g. v0.1.2)'
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.ref }}
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: |
+          pnpm --filter @learnkit-ai/schemas build
+          pnpm --filter @learnkit-ai/core build
+          pnpm --filter @learnkit-ai/react build
+          pnpm --filter @learnkit-ai/cli build
+
+      - name: Run checks
+        run: |
+          pnpm --filter @learnkit-ai/schemas typecheck
+          pnpm --filter @learnkit-ai/core typecheck
+          pnpm --filter @learnkit-ai/react typecheck
+          pnpm --filter @learnkit-ai/schemas test
+          pnpm --filter @learnkit-ai/core test
+          pnpm --filter @learnkit-ai/react test
+
+      - name: Publish packages (schemas first, then dependents)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          pnpm --filter @learnkit-ai/schemas publish --no-git-checks --access public
+          pnpm --filter @learnkit-ai/core publish --no-git-checks --access public
+          pnpm --filter @learnkit-ai/react publish --no-git-checks --access public
+          pnpm --filter @learnkit-ai/cli publish --no-git-checks --access public

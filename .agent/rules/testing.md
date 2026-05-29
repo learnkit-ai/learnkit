@@ -15,22 +15,22 @@ packages/core/src/__tests__/generator.test.ts
 
 ## Writing tests
 
-- Test behavior, not implementation — assert what a function returns, not how it works internally
+- Test behavior, not implementation - assert what a function returns, not how it works internally
 - One logical assertion per test where possible
 - Test names describe the scenario in plain English:
   `it('returns a fallback path for an unsupported role')`
 - No `describe` nesting deeper than two levels
-- Prefer independent tests — avoid shared mutable state between tests
+- Prefer independent tests - avoid shared mutable state between tests
 - No `beforeAll`/`afterAll` unless there is no reasonable alternative
 
 ## Mocking
 
 - Mock only at system boundaries: HTTP, filesystem, clocks, external APIs
-- Never mock internal packages — import and use the real implementation
+- Never mock internal packages - import and use the real implementation
 - Never mock `@learnkit-ai/core` inside `@learnkit-ai/react` tests
 - Never mock `@learnkit-ai/schemas` anywhere
 
-## Required coverage — packages/core
+## Required coverage - packages/core
 
 These scenarios must have explicit tests:
 
@@ -42,7 +42,7 @@ These scenarios must have explicit tests:
 - Unknown/unsupported role returns a valid LearningPath (no throw, no undefined)
 - Output validates against `learningPathSchema` from @learnkit-ai/schemas
 
-## Required coverage — packages/schemas
+## Required coverage - packages/schemas
 
 - Each Zod schema accepts a known-valid object without error
 - Each Zod schema rejects a known-invalid object with a ZodError

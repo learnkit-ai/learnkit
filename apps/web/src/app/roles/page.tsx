@@ -6,14 +6,14 @@ import { Eyebrow } from '@/components/ui/primitives';
 import { ROLES, SITE_URL } from '@/lib/seo-data';
 
 export const metadata: Metadata = {
-  title: 'AI training by role — PMs, engineers, designers and more',
+  title: 'AI training by role - PMs, engineers, designers and more',
   description:
     'Role-mapped AI curricula for Product Managers, Software Engineers, Designers, Data Analysts and more. 30 days. Project-based. Reviewed by the AI Guide.',
   alternates: { canonical: '/roles' },
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/roles`,
-    title: 'AI training by role — LearnKit AI',
+    title: 'AI training by role - LearnKit AI',
     description:
       'Role-mapped AI curricula for every team. PMs, engineers, designers, analysts, marketers, founders, ops, researchers.',
   },

@@ -59,7 +59,7 @@ export function Proof() {
           >
             LearnKit AI is built in the open under Apache-2.0. The packages on npm, the
             marketing site you are reading right now, and the demo flow are all the same
-            source — clone it, fork it, run it locally, deploy it. No license keys, no SaaS
+            source - clone it, fork it, run it locally, deploy it. No license keys, no SaaS
             tier, no telemetry to disable.
           </p>
         </div>

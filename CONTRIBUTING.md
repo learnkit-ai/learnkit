@@ -16,7 +16,7 @@ Open [`http://localhost:3000`](http://localhost:3000) to see the marketing site,
 ## What we welcome
 
 - **Tool tracks.** Add a new tool to `packages/core/src/tools.ts` with a curriculum template in `packages/core/src/generate.ts`.
-- **Lesson improvements.** Edit `packages/core/src/generate.ts` — make the lessons sharper, more honest, more useful for the work people actually do.
+- **Lesson improvements.** Edit `packages/core/src/generate.ts` - make the lessons sharper, more honest, more useful for the work people actually do.
 - **Themes for `<LearningPath />`.** Add a new theme to `packages/react/src/LearningPath.tsx`.
 - **Components.** Extend `@learnkit-ai/react` with new primitives that fit the warm-academic + modern-product feel.
 - **Documentation.** Both the README and inline JSDoc.
@@ -40,15 +40,15 @@ Open [`http://localhost:3000`](http://localhost:3000) to see the marketing site,
    pnpm test
    pnpm lint
    ```
-5. **Open a PR.** Keep the description short and concrete — what changed and why. Link the issue.
+5. **Open a PR.** Keep the description short and concrete - what changed and why. Link the issue.
 6. **Be patient and kind in review.** We will be.
 
 ## Code style
 
 - **TypeScript strict mode.** No `any` without a comment explaining why.
-- **Named exports only** from packages — no `export default`.
-- **Zod schemas live in `packages/schemas`.** Types in packages are inferred from those schemas — no manual type duplication.
-- **No mocking internal packages** in tests — only mock at system boundaries.
+- **Named exports only** from packages - no `export default`.
+- **Zod schemas live in `packages/schemas`.** Types in packages are inferred from those schemas - no manual type duplication.
+- **No mocking internal packages** in tests - only mock at system boundaries.
 - **No comments that describe what the code does.** Only comments that explain *why* a non-obvious choice was made.
 - **Imperative commit messages**, no AI co-author trailers, no file lists in commit bodies.
 

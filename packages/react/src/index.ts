@@ -1,5 +1,5 @@
 /**
- * @learnkit-ai/react — React components for embedding LearnKit AI.
+ * @learnkit-ai/react - React components for embedding LearnKit AI.
  * Apache-2.0. https://learnkit-ai.com
  *
  * No Tailwind dependency. CSS custom properties only. Drop into any host theme.

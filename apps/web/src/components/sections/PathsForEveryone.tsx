@@ -24,7 +24,7 @@ const AUDIENCES: Audience[] = [
   {
     tag: 'For teams',
     title: 'Self-host the whole platform on your own infrastructure.',
-    copy: 'Clone the repo, deploy to your own infra, swap the lesson library for your stack. Apache-2.0 — no vendor lock-in.',
+    copy: 'Clone the repo, deploy to your own infra, swap the lesson library for your stack. Apache-2.0 - no vendor lock-in.',
     bullets: ['Role-mapped curricula', 'No tracking · no phone-home', 'Fork the eval rubrics'],
     cta: 'Self-host on GitHub',
     href: 'https://github.com/learnkit-ai/learnkit',

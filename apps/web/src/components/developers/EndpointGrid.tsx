@@ -87,7 +87,7 @@ export function EndpointGrid() {
           maxWidth: 680,
         }}
       >
-        Small, stable, and inferred from Zod. The shape of <code style={{ background: 'var(--paper-2)', padding: '1px 6px', borderRadius: 4, fontFamily: 'var(--mono)', fontSize: 13 }}>LearningPathInput</code> is a contract — it will not change without a major version bump.
+        Small, stable, and inferred from Zod. The shape of <code style={{ background: 'var(--paper-2)', padding: '1px 6px', borderRadius: 4, fontFamily: 'var(--mono)', fontSize: 13 }}>LearningPathInput</code> is a contract - it will not change without a major version bump.
       </p>
       <div
         className="lk-grid-3"

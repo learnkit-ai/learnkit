@@ -18,7 +18,7 @@ describe('generateLearningPath', () => {
     }
   });
 
-  it('is deterministic — same input always produces the same id and total minutes', () => {
+  it('is deterministic - same input always produces the same id and total minutes', () => {
     const a = generateLearningPath(SAMPLE);
     const b = generateLearningPath(SAMPLE);
     expect(a.id).toBe(b.id);

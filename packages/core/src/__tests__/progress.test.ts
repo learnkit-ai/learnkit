@@ -49,7 +49,7 @@ describe('computeProgress', () => {
     const path = generateLearningPath(INPUT);
     const firstId = path.weeks[0]!.lessons[0]!.id;
     const progress = computeProgress(path, [firstId, firstId]);
-    // Set filtering: only first occurrence is valid, second is duplicate — both valid but same ID
+    // Set filtering: only first occurrence is valid, second is duplicate - both valid but same ID
     expect(progress.completedLessonIds.filter((id) => id === firstId).length).toBeGreaterThanOrEqual(1);
   });
 

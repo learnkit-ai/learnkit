@@ -42,7 +42,7 @@ export function FinalCTA() {
             maxWidth: 480,
           }}
         >
-          90 seconds, no signup. Tell the AI Guide what you do — see your curriculum.
+          90 seconds, no signup. Tell the AI Guide what you do - see your curriculum.
         </p>
         <div
           style={{

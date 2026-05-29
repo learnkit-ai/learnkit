@@ -14,7 +14,7 @@ function buildBody(lesson: Lesson): string {
     return (
       `${summary}\n\n` +
       `This practicum is evaluated on the depth and honesty of your portfolio. ` +
-      `Submit three artifacts that show a complete workflow — from initial prompt to final output — along with your own commentary on what worked, what you edited, and why. ` +
+      `Submit three artifacts that show a complete workflow - from initial prompt to final output - along with your own commentary on what worked, what you edited, and why. ` +
       `The goal is not a polished showcase but an accurate record of how you think with ${tool}.`
     );
   }
@@ -22,7 +22,7 @@ function buildBody(lesson: Lesson): string {
   if (kind === 'project') {
     return (
       `${summary}\n\n` +
-      `Deliver a working output by the end of the week. Scope it so it is shareable — something a colleague could pick up and use without your explanation. ` +
+      `Deliver a working output by the end of the week. Scope it so it is shareable - something a colleague could pick up and use without your explanation. ` +
       `Document the prompt that produced it, the edits you made, and the one thing you would change with more time. ` +
       `Projects in this curriculum are designed to take approximately ${minutes} minutes including iteration.`
     );
@@ -45,10 +45,10 @@ function buildExercises(lesson: Lesson): Exercise[] {
       {
         prompt: `Draft an outline of the three portfolio artifacts you will submit. For each, describe the workflow it demonstrates, the tool used, and how you will evaluate its quality.`,
         expectedOutput: `A structured list of three artifacts, each with: title, tool, workflow description, and at least one measurable success criterion.`,
-        rubricHint: `Each artifact should target a distinct skill from the course — overlapping coverage is a sign the scope is too narrow.`,
+        rubricHint: `Each artifact should target a distinct skill from the course - overlapping coverage is a sign the scope is too narrow.`,
       },
       {
-        prompt: `Write the commentary for your strongest artifact. Explain what you prompted, what the model returned, and what edits you made — and why.`,
+        prompt: `Write the commentary for your strongest artifact. Explain what you prompted, what the model returned, and what edits you made - and why.`,
         expectedOutput: `A 200–400 word annotation covering: initial prompt, model output, edits made, and a reflection on the gap between the first draft and the final output.`,
         rubricHint: `Strong commentary explains decisions, not just actions. "I changed X because Y" beats "I edited the output."`,
       },
@@ -60,11 +60,11 @@ function buildExercises(lesson: Lesson): Exercise[] {
       {
         prompt: `Before starting the project, write a one-paragraph brief: what you are building, who it is for, and how you will know it is done.`,
         expectedOutput: `A project brief with: goal statement, intended audience, at least two success criteria, and a rough delivery timeline.`,
-        rubricHint: `Success criteria should be specific enough to evaluate objectively — "it works" does not count.`,
+        rubricHint: `Success criteria should be specific enough to evaluate objectively - "it works" does not count.`,
       },
       {
         prompt: `After completing the project, write a 3-bullet retrospective: what worked, what you would do differently, and what you learned about using ${tool} for this type of task.`,
-        expectedOutput: `Three concise bullet points covering retrospective observations. Each should reference a specific prompt decision or output — avoid vague statements like "it was useful."`,
+        expectedOutput: `Three concise bullet points covering retrospective observations. Each should reference a specific prompt decision or output - avoid vague statements like "it was useful."`,
         rubricHint: `Retrospectives that reference specific prompt decisions are stronger than general reflections.`,
       },
     ];
@@ -74,12 +74,12 @@ function buildExercises(lesson: Lesson): Exercise[] {
     {
       prompt: `Apply the technique from "${title}" to a real task from your own work. Document the prompt you used and the output you got.`,
       expectedOutput: `A before/after record: the task description, the ${tool} prompt you wrote, the output you received, and a one-sentence verdict on whether it met your standard.`,
-      rubricHint: `Use a real task, not a fabricated one — specificity makes the exercise useful to you and reviewable by others.`,
+      rubricHint: `Use a real task, not a fabricated one - specificity makes the exercise useful to you and reviewable by others.`,
     },
     {
       prompt: `Identify one way the technique from this lesson could fail in your context. Write a prompt that deliberately tries to trigger that failure, then write a revised prompt that prevents it.`,
       expectedOutput: `A failure-mode description, a prompt that demonstrates it, the problematic output, a revised prompt, and the improved output.`,
-      rubricHint: `Understanding failure modes is more transferable than demonstrating success — a reviewer can tell whether you actually tried to break it.`,
+      rubricHint: `Understanding failure modes is more transferable than demonstrating success - a reviewer can tell whether you actually tried to break it.`,
     },
   ];
 }
@@ -114,7 +114,7 @@ function buildRubric(lesson: Lesson): RubricItem[] {
       },
       {
         criterion: 'Prompt design',
-        excellent: `The prompt is structured, documented, and repeatable — someone else could run it and get consistent results.`,
+        excellent: `The prompt is structured, documented, and repeatable - someone else could run it and get consistent results.`,
         acceptable: `The prompt works but is not documented or is difficult to reproduce.`,
         needsWork: `Output was edited heavily to compensate for a weak prompt, without revisiting the prompt itself.`,
       },

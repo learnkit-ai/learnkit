@@ -17,7 +17,7 @@ export async function generateMetadata(
   const tool = TOOLS.find((t) => t.slug === slug);
   if (!tool) return {};
 
-  const title = `Learn ${tool.name} in 30 days — ${tool.vendor} training that ships`;
+  const title = `Learn ${tool.name} in 30 days - ${tool.vendor} training that ships`;
   const description = `${tool.tagline}. ${tool.modules} project-based modules, ~${tool.hours} hours, reviewed by the AI Guide. From beginner prompts to production agents.`;
 
   return {
@@ -41,10 +41,10 @@ export async function generateMetadata(
 }
 
 const CURRICULUM_PHASES = [
-  { phase: 'Week 1 — Fundamentals', count: 3 },
-  { phase: 'Week 2 — Workflows', count: 3 },
-  { phase: 'Week 3 — Production', count: 3 },
-  { phase: 'Week 4 — Practicum', count: 3 },
+  { phase: 'Week 1 - Fundamentals', count: 3 },
+  { phase: 'Week 2 - Workflows', count: 3 },
+  { phase: 'Week 3 - Production', count: 3 },
+  { phase: 'Week 4 - Practicum', count: 3 },
 ];
 
 export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -245,7 +245,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 },
                 {
                   h: 'AI Guide reviews your work',
-                  b: 'Your prompts get read, your agents get critiqued, and your evals get scored — by an LLM that knows what bad output looks like.',
+                  b: 'Your prompts get read, your agents get critiqued, and your evals get scored - by an LLM that knows what bad output looks like.',
                 },
                 {
                   h: `${tool.vendor}'s latest, kept current`,

@@ -6,14 +6,14 @@ import { Eyebrow, AmbientArc } from '@/components/ui/primitives';
 import { SITE_URL } from '@/lib/seo-data';
 
 export const metadata: Metadata = {
-  title: 'LearnKit AI for Teams — Embed AI learning across your org',
+  title: 'LearnKit AI for Teams - Embed AI learning across your org',
   description:
     'Role-mapped learning paths for every engineer, PM, designer, and data scientist on your team. Self-hosted, open source, no SSO contracts.',
   alternates: { canonical: '/teams' },
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/teams`,
-    title: 'LearnKit AI for Teams — Embed AI learning across your org',
+    title: 'LearnKit AI for Teams - Embed AI learning across your org',
     description:
       'Role-mapped learning paths for every engineer, PM, designer, and data scientist on your team. Open source, Apache-2.0.',
   },
@@ -34,7 +34,7 @@ const FEATURES = [
   },
   {
     t: 'Pure TypeScript, no lock-in',
-    d: 'generateLearningPath() is a pure function — no network, no LLM, no API keys. Clone it, fork it, change the lesson templates. Apache-2.0.',
+    d: 'generateLearningPath() is a pure function - no network, no LLM, no API keys. Clone it, fork it, change the lesson templates. Apache-2.0.',
   },
   {
     t: 'Every role covered out of the box',
@@ -42,7 +42,7 @@ const FEATURES = [
   },
   {
     t: 'Works where your team works',
-    d: 'Next.js, Vite, Remix, plain React. The packages ship as source TypeScript — no pre-build step required, bundle it with whatever you use.',
+    d: 'Next.js, Vite, Remix, plain React. The packages ship as source TypeScript - no pre-build step required, bundle it with whatever you use.',
   },
 ];
 
@@ -126,7 +126,7 @@ export default function TeamsPage() {
               }}
             >
               Make every team<br />
-              <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>good at AI</span> — in your own stack.
+              <span style={{ fontStyle: 'italic', color: 'var(--accent)' }}>good at AI</span> - in your own stack.
             </h1>
             <p
               style={{
@@ -138,7 +138,7 @@ export default function TeamsPage() {
               }}
             >
               Role-mapped curricula embedded directly in the tools your team already uses.
-              Self-hosted, Apache-2.0, no per-seat contract — ever.
+              Self-hosted, Apache-2.0, no per-seat contract - ever.
             </p>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <Link

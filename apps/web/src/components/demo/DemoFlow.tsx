@@ -263,7 +263,7 @@ export function DemoFlow() {
                 Which tools are <span style={{ fontStyle: 'italic' }}>already</span> in your stack?
               </>
             }
-            sub="Pick what you use today — even if you barely know how. The AI Guide will fill the gaps."
+            sub="Pick what you use today - even if you barely know how. The AI Guide will fill the gaps."
           >
             <div
               className="lk-demo-tools"
@@ -323,7 +323,7 @@ export function DemoFlow() {
                 );
               })}
             </div>
-            <OleHint>Got something else? The AI Guide covers 40+ tools — you can add the rest after signup.</OleHint>
+            <OleHint>Got something else? The AI Guide covers 40+ tools - you can add the rest after signup.</OleHint>
             <FlowFooter onBack={() => setStep(0)} onNext={advance} canNext={tools.length > 0} />
           </StepShell>
         )}
@@ -547,7 +547,7 @@ export function DemoFlow() {
                 Here&apos;s your <span style={{ fontStyle: 'italic' }}>30 days</span>.
               </>
             }
-            sub={`Tuned for a ${role} working with ${tools.join(' + ')}. Reorder, swap, or skip — it's yours.`}
+            sub={`Tuned for a ${role} working with ${tools.join(' + ')}. Reorder, swap, or skip - it's yours.`}
           >
             <CurriculumView
               tools={tools}

@@ -4,7 +4,7 @@ import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: '404 — Page not found · LearnKit AI',
+  title: '404 - Page not found · LearnKit AI',
 };
 
 export default function NotFound() {
@@ -58,7 +58,7 @@ export default function NotFound() {
             margin: '0 0 36px',
           }}
         >
-          The path you followed doesn&apos;t exist — but a learning path does. Try one of these instead.
+          The path you followed doesn&apos;t exist - but a learning path does. Try one of these instead.
         </p>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
           <Link

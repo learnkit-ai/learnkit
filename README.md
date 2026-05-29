@@ -1,7 +1,7 @@
 # LearnKit AI
 
 > The open-source AI workbench for teams that ship.
-> Generate personalized, role-aware learning paths for Claude, Cursor, ChatGPT and 40+ tools — and embed them in your product in 3 lines.
+> Generate personalized, role-aware learning paths for Claude, Cursor, ChatGPT and 40+ tools - and embed them in your product in 3 lines.
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-c8472a.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-2c5f8d.svg)](https://www.typescriptlang.org/)
@@ -9,7 +9,7 @@
 [![CI](https://github.com/learnkit-ai/learnkit/actions/workflows/ci.yml/badge.svg)](https://github.com/learnkit-ai/learnkit/actions/workflows/ci.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-6b8f6e.svg)](CONTRIBUTING.md)
 
-Most enterprise AI training is a video library nobody finishes. LearnKit AI is project-based: every lesson ends with a real prompt, agent, or workflow your team can ship that Friday — reviewed by the AI Guide.
+Most enterprise AI training is a video library nobody finishes. LearnKit AI is project-based: every lesson ends with a real prompt, agent, or workflow your team can ship that Friday - reviewed by the AI Guide.
 
 ```bash
 pnpm add @learnkit-ai/core @learnkit-ai/react
@@ -28,7 +28,7 @@ import { LearningPath } from '@learnkit-ai/react';
 />;
 ```
 
-That renders a four-week, twelve-lesson curriculum tuned to that role + stack + goal. No backend, no LLM call, no API key. The engine is deterministic — the same input always produces the same path.
+That renders a four-week, twelve-lesson curriculum tuned to that role + stack + goal. No backend, no LLM call, no API key. The engine is deterministic - the same input always produces the same path.
 
 ---
 
@@ -44,14 +44,14 @@ That renders a four-week, twelve-lesson curriculum tuned to that role + stack + 
 
 ## Features
 
-- **`generateLearningPath()`** — pure function, no network, fully deterministic
-- **`<LearningPath />`** — drop-in React component with three built-in themes (warm, midnight, technical)
-- **`<LessonCard />`** — primitive for custom layouts
-- **`<AIGuide />`** — embeddable AI tutor avatar + tip card
-- **`useLearnKit(input)`** — React hook for headless use
-- **Zod schemas** for everything — strict input validation and inferred types
-- **No Tailwind dependency** in `@learnkit-ai/react` — CSS custom properties only, drops into any host theme
-- **Apache-2.0** — fork it, ship it
+- **`generateLearningPath()`** - pure function, no network, fully deterministic
+- **`<LearningPath />`** - drop-in React component with three built-in themes (warm, midnight, technical)
+- **`<LessonCard />`** - primitive for custom layouts
+- **`<AIGuide />`** - embeddable AI tutor avatar + tip card
+- **`useLearnKit(input)`** - React hook for headless use
+- **Zod schemas** for everything - strict input validation and inferred types
+- **No Tailwind dependency** in `@learnkit-ai/react` - CSS custom properties only, drops into any host theme
+- **Apache-2.0** - fork it, ship it
 
 ## Quick start
 
@@ -180,11 +180,11 @@ pnpm lint         # lint all workspaces
 
 Issues, PRs, and discussions are welcome. Some great first contributions:
 
-- **Add a tool** — pick a tool from the [tracker issue](https://github.com/learnkit-ai/learnkit/issues), open a PR to `packages/core/src/tools.ts` with a curriculum template
+- **Add a tool** - pick a tool from the [tracker issue](https://github.com/learnkit-ai/learnkit/issues), open a PR to `packages/core/src/tools.ts` with a curriculum template
 - **Improve a lesson template** in `packages/core/src/generate.ts`
 - **Add a theme** to `<LearningPath />` in `packages/react/src/LearningPath.tsx`
 - **Write a blog post** in `apps/web/src/lib/blog-posts.ts`
-- **Translate the UI** — locales are wide open
+- **Translate the UI** - locales are wide open
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community expectations. Security issues: please follow [SECURITY.md](SECURITY.md).
 
@@ -196,11 +196,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and [CODE_OF_CONDUCT.md](C
 - [ ] v0.4: 40-tool curriculum library (currently 8)
 - [ ] v1: stable public API, full docs site, deployment recipes
 
-Nothing on the roadmap will be paid-only. The license is Apache-2.0 for the long haul — fork it, ship it, run it without us.
+Nothing on the roadmap will be paid-only. The license is Apache-2.0 for the long haul - fork it, ship it, run it without us.
 
 ## License
 
-[Apache-2.0](LICENSE). Use it, fork it, ship it — including commercially.
+[Apache-2.0](LICENSE). Use it, fork it, ship it - including commercially.
 
 ## Acknowledgements
 

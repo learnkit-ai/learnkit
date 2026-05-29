@@ -2,7 +2,7 @@
 Thanks for the PR! A few quick checks before submitting:
 
 - Read CONTRIBUTING.md if you haven't already
-- One logical change per PR — split unrelated work into separate PRs
+- One logical change per PR - split unrelated work into separate PRs
 - pnpm typecheck, pnpm test, pnpm lint should all pass locally
 -->
 

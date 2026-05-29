@@ -7,14 +7,14 @@ import { BLOG_POSTS } from '@/lib/blog-posts';
 import { SITE_URL } from '@/lib/seo-data';
 
 export const metadata: Metadata = {
-  title: 'Blog — LearnKit AI',
+  title: 'Blog - LearnKit AI',
   description:
     'Writing on AI pedagogy, engineering, and the LearnKit AI roadmap. Open-source. Published from the team building the workbench.',
   alternates: { canonical: '/blog' },
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/blog`,
-    title: 'LearnKit AI Blog — AI pedagogy and engineering',
+    title: 'LearnKit AI Blog - AI pedagogy and engineering',
     description:
       'Writing on AI pedagogy, engineering, and the LearnKit AI roadmap.',
   },

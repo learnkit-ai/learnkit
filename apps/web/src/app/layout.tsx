@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'LearnKit AI — Learn Claude, Cursor, ChatGPT by building real things',
+    default: 'LearnKit AI - Learn Claude, Cursor, ChatGPT by building real things',
     template: '%s · LearnKit AI',
   },
   description:
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://learnkit-ai.com/',
     siteName: 'LearnKit AI',
-    title: 'LearnKit AI — Learn Claude, Cursor, ChatGPT by building real things',
+    title: 'LearnKit AI - Learn Claude, Cursor, ChatGPT by building real things',
     description:
       'Adaptive 30-day learning paths for Claude, Cursor, ChatGPT and 40+ tools. Open source. Apache-2.0.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LearnKit AI — The AI workbench for teams that ship',
+    title: 'LearnKit AI - The AI workbench for teams that ship',
     description:
       'Adaptive 30-day learning paths for Claude, Cursor, ChatGPT and 40+ tools. Open source.',
     creator: '@learnkit_ai',

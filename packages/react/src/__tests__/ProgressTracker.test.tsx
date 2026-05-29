@@ -68,7 +68,7 @@ describe('ProgressTracker', () => {
   it('second lesson is locked until the first is complete', () => {
     render(<ProgressTracker input={INPUT} />);
     const buttons = screen.getAllByRole('button');
-    // Button at index 1 should be disabled (locked — prerequisites not met)
+    // Button at index 1 should be disabled (locked - prerequisites not met)
     expect(buttons[1]).toBeDisabled();
   });
 

@@ -1,4 +1,4 @@
-<!-- Generated from .agent/agent.md — do not edit directly.
+<!-- Generated from .agent/agent.md - do not edit directly.
      Run `npx @agent-anatomy/agent` to regenerate. -->
 
 # LearnKit AI
@@ -53,12 +53,12 @@ schemas ← core ← react ← apps/web
 ## Key invariants
 
 - `generateLearningPath()` is pure: no async, no network, no side effects
-- `LearningPathInput` shape is the public API contract — do not change without a major version bump
-- `packages/react` has no Tailwind dependency — CSS custom properties only
-- All TypeScript types in packages are inferred from Zod schemas — no manual type duplication
-- The demo at /demo runs entirely on @learnkit-ai/core — zero backend required
+- `LearningPathInput` shape is the public API contract - do not change without a major version bump
+- `packages/react` has no Tailwind dependency - CSS custom properties only
+- All TypeScript types in packages are inferred from Zod schemas - no manual type duplication
+- The demo at /demo runs entirely on @learnkit-ai/core - zero backend required
 
-## Public API — @learnkit-ai/core
+## Public API - @learnkit-ai/core
 
 ```typescript
 function generateLearningPath(input: LearningPathInput): LearningPath
@@ -79,7 +79,7 @@ Input type (LearningPathInput):
 }
 ```
 
-## Component API — @learnkit-ai/react
+## Component API - @learnkit-ai/react
 
 ```tsx
 <LearningPath input={LearningPathInput} onLessonClick? theme? className? />
@@ -114,16 +114,16 @@ no compliance badges (SOC 2, HIPAA, GDPR), no user or revenue metrics.
 ## Rules
 
 - No `any` without an explanatory comment
-- Named exports only from packages — no `export default` in packages/
+- Named exports only from packages - no `export default` in packages/
 - Co-locate tests: `foo.ts` → `__tests__/foo.test.ts`
-- No mocking internal packages in tests — only mock at system boundaries
+- No mocking internal packages in tests - only mock at system boundaries
 - All Zod schemas live in packages/schemas
-- Stage files by name — never `git add .` or `git add -A`
+- Stage files by name - never `git add .` or `git add -A`
 - Commit messages: imperative mood, no AI co-author lines, no file lists
 
 ## Do not touch
 
 - `pnpm-lock.yaml`
-- `packages/schemas/src/index.ts` types once stabilized — public API contract
+- `packages/schemas/src/index.ts` types once stabilized - public API contract
 - `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, `.windsurfrules`, `GEMINI.md`, `CONVENTIONS.md`
-  — generated from `.agent/agent.md`; edit there and re-sync
+  - generated from `.agent/agent.md`; edit there and re-sync

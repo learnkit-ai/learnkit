@@ -106,7 +106,7 @@ export function DeveloperHero() {
             }}
           >
             Embed the AI Guide in three lines. Run evals on your users&apos; work. Fork our
-            rubrics — the SDKs are open. Build adaptive learning into your product without
+            rubrics - the SDKs are open. Build adaptive learning into your product without
             writing the pedagogy yourself.
           </p>
           <div style={{ display: 'flex', gap: 12, marginBottom: 32, flexWrap: 'wrap' }}>

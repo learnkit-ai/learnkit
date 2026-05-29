@@ -15,7 +15,7 @@ may change freely.
 
 `LearningPathInput` is locked for v0:
 
-- Do not add required fields — it is a breaking change
+- Do not add required fields - it is a breaking change
 - Optional fields (`companyContext?`) may be added in minor versions
 - Renaming, removing, or changing the type of any field is a major version bump
 - Do not change the output shape of `generateLearningPath()` without a major bump
@@ -35,7 +35,7 @@ export type { LearningPath, LearningPathInput, Lesson }
 export default function generateLearningPath(...)
 ```
 
-Exception: Next.js App Router page components require `export default` — this
+Exception: Next.js App Router page components require `export default` - this
 applies only inside `apps/web/app/`.
 
 ## Zod schemas
@@ -49,10 +49,10 @@ applies only inside `apps/web/app/`.
 ## Error handling
 
 - `generateLearningPath()` never throws for input that passes Zod validation
-- Unknown or unsupported roles return a valid generic LearningPath — documented fallback,
+- Unknown or unsupported roles return a valid generic LearningPath - documented fallback,
   not an exception
-- Invalid input that fails Zod parse surfaces as `ZodError` — callers can catch it
-- No `console.error` in packages — surface errors to the caller
+- Invalid input that fails Zod parse surfaces as `ZodError` - callers can catch it
+- No `console.error` in packages - surface errors to the caller
 
 ## Versioning
 

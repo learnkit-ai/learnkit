@@ -1,5 +1,5 @@
 /**
- * @learnkit-ai/core — Deterministic learning-path engine.
+ * @learnkit-ai/core - Deterministic learning-path engine.
  * Apache-2.0. https://learnkit-ai.com
  */
 

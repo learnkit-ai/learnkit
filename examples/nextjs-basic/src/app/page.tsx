@@ -12,7 +12,7 @@ export default function Home() {
 
       <div style={{ marginBottom: 32 }}>
         <AIGuide
-          message="Try changing the role, tools, or goal in src/app/page.tsx — the path updates on save."
+          message="Try changing the role, tools, or goal in src/app/page.tsx - the path updates on save."
         />
       </div>
 

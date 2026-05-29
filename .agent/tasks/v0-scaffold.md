@@ -11,7 +11,7 @@ Bootstrap the monorepo and implement `packages/schemas`, `packages/core`, and `p
 
 Task 1 of 2. `v0-landing-demo` depends on this completing first.
 Stabilize types in `packages/schemas` before writing `packages/core`.
-The `LearningPathInput` shape is the public API contract — do not change it
+The `LearningPathInput` shape is the public API contract - do not change it
 after tests pass without opening a discussion.
 
 Read `.agent/agent.md` and `.agent/rules/` before starting.
@@ -30,7 +30,7 @@ packages:
   - 'examples/*'
 ```
 
-**`turbo.json`** — pipelines for `dev`, `build`, `lint`, `typecheck`, `test`
+**`turbo.json`** - pipelines for `dev`, `build`, `lint`, `typecheck`, `test`
 with correct dependency ordering (`build` depends on upstream `build`, etc.)
 
 **`tsconfig.base.json`**
@@ -50,7 +50,7 @@ with correct dependency ordering (`build` depends on upstream `build`, etc.)
 }
 ```
 
-**`package.json`** — root scripts:
+**`package.json`** - root scripts:
 ```json
 {
   "scripts": {
@@ -63,7 +63,7 @@ with correct dependency ordering (`build` depends on upstream `build`, etc.)
 }
 ```
 
-**`.env.example`** — single comment: `# No environment variables required for v0`
+**`.env.example`** - single comment: `# No environment variables required for v0`
 
 ### 2. packages/schemas
 
@@ -121,7 +121,7 @@ Add `src/__tests__/schemas.test.ts`:
 Package name: `@learnkit-ai/core`
 Dependencies: `@learnkit-ai/schemas`
 
-**`src/templates.ts`** — define 5 role templates.
+**`src/templates.ts`** - define 5 role templates.
 Each template is a function `(input: LearningPathInput) => { title, summary, durationDays, lessons, outcomes }`.
 Use `input.tools` to mention actual tools in lesson copy.
 Use `input.level` to adjust difficulty labels and practice complexity.
@@ -134,7 +134,7 @@ Supported roles (case-insensitive match):
 - `data analyst`
 
 Each template must produce at least 4 lessons.
-Fallback for unknown roles: return a generic "AI Fundamentals" path — no throw.
+Fallback for unknown roles: return a generic "AI Fundamentals" path - no throw.
 
 **`src/generator.ts`**
 
@@ -156,8 +156,8 @@ export function getSupportedTools(): string[] { ... }
 export function isRoleSupported(role: string): boolean { ... }
 ```
 
-`deterministicId`: hash of `role + tools.sort().join() + goal + level` — no random, no uuid.
-Use a simple deterministic hash (e.g. djb2) — no crypto dependency needed.
+`deterministicId`: hash of `role + tools.sort().join() + goal + level` - no random, no uuid.
+Use a simple deterministic hash (e.g. djb2) - no crypto dependency needed.
 
 **`src/__tests__/generator.test.ts`** must cover:
 - `generateLearningPath()` returns a valid `LearningPath` for all 5 roles
@@ -173,7 +173,7 @@ Package name: `@learnkit-ai/react`
 Peer dependencies: `react >=18`, `react-dom >=18`
 Dependencies: `@learnkit-ai/core`, `@learnkit-ai/schemas`
 
-**`src/tokens.css`** — CSS custom properties, warm theme:
+**`src/tokens.css`** - CSS custom properties, warm theme:
 
 ```css
 :root {
@@ -208,19 +208,19 @@ Dependencies: `@learnkit-ai/core`, `@learnkit-ai/schemas`
 **Components:**
 
 `<LearningPath input theme? className? onLessonClick? />`
-— calls `generateLearningPath(input)` internally, renders path title, summary,
+- calls `generateLearningPath(input)` internally, renders path title, summary,
 outcomes list, and a `<LessonCard />` for each lesson.
 
 `<LessonCard lesson status? onClick? className? />`
-— renders lesson title, duration, difficulty badge, why, and practice prompt.
+- renders lesson title, duration, difficulty badge, why, and practice prompt.
 `status` controls a visual indicator: `pending` | `active` | `complete`.
 
 `<AIGuide message animated? size? />`
-— avatar + message bubble. Avatar is a small circle with warm gradient
+- avatar + message bubble. Avatar is a small circle with warm gradient
 and a subtle face glyph (SVG). No "Olé" text anywhere.
 
 `useLearnKit(input: LearningPathInput)`
-— calls `generateLearningPath(input)` synchronously, wraps in state.
+- calls `generateLearningPath(input)` synchronously, wraps in state.
 Returns `{ path: LearningPath | null, loading: boolean, error: Error | null }`.
 `loading` is always `false` in v0 (synchronous call).
 
@@ -243,7 +243,7 @@ Styling rules:
 
 - [ ] `pnpm install` completes without errors
 - [ ] `pnpm typecheck` clean across all packages
-- [ ] `pnpm test` passes — all Vitest tests green
+- [ ] `pnpm test` passes - all Vitest tests green
 - [ ] `generateLearningPath({ role: 'Product Manager', tools: ['Cursor'], goal: 'ship AI features', level: 'beginner' })` returns a typed `LearningPath` at runtime
 - [ ] Output of above call validates against `learningPathSchema.parse()`
 - [ ] `grep -r "any" packages/core/src packages/schemas/src` shows zero untagged `any` types
@@ -256,6 +256,6 @@ Styling rules:
 - Add `async` to `generateLearningPath()`
 - Add any LLM API calls
 - Add Tailwind to `packages/react`
-- Write manual TypeScript types — infer from Zod schemas only
-- Use `uuid` or `crypto.randomUUID()` for IDs — use deterministic hash
+- Write manual TypeScript types - infer from Zod schemas only
+- Use `uuid` or `crypto.randomUUID()` for IDs - use deterministic hash
 - Change `LearningPathInput` shape after tests pass

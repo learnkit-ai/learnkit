@@ -50,12 +50,12 @@ schemas ← core ← react ← apps/web
 ## Key invariants
 
 - `generateLearningPath()` is pure: no async, no network, no side effects
-- `LearningPathInput` shape is the public API contract — do not change without a major version bump
-- `packages/react` has no Tailwind dependency — CSS custom properties only
-- All TypeScript types in packages are inferred from Zod schemas — no manual type duplication
-- The demo at /demo runs entirely on @learnkit-ai/core — zero backend required
+- `LearningPathInput` shape is the public API contract - do not change without a major version bump
+- `packages/react` has no Tailwind dependency - CSS custom properties only
+- All TypeScript types in packages are inferred from Zod schemas - no manual type duplication
+- The demo at /demo runs entirely on @learnkit-ai/core - zero backend required
 
-## Public API — @learnkit-ai/core
+## Public API - @learnkit-ai/core
 
 ```typescript
 function generateLearningPath(input: LearningPathInput): LearningPath
@@ -76,7 +76,7 @@ Input type (LearningPathInput):
 }
 ```
 
-## Component API — @learnkit-ai/react
+## Component API - @learnkit-ai/react
 
 ```tsx
 <LearningPath input={LearningPathInput} onLessonClick? theme? className? />
@@ -97,16 +97,16 @@ useLearnKit(input: LearningPathInput): { path, loading, error }
 No fake social proof: no customer logos, no testimonials, no GitHub star counts,
 no compliance badges (SOC 2, HIPAA, GDPR), no user or revenue metrics.
 
-## Out of scope (project is pure OSS — no hosted SaaS)
+## Out of scope (project is pure OSS - no hosted SaaS)
 
 - Any backend server (NestJS, Express, Hono, or any HTTP server)
 - Any database (Prisma, Postgres, SQLite, or any persistence layer)
 - Authentication of any kind
-- Billing or pricing of any kind — Apache-2.0, no paid tier, ever
+- Billing or pricing of any kind - Apache-2.0, no paid tier, ever
 - Real LLM API calls (Anthropic, OpenAI, Gemini, or any LLM provider)
 - Docker or docker-compose
 - Team dashboard, HR analytics, SSO, SCIM
-- A hosted REST API (`apps/api`) — the engine is client-side only
+- A hosted REST API (`apps/api`) - the engine is client-side only
 - Tracking, analytics, telemetry, phone-home
 
 ## Rules
@@ -114,19 +114,19 @@ no compliance badges (SOC 2, HIPAA, GDPR), no user or revenue metrics.
 See `.agent/rules/` for full conventions. Short version:
 
 - No `any` without an explanatory comment
-- Named exports only from packages — no `export default` in packages/
+- Named exports only from packages - no `export default` in packages/
 - Co-locate tests: `foo.ts` → `__tests__/foo.test.ts`
-- No mocking internal packages in tests — only mock at system boundaries
+- No mocking internal packages in tests - only mock at system boundaries
 - All Zod schemas live in packages/schemas
-- Stage files by name — never `git add .` or `git add -A`
+- Stage files by name - never `git add .` or `git add -A`
 - Commit messages: imperative mood, no AI co-author lines, no file lists
 
 ## Do not touch
 
 - `pnpm-lock.yaml`
-- `packages/schemas/src/index.ts` types once stabilized — they are the public API contract
+- `packages/schemas/src/index.ts` types once stabilized - they are the public API contract
 - `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, `.windsurfrules`, `GEMINI.md`, `CONVENTIONS.md`
-  — these are generated from this file; edit here and re-sync
+  - these are generated from this file; edit here and re-sync
 
 ## Agent config sync
 

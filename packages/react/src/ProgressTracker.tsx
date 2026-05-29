@@ -33,7 +33,7 @@ function writeStorage(key: string, ids: Set<string>): void {
   try {
     window.localStorage.setItem(key, JSON.stringify([...ids]));
   } catch {
-    // localStorage unavailable — progress not persisted
+    // localStorage unavailable - progress not persisted
   }
 }
 

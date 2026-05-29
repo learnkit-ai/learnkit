@@ -21,7 +21,7 @@ export const GUIDES: GuidePage[] = [
     title: 'Embed LearnKit AI in a Next.js app',
     tagline: 'A step-by-step guide to adding role-aware learning paths to your Next.js product',
     intro:
-      'LearnKit AI is designed to drop into any SaaS product. This guide shows you the minimal integration: install the packages, render a learning path, and wire up the interactive demo — in under 30 minutes.',
+      'LearnKit AI is designed to drop into any SaaS product. This guide shows you the minimal integration: install the packages, render a learning path, and wire up the interactive demo - in under 30 minutes.',
     readingMinutes: 8,
     sections: [
       {
@@ -54,7 +54,7 @@ export function MyOnboarding() {
       },
       {
         heading: 'Use the hook for custom rendering',
-        body: 'If you want to build your own lesson UI, use the useLearnKit hook directly. It returns the full LearningPath object — all four weeks, every lesson, total minutes — which you can render however you like.',
+        body: 'If you want to build your own lesson UI, use the useLearnKit hook directly. It returns the full LearningPath object - all four weeks, every lesson, total minutes - which you can render however you like.',
         code: `import { useLearnKit } from '@learnkit-ai/react';
 
 export function CustomPath({ role }: { role: string }) {
@@ -71,7 +71,7 @@ export function CustomPath({ role }: { role: string }) {
   return (
     <ul>
       {path.weeks.flatMap((w) => w.lessons).map((l) => (
-        <li key={l.id}>{l.title} — {l.minutes}m</li>
+        <li key={l.id}>{l.title} - {l.minutes}m</li>
       ))}
     </ul>
   );
@@ -100,7 +100,7 @@ export function OnboardingWithProgress() {
       },
       {
         heading: 'Pass a companyContext for personalised paths',
-        body: 'The optional companyContext field (max 500 chars) lets you inject stack and team information. The engine uses it to personalise project lesson summaries — no AI call required.',
+        body: 'The optional companyContext field (max 500 chars) lets you inject stack and team information. The engine uses it to personalise project lesson summaries - no AI call required.',
         code: `<LearningPath
   input={{
     role: 'Software Engineer',
@@ -125,7 +125,7 @@ export function OnboardingWithProgress() {
     title: 'Theming and custom styles',
     tagline: 'Use CSS custom properties to match LearnKit AI to any host design system',
     intro:
-      'LearnKit AI components use CSS custom properties for every visual decision — colour, typography, spacing. This means you can override any part of the default theme by setting variables on a wrapper element, without writing component-specific CSS.',
+      'LearnKit AI components use CSS custom properties for every visual decision - colour, typography, spacing. This means you can override any part of the default theme by setting variables on a wrapper element, without writing component-specific CSS.',
     readingMinutes: 6,
     sections: [
       {
@@ -191,7 +191,7 @@ export function OnboardingWithProgress() {
     title: 'Building with the LearnKit AI CLI',
     tagline: 'Use the CLI to generate learning paths in scripts, pipelines, and development workflows',
     intro:
-      'The @learnkit-ai/cli package gives you the full generateLearningPath engine on the command line. Use it to prototype paths, inspect curricula, and pipe structured JSON into your own tooling — all without writing any code.',
+      'The @learnkit-ai/cli package gives you the full generateLearningPath engine on the command line. Use it to prototype paths, inspect curricula, and pipe structured JSON into your own tooling - all without writing any code.',
     readingMinutes: 5,
     sections: [
       {
@@ -256,12 +256,12 @@ learnkit-ai tools`,
     title: 'Generating full lesson content',
     tagline: 'Use generateLessonContent to produce exercises, rubrics, and lesson bodies',
     intro:
-      'Every lesson in a LearnKit AI path includes a title, summary, tool, and duration. The generateLessonContent function expands any lesson into a full body text, two exercises, and a rubric — all deterministic, all pure, no API calls.',
+      'Every lesson in a LearnKit AI path includes a title, summary, tool, and duration. The generateLessonContent function expands any lesson into a full body text, two exercises, and a rubric - all deterministic, all pure, no API calls.',
     readingMinutes: 5,
     sections: [
       {
         heading: 'Import and call the function',
-        body: 'generateLessonContent takes a Lesson object (from generateLearningPath) and returns a LessonContent object. It is synchronous and pure — the same lesson always returns the same content.',
+        body: 'generateLessonContent takes a Lesson object (from generateLearningPath) and returns a LessonContent object. It is synchronous and pure - the same lesson always returns the same content.',
         code: `import { generateLearningPath, generateLessonContent } from '@learnkit-ai/core';
 
 const path = generateLearningPath({

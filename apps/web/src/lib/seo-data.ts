@@ -6,7 +6,7 @@ export const TOOLS = [
     slug: 'claude',
     name: 'Claude',
     vendor: 'Anthropic',
-    tagline: 'Master Anthropic Claude — prompting, agents, evals',
+    tagline: 'Master Anthropic Claude - prompting, agents, evals',
     blurb:
       'A 30-day project-based path through Claude\'s prompting model, tool use, structured output, and production evals. Reviewed by the AI Guide.',
     modules: 8,
@@ -20,7 +20,7 @@ export const TOOLS = [
     vendor: 'Anysphere',
     tagline: 'Cursor for engineers shipping alone',
     blurb:
-      'Build a complete Cursor workflow — composer, agents, rules files, and codebase indexing — through real refactors of real code.',
+      'Build a complete Cursor workflow - composer, agents, rules files, and codebase indexing - through real refactors of real code.',
     modules: 5,
     hours: 9,
     color: '#000000',
@@ -80,7 +80,7 @@ export const TOOLS = [
     vendor: 'Perplexity AI',
     tagline: 'Perplexity for research that cites its sources',
     blurb:
-      'Focus modes, Pro Search, collections, and Spaces — set up Perplexity as your research workbench, not just a search box.',
+      'Focus modes, Pro Search, collections, and Spaces - set up Perplexity as your research workbench, not just a search box.',
     modules: 3,
     hours: 4,
     color: '#1FB8CD',
@@ -104,7 +104,7 @@ export const TOOLS = [
     vendor: 'Codeium',
     tagline: 'Windsurf: the AI IDE that writes and reasons',
     blurb:
-      'Flows, Cascade, and multi-file reasoning — Windsurf goes beyond autocomplete to understand your codebase and make decisions across files.',
+      'Flows, Cascade, and multi-file reasoning - Windsurf goes beyond autocomplete to understand your codebase and make decisions across files.',
     modules: 5,
     hours: 9,
     color: '#0E7C7B',
@@ -116,7 +116,7 @@ export const TOOLS = [
     vendor: 'Replit',
     tagline: 'Replit AI: build and ship from the browser',
     blurb:
-      'Replit Agent, Ghostwriter, and deployments — prototype, iterate, and ship full-stack apps without a local environment.',
+      'Replit Agent, Ghostwriter, and deployments - prototype, iterate, and ship full-stack apps without a local environment.',
     modules: 4,
     hours: 7,
     color: '#F26207',
@@ -128,7 +128,7 @@ export const TOOLS = [
     vendor: 'Linear',
     tagline: 'Linear with AI: ship faster without process overhead',
     blurb:
-      'Linear\'s AI issue creation, triage, and workflow automation — so your team spends time building, not managing tickets.',
+      'Linear\'s AI issue creation, triage, and workflow automation - so your team spends time building, not managing tickets.',
     modules: 3,
     hours: 5,
     color: '#5E6AD2',
@@ -140,7 +140,7 @@ export const TOOLS = [
     vendor: 'Figma',
     tagline: 'Figma AI for design teams that move fast',
     blurb:
-      'First Draft, Auto Layout with AI, and Make Designs — use Figma\'s built-in AI features to explore more, polish faster, and stay in the file.',
+      'First Draft, Auto Layout with AI, and Make Designs - use Figma\'s built-in AI features to explore more, polish faster, and stay in the file.',
     modules: 4,
     hours: 6,
     color: '#A259FF',
@@ -152,7 +152,7 @@ export const TOOLS = [
     vendor: 'Vercel',
     tagline: 'v0 by Vercel: generate production UI in seconds',
     blurb:
-      'From text prompt to deployable React component — v0 turns design intent into working code you can edit, deploy, and own.',
+      'From text prompt to deployable React component - v0 turns design intent into working code you can edit, deploy, and own.',
     modules: 3,
     hours: 5,
     color: '#000000',
@@ -182,7 +182,7 @@ export const ROLES = [
     name: 'Software Engineer',
     tagline: 'AI training for Software Engineers',
     blurb:
-      'From Copilot autocomplete to shipping production agents — refactor faster, write better tests, and build agentic features your team can trust.',
+      'From Copilot autocomplete to shipping production agents - refactor faster, write better tests, and build agentic features your team can trust.',
     skills: [
       'Cursor workflows for shipping features alone',
       'Building agents with tool use and structured output',
@@ -210,7 +210,7 @@ export const ROLES = [
     name: 'Data Analyst',
     tagline: 'AI training for Data Analysts',
     blurb:
-      'Code Interpreter, Claude with files, and Gemini for long-context analysis — move from ad-hoc queries to repeatable analytic pipelines.',
+      'Code Interpreter, Claude with files, and Gemini for long-context analysis - move from ad-hoc queries to repeatable analytic pipelines.',
     skills: [
       'Building analyses with Code Interpreter',
       'Long-context PDF and CSV analysis with Claude',
@@ -238,7 +238,7 @@ export const ROLES = [
     name: 'Founder',
     tagline: 'AI training for Founders',
     blurb:
-      'Replace whole functions with AI workflows. Ship product, marketing, ops, and finance from one workbench — until you hire.',
+      'Replace whole functions with AI workflows. Ship product, marketing, ops, and finance from one workbench - until you hire.',
     skills: [
       'Cursor for shipping product without engineers',
       'Investor updates and decks that take an hour',
@@ -252,7 +252,7 @@ export const ROLES = [
     name: 'Operations',
     tagline: 'AI training for Operations',
     blurb:
-      'Automate the boring parts of running the business — vendor management, contracts, reporting, onboarding — without buying ten SaaS tools.',
+      'Automate the boring parts of running the business - vendor management, contracts, reporting, onboarding - without buying ten SaaS tools.',
     skills: [
       'Document workflows with AI extraction',
       'Vendor and contract analysis pipelines',
@@ -280,7 +280,7 @@ export const ROLES = [
     name: 'Sales',
     tagline: 'AI training for Sales professionals',
     blurb:
-      'Research accounts in minutes, write outreach that gets replies, and cut proposal time in half — without losing the human touch that closes deals.',
+      'Research accounts in minutes, write outreach that gets replies, and cut proposal time in half - without losing the human touch that closes deals.',
     skills: [
       'Account research and call prep at scale',
       'Personalised outbound that does not sound like AI',

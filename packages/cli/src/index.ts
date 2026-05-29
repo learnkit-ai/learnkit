@@ -2,7 +2,7 @@ import { parseArgs } from 'node:util';
 import { generateLearningPath, getSupportedRoles, getSupportedTools } from '@learnkit-ai/core';
 
 const HELP = `
-@learnkit-ai/cli — generate AI learning paths from the terminal
+@learnkit-ai/cli - generate AI learning paths from the terminal
 
 Usage:
   npx @learnkit-ai/cli generate [options]
@@ -99,7 +99,7 @@ function cmdGenerate(argv: string[]): void {
 
   // Pretty-print
   const hr = '─'.repeat(60);
-  process.stdout.write(`\n  LearnKit AI — 30-day learning path\n`);
+  process.stdout.write(`\n  LearnKit AI - 30-day learning path\n`);
   process.stdout.write(`  Role: ${path.input.role}  ·  Level: ${path.input.level}  ·  ${path.totalMinutes} min total\n`);
   process.stdout.write(`  Goal: ${path.input.goal}\n`);
   if (path.input.companyContext) {
@@ -109,7 +109,7 @@ function cmdGenerate(argv: string[]): void {
 
   for (const week of path.weeks) {
     process.stdout.write(`  ${hr}\n`);
-    process.stdout.write(`  Week ${week.index} — ${week.title}\n`);
+    process.stdout.write(`  Week ${week.index} - ${week.title}\n`);
     process.stdout.write(`  ${hr}\n`);
     for (const lesson of week.lessons) {
       const kindTag = lesson.kind === 'project' ? '[PROJECT]' : lesson.kind === 'practicum' ? '[PRACTICUM]' : '[LESSON]';

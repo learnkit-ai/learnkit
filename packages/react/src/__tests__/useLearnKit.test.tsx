@@ -36,7 +36,7 @@ describe('useLearnKit', () => {
     expect(result.current.path).toBeNull();
   });
 
-  it('is deterministic — same input returns identical path id', () => {
+  it('is deterministic - same input returns identical path id', () => {
     const { result: a } = renderHook(() => useLearnKit(INPUT));
     const { result: b } = renderHook(() => useLearnKit({ ...INPUT }));
     expect(a.current.path?.id).toBe(b.current.path?.id);

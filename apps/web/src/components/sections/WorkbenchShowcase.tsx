@@ -147,7 +147,7 @@ function WorkbenchMock() {
               overflow: 'hidden',
             }}
           >
-            <div style={{ color: 'rgba(244,239,227,0.4)' }}># System prompt — research analyst</div>
+            <div style={{ color: 'rgba(244,239,227,0.4)' }}># System prompt - research analyst</div>
             <div style={{ marginTop: 8 }}>
               You are a{' '}
               <span style={{ color: 'var(--accent-2)' }}>senior research analyst</span> at a
@@ -208,7 +208,7 @@ function WorkbenchMock() {
                   AI Guide
                 </strong>
               </div>
-              Add a refusal clause — last week your agent invented a citation when it
+              Add a refusal clause - last week your agent invented a citation when it
               couldn&apos;t find one.
             </div>
           </div>

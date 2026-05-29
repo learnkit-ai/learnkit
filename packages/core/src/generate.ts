@@ -30,7 +30,7 @@ const GENERIC_WEEKS: WeekDef[] = [
       {
         title: () => 'Your first system prompt',
         summary: ({ tool, role }) =>
-          `Write a system prompt for ${tool} that gives it a persona, a process, and constraints — tuned for the day-to-day work of a ${role}.`,
+          `Write a system prompt for ${tool} that gives it a persona, a process, and constraints - tuned for the day-to-day work of a ${role}.`,
         minutes: 12,
         kind: 'lesson',
       },
@@ -44,7 +44,7 @@ const GENERIC_WEEKS: WeekDef[] = [
       {
         title: ({ role }) => `Project: redesign a ${role.toLowerCase()} workflow`,
         summary: ({ tool, goal }) =>
-          `Pick one task you do every day. Turn it into a repeatable ${tool} prompt or workflow. Ship it before Friday — aimed at: ${goal}.`,
+          `Pick one task you do every day. Turn it into a repeatable ${tool} prompt or workflow. Ship it before Friday - aimed at: ${goal}.`,
         minutes: 22,
         kind: 'project',
       },
@@ -70,7 +70,7 @@ const GENERIC_WEEKS: WeekDef[] = [
       {
         title: () => 'Project: a research agent for your team',
         summary: ({ role, goal }) =>
-          `Ship a small agent your team can actually use — built to support: ${goal}. The kind of thing a senior ${role.toLowerCase()} would pick up and run with.`,
+          `Ship a small agent your team can actually use - built to support: ${goal}. The kind of thing a senior ${role.toLowerCase()} would pick up and run with.`,
         minutes: 45,
         kind: 'project',
       },
@@ -142,7 +142,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'System prompts that survive code review',
           summary: ({ tool }) =>
-            `Write a ${tool} system prompt that is version-controlled, tested, and documented — the same bar you hold your code to.`,
+            `Write a ${tool} system prompt that is version-controlled, tested, and documented - the same bar you hold your code to.`,
           minutes: 14,
           kind: 'lesson',
         },
@@ -208,7 +208,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Project: add AI to an existing endpoint',
           summary: ({ goal }) =>
-            `Take a real endpoint in your codebase and add an AI layer — with evals, error handling, and a fallback. Goal: ${goal}.`,
+            `Take a real endpoint in your codebase and add an AI layer - with evals, error handling, and a fallback. Goal: ${goal}.`,
           minutes: 60,
           kind: 'project',
         },
@@ -224,7 +224,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Structuring a discovery brief with AI',
           summary: ({ tool }) =>
-            `Use ${tool} to write a discovery brief that surfaces assumptions, maps stakeholders, and frames the problem — before a single engineer is in the room.`,
+            `Use ${tool} to write a discovery brief that surfaces assumptions, maps stakeholders, and frames the problem - before a single engineer is in the room.`,
           minutes: 14,
           kind: 'lesson',
         },
@@ -306,7 +306,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Writing prompts that describe design intent',
           summary: ({ tool }) =>
-            `Learn to write ${tool} prompts that describe UI intent, brand constraints, and accessibility requirements — not just visual descriptions.`,
+            `Learn to write ${tool} prompts that describe UI intent, brand constraints, and accessibility requirements - not just visual descriptions.`,
           minutes: 14,
           kind: 'lesson',
         },
@@ -332,7 +332,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'From brief to concept in an hour',
           summary: ({ tool }) =>
-            `Use ${tool} to generate 10 concept directions from a client brief. Present the three strongest with rationale — in the time it used to take to sketch one.`,
+            `Use ${tool} to generate 10 concept directions from a client brief. Present the three strongest with rationale - in the time it used to take to sketch one.`,
           minutes: 20,
           kind: 'lesson',
         },
@@ -363,7 +363,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Writing SQL with AI that you understand',
           summary: ({ tool }) =>
-            `Use ${tool} to generate SQL queries — then review every line before running. Build the habit of AI-assisted, human-verified analysis.`,
+            `Use ${tool} to generate SQL queries - then review every line before running. Build the habit of AI-assisted, human-verified analysis.`,
           minutes: 16,
           kind: 'lesson',
         },
@@ -427,7 +427,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Repurposing one asset into ten',
           summary: ({ tool }) =>
-            `Take a blog post or webinar transcript and use ${tool} to spin it into a Twitter thread, three LinkedIn posts, an email nurture, and a one-pager — in under an hour.`,
+            `Take a blog post or webinar transcript and use ${tool} to spin it into a Twitter thread, three LinkedIn posts, an email nurture, and a one-pager - in under an hour.`,
           minutes: 16,
           kind: 'lesson',
         },
@@ -460,7 +460,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Project: messaging matrix',
           summary: ({ goal }) =>
-            `Build a full messaging matrix: audience segments, jobs-to-be-done, proof points, and objection handles — researched and drafted with AI. Goal: ${goal}.`,
+            `Build a full messaging matrix: audience segments, jobs-to-be-done, proof points, and objection handles - researched and drafted with AI. Goal: ${goal}.`,
           minutes: 45,
           kind: 'project',
         },
@@ -472,7 +472,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Building an AI-assisted email sequence',
           summary: ({ tool }) =>
-            `Use ${tool} to draft a 5-email nurture sequence. Define personas and triggers up front so every email lands in context — not in the bin.`,
+            `Use ${tool} to draft a 5-email nurture sequence. Define personas and triggers up front so every email lands in context - not in the bin.`,
           minutes: 20,
           kind: 'lesson',
         },
@@ -486,7 +486,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Project: automated campaign reporting',
           summary: ({ goal }) =>
-            `Build a prompt that turns raw campaign metrics into a one-page performance narrative for your stakeholders — every week, in minutes. Goal: ${goal}.`,
+            `Build a prompt that turns raw campaign metrics into a one-page performance narrative for your stakeholders - every week, in minutes. Goal: ${goal}.`,
           minutes: 40,
           kind: 'project',
         },
@@ -502,7 +502,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Using AI as a thinking partner',
           summary: ({ tool }) =>
-            `Learn to use ${tool} as a sounding board that pushes back. Write prompts that force the model to steelman your plan, then attack it — before the market does.`,
+            `Learn to use ${tool} as a sounding board that pushes back. Write prompts that force the model to steelman your plan, then attack it - before the market does.`,
           minutes: 14,
           kind: 'lesson',
         },
@@ -528,21 +528,21 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Delegating writing to AI without losing your voice',
           summary: ({ tool }) =>
-            `Build a ${tool} persona that writes in your voice — for investor updates, hiring emails, and team memos. Train it with 5 examples before you trust it.`,
+            `Build a ${tool} persona that writes in your voice - for investor updates, hiring emails, and team memos. Train it with 5 examples before you trust it.`,
           minutes: 16,
           kind: 'lesson',
         },
         {
           title: () => 'Automating founder-mode research',
           summary: ({ tool }) =>
-            `Use ${tool} to produce weekly competitive intelligence, funding round summaries, and hiring market signals — in the time it used to take to read one newsletter.`,
+            `Use ${tool} to produce weekly competitive intelligence, funding round summaries, and hiring market signals - in the time it used to take to read one newsletter.`,
           minutes: 20,
           kind: 'lesson',
         },
         {
           title: () => 'Project: AI-powered investor memo',
           summary: ({ goal }) =>
-            `Draft a one-page investor memo with AI: traction, market, team, and ask — structured and pressure-tested for the objections you hear most. Goal: ${goal}.`,
+            `Draft a one-page investor memo with AI: traction, market, team, and ask - structured and pressure-tested for the objections you hear most. Goal: ${goal}.`,
           minutes: 45,
           kind: 'project',
         },
@@ -561,14 +561,14 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Hiring and culture at AI speed',
           summary: ({ tool }) =>
-            `Use ${tool} to write job descriptions, structure interviews, and draft offer letters that reflect your actual culture — not the generic startup template.`,
+            `Use ${tool} to write job descriptions, structure interviews, and draft offer letters that reflect your actual culture - not the generic startup template.`,
           minutes: 16,
           kind: 'lesson',
         },
         {
           title: () => 'Project: 90-day operating plan',
           summary: ({ goal }) =>
-            `Write a 90-day operating plan: goals, experiments, metrics, and the kill criteria for each bet — drafted with AI, owned by you. Goal: ${goal}.`,
+            `Write a 90-day operating plan: goals, experiments, metrics, and the kill criteria for each bet - drafted with AI, owned by you. Goal: ${goal}.`,
           minutes: 50,
           kind: 'project',
         },
@@ -591,7 +591,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Turning meetings into structured outputs',
           summary: ({ tool }) =>
-            `Feed raw meeting notes into ${tool}. Get back a structured decision log, action items with owners, and a one-paragraph summary — in 90 seconds.`,
+            `Feed raw meeting notes into ${tool}. Get back a structured decision log, action items with owners, and a one-paragraph summary - in 90 seconds.`,
           minutes: 12,
           kind: 'lesson',
         },
@@ -624,7 +624,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Project: AI-assisted onboarding programme',
           summary: ({ goal }) =>
-            `Build a week-one onboarding programme: schedule, readings, checkpoints, and a 30-60-90 plan — structured and drafted with AI. Goal: ${goal}.`,
+            `Build a week-one onboarding programme: schedule, readings, checkpoints, and a 30-60-90 plan - structured and drafted with AI. Goal: ${goal}.`,
           minutes: 45,
           kind: 'project',
         },
@@ -650,7 +650,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Project: ops dashboard narrative',
           summary: ({ goal }) =>
-            `Write a monthly ops narrative that translates your key metrics into leadership language — built with AI, signed off by you. Goal: ${goal}.`,
+            `Write a monthly ops narrative that translates your key metrics into leadership language - built with AI, signed off by you. Goal: ${goal}.`,
           minutes: 35,
           kind: 'project',
         },
@@ -718,7 +718,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Writing for multiple audiences from one dataset',
           summary: ({ tool }) =>
-            `Use ${tool} to adapt the same research findings for a technical paper, an executive summary, and a public-facing blog post — each with the right framing.`,
+            `Use ${tool} to adapt the same research findings for a technical paper, an executive summary, and a public-facing blog post - each with the right framing.`,
           minutes: 20,
           kind: 'lesson',
         },
@@ -732,7 +732,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Project: research communication package',
           summary: ({ goal }) =>
-            `Build a communication package for a real project: abstract, one-pager, and 5-slide deck — each audience-appropriate and drafted with AI. Goal: ${goal}.`,
+            `Build a communication package for a real project: abstract, one-pager, and 5-slide deck - each audience-appropriate and drafted with AI. Goal: ${goal}.`,
           minutes: 45,
           kind: 'project',
         },
@@ -755,7 +755,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Writing cold outreach that gets replies',
           summary: ({ tool }) =>
-            `Build a ${tool} prompt that generates personalised first-touch emails — not templates with [NAME] placeholders, but messages that reference what the buyer actually cares about.`,
+            `Build a ${tool} prompt that generates personalised first-touch emails - not templates with [NAME] placeholders, but messages that reference what the buyer actually cares about.`,
           minutes: 14,
           kind: 'lesson',
         },
@@ -781,7 +781,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Turning call notes into structured CRM updates',
           summary: ({ tool }) =>
-            `Paste raw call notes into ${tool} and get back a structured MEDDIC or BANT summary, next steps, and a draft follow-up email — in under 90 seconds.`,
+            `Paste raw call notes into ${tool} and get back a structured MEDDIC or BANT summary, next steps, and a draft follow-up email - in under 90 seconds.`,
           minutes: 16,
           kind: 'lesson',
         },
@@ -814,7 +814,7 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Project: end-to-end deal support package',
           summary: ({ goal }) =>
-            `Build a full deal support package for one active opportunity: account brief, discovery questions, objection bank, and a draft proposal intro — all AI-assisted. Goal: ${goal}.`,
+            `Build a full deal support package for one active opportunity: account brief, discovery questions, objection bank, and a draft proposal intro - all AI-assisted. Goal: ${goal}.`,
           minutes: 50,
           kind: 'project',
         },
@@ -882,14 +882,14 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Preparing QBR materials in half the time',
           summary: ({ tool }) =>
-            `Use ${tool} to draft the QBR narrative: what happened, what it means for the customer's goals, and what you recommend next — structured and editable before the meeting.`,
+            `Use ${tool} to draft the QBR narrative: what happened, what it means for the customer's goals, and what you recommend next - structured and editable before the meeting.`,
           minutes: 20,
           kind: 'lesson',
         },
         {
           title: () => 'Identifying expansion opportunities in account data',
           summary: ({ tool }) =>
-            `Use ${tool} to scan your account notes and identify gaps between what the customer is using and what they could be using — surfacing natural expansion conversations.`,
+            `Use ${tool} to scan your account notes and identify gaps between what the customer is using and what they could be using - surfacing natural expansion conversations.`,
           minutes: 16,
           kind: 'lesson',
         },
@@ -912,14 +912,14 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'Using AI to build and stress-test financial models',
           summary: ({ tool }) =>
-            `Use ${tool} to draft model structures, check formula logic, and document assumptions — so the model survives the next person who opens it, not just the person who built it.`,
+            `Use ${tool} to draft model structures, check formula logic, and document assumptions - so the model survives the next person who opens it, not just the person who built it.`,
           minutes: 18,
           kind: 'lesson',
         },
         {
           title: () => 'Turning raw data into executive-ready analysis',
           summary: ({ tool }) =>
-            `Give ${tool} a table of numbers and a business question. Get back the three-sentence story, the table that supports it, and the caveat the CFO will ask about — drafted in minutes.`,
+            `Give ${tool} a table of numbers and a business question. Get back the three-sentence story, the table that supports it, and the caveat the CFO will ask about - drafted in minutes.`,
           minutes: 16,
           kind: 'lesson',
         },
@@ -971,14 +971,14 @@ const ROLE_WEEKS: Partial<Record<SupportedRole, WeekDef[]>> = {
         {
           title: () => 'FP&A scenario modelling with AI',
           summary: ({ tool }) =>
-            `Use ${tool} to generate and document multiple forecast scenarios: base, upside, and downside — each with the assumptions and the metric impacts written in language leadership can read.`,
+            `Use ${tool} to generate and document multiple forecast scenarios: base, upside, and downside - each with the assumptions and the metric impacts written in language leadership can read.`,
           minutes: 20,
           kind: 'lesson',
         },
         {
           title: () => 'Project: scenario analysis package',
           summary: ({ goal }) =>
-            `Build a scenario analysis package for a live business decision: three scenarios, key assumptions, financial impact, and a recommendation memo — drafted with AI, validated by you. Goal: ${goal}.`,
+            `Build a scenario analysis package for a live business decision: three scenarios, key assumptions, financial impact, and a recommendation memo - drafted with AI, validated by you. Goal: ${goal}.`,
           minutes: 50,
           kind: 'project',
         },

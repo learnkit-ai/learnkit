@@ -70,7 +70,7 @@ export default function ExamplePage() {
             >
               @learnkit-ai/react
             </code>{' '}
-            component you can install from npm. No backend, no LLM call — the path is generated
+            component you can install from npm. No backend, no LLM call - the path is generated
             deterministically by{' '}
             <code
               style={{
@@ -115,7 +115,7 @@ export default function ExamplePage() {
         <div style={{ maxWidth: 1080, margin: '0 auto', display: 'grid', gridTemplateColumns: '320px 1fr', gap: 24 }} className="lk-split">
           <aside>
             <AIGuide
-              message="Change the theme above to see the same component re-render with different CSS custom properties — no rebuild required."
+              message="Change the theme above to see the same component re-render with different CSS custom properties - no rebuild required."
               style={{ marginBottom: 16, display: 'flex' }}
             />
             <pre

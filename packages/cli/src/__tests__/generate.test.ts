@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { generateLearningPath, getSupportedRoles, getSupportedTools } from '@learnkit-ai/core';
 
-describe('CLI integration — generateLearningPath', () => {
+describe('CLI integration - generateLearningPath', () => {
   it('generates a valid path for all supported roles', () => {
     const roles = getSupportedRoles();
     const tools = getSupportedTools();

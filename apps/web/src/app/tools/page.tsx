@@ -6,14 +6,14 @@ import { Eyebrow, ToolIcon } from '@/components/ui/primitives';
 import { SITE_URL, TOOLS } from '@/lib/seo-data';
 
 export const metadata: Metadata = {
-  title: 'Learn 40+ AI tools — Claude, Cursor, ChatGPT & more',
+  title: 'Learn 40+ AI tools - Claude, Cursor, ChatGPT & more',
   description:
     'Project-based learning paths for every major AI tool. Pick your tool, get a 30-day path, ship something Friday.',
   alternates: { canonical: '/tools' },
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/tools`,
-    title: 'Learn 40+ AI tools — LearnKit AI',
+    title: 'Learn 40+ AI tools - LearnKit AI',
     description:
       'Project-based learning paths for Claude, Cursor, ChatGPT, Copilot, Midjourney, Notion AI, Perplexity, Gemini and 32 more.',
   },

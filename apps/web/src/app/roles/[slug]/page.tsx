@@ -17,7 +17,7 @@ export async function generateMetadata(
   const role = ROLES.find((r) => r.slug === slug);
   if (!role) return {};
 
-  const title = `${role.tagline} — build real skills in 30 days`;
+  const title = `${role.tagline} - build real skills in 30 days`;
   const description = `${role.blurb} Project-based, reviewed by the AI Guide, with role-mapped curricula for ${role.tools.slice(0, 3).join(', ')} and more.`;
 
   return {

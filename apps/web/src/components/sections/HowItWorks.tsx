@@ -9,7 +9,7 @@ const STEPS = [
   {
     n: '02',
     title: 'Get a 30-day path',
-    body: 'Lessons, projects, and a final practicum — sequenced for your job, not a generic curriculum.',
+    body: 'Lessons, projects, and a final practicum - sequenced for your job, not a generic curriculum.',
   },
   {
     n: '03',
@@ -50,7 +50,7 @@ export function HowItWorks() {
           </h2>
           <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.55, maxWidth: 580 }}>
             Most AI training is a video library. LearnKit AI gives you a 30-day path, a
-            workbench, and a tutor that reads your prompts — built for the work, not the
+            workbench, and a tutor that reads your prompts - built for the work, not the
             certificate.
           </p>
         </div>

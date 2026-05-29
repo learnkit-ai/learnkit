@@ -12,7 +12,7 @@ user input with zero backend. `examples/nextjs-basic` runs standalone.
 
 Task 2 of 2. Depends on `v0-scaffold` completing first.
 `apps/web` imports `@learnkit-ai/react` and `@learnkit-ai/core` from the workspace.
-The demo runs entirely on `generateLearningPath()` — no API routes, no fetch calls.
+The demo runs entirely on `generateLearningPath()` - no API routes, no fetch calls.
 
 Read `.agent/agent.md` and `.agent/rules/` before starting.
 
@@ -46,13 +46,13 @@ const config = {
 export default config
 ```
 
-**`app/layout.tsx`** — import Google Fonts (Newsreader, Inter, JetBrains Mono),
+**`app/layout.tsx`** - import Google Fonts (Newsreader, Inter, JetBrains Mono),
 import `@learnkit-ai/react/tokens.css`, import `globals.css`.
 
-**`tailwind.config.ts`** — content includes `./app/**/*.tsx`, `./components/**/*.tsx`,
+**`tailwind.config.ts`** - content includes `./app/**/*.tsx`, `./components/**/*.tsx`,
 and `../../packages/react/src/**/*.tsx`.
 
-### 2. Landing page — app/page.tsx
+### 2. Landing page - app/page.tsx
 
 Section order:
 
@@ -64,12 +64,12 @@ Section order:
 **Hero**
 - Headline (serif, large): e.g. "Learning paths for your product, in minutes."
 - Sub-headline: one sentence describing what `generateLearningPath()` does
-- Embedded `<HeroDemo />` component — live path preview, no interaction required
+- Embedded `<HeroDemo />` component - live path preview, no interaction required
 
 **What it is**
 - Two-column layout
-- Left: "A typed function" — code block showing `generateLearningPath()` call + return shape
-- Right: "A React component" — code block showing `<LearningPath input={...} />` usage
+- Left: "A typed function" - code block showing `generateLearningPath()` call + return shape
+- Right: "A React component" - code block showing `<LearningPath input={...} />` usage
 
 **How it works**
 - 3-step grid: "Define the learner" → "Engine generates a path" → "Render with one component"
@@ -95,12 +95,12 @@ Brand rules to enforce:
 - "AI Guide" not "Olé" if the AI feedback component is mentioned
 - No fake logos, testimonials, compliance badges, or metric claims
 
-### 3. Demo page — app/demo/page.tsx
+### 3. Demo page - app/demo/page.tsx
 
 Three-step interactive flow. All state is client-side (`'use client'`).
 No API routes. No fetch calls. Result is instant.
 
-**Step 1 — Role**
+**Step 1 - Role**
 Five clickable cards:
 - Product Manager
 - Software Engineer
@@ -108,22 +108,22 @@ Five clickable cards:
 - Marketer
 - Data Analyst
 
-**Step 2 — Tools**
+**Step 2 - Tools**
 Multi-select chips (at least one required):
 - Cursor, Claude, ChatGPT, GitHub Copilot, Figma, Notion, Slack, HubSpot
 
-**Step 3 — Goal**
+**Step 3 - Goal**
 Single text input: "What do you want to achieve?"
 Placeholder: "e.g. ship AI features faster"
 
 **Submit**
-Button: "Generate my path" — calls `generateLearningPath()` from `@learnkit-ai/core`
+Button: "Generate my path" - calls `generateLearningPath()` from `@learnkit-ai/core`
 and renders `<LearningPath />` from `@learnkit-ai/react` directly below.
 
-No fake loading state. The call is synchronous — render the result immediately.
+No fake loading state. The call is synchronous - render the result immediately.
 Show a "Start over" button after the result renders.
 
-### 4. Docs page — app/docs/page.tsx
+### 4. Docs page - app/docs/page.tsx
 
 Placeholder only. Static content:
 
@@ -174,7 +174,7 @@ export default function Page() {
 **`examples/nextjs-basic/README.md`** must contain exactly:
 
 ```markdown
-# LearnKit AI — Next.js basic example
+# LearnKit AI - Next.js basic example
 
 Minimal integration showing `<LearningPath />` in a Next.js app.
 

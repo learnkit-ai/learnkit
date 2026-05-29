@@ -77,7 +77,7 @@ export const FAQ_SCHEMA = {
       name: 'How much does LearnKit AI cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'LearnKit AI is free and open source under Apache-2.0. There is no paid tier, no usage fee, and no commercial restriction. Install the packages from npm, self-host the marketing site, or embed the React components in your own product — all without paying anyone.',
+        text: 'LearnKit AI is free and open source under Apache-2.0. There is no paid tier, no usage fee, and no commercial restriction. Install the packages from npm, self-host the marketing site, or embed the React components in your own product - all without paying anyone.',
       },
     },
     {
@@ -93,7 +93,7 @@ export const FAQ_SCHEMA = {
       name: 'How do I self-host LearnKit AI?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Clone the repo, run pnpm install and pnpm dev. The marketing site is a Next.js 15 App Router app — deploy it to Vercel, Netlify, Cloudflare Pages, or any Node host. The packages can be consumed from npm or installed directly from the workspace.',
+        text: 'Clone the repo, run pnpm install and pnpm dev. The marketing site is a Next.js 15 App Router app - deploy it to Vercel, Netlify, Cloudflare Pages, or any Node host. The packages can be consumed from npm or installed directly from the workspace.',
       },
     },
     {

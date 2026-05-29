@@ -68,7 +68,7 @@ export function LessonPreview({
               marginBottom: 12,
             }}
           >
-            Week 1 — {path.weeks[0]!.title}
+            Week 1 - {path.weeks[0]!.title}
           </div>
           {path.weeks[0]!.lessons.map((l, i) => (
             <div
@@ -224,7 +224,7 @@ export function LessonPreview({
               This is your first lesson as a{' '}
               <strong style={{ color: 'var(--ink)' }}>{role}</strong>. Your primary tool is{' '}
               <strong style={{ color: 'var(--ink)' }}>{firstLesson.tool}</strong>. The exercise
-              below is a real task — not a tutorial. Do it before reading ahead.
+              below is a real task - not a tutorial. Do it before reading ahead.
             </div>
             <div
               style={{

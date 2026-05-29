@@ -187,7 +187,7 @@ function HeroLiveWorkbench() {
                 AI Guide · review
               </div>
               <div style={{ fontSize: 13, color: 'var(--ink)', lineHeight: 1.5 }}>
-                Solid prompt — but no refusal clause. When the PDF lacks a claim, your agent will
+                Solid prompt - but no refusal clause. When the PDF lacks a claim, your agent will
                 invent one. Add:{' '}
                 <code
                   style={{
@@ -275,7 +275,7 @@ export function Hero() {
             }}
           >
             LearnKit AI turns Claude, Cursor, ChatGPT and 40 other tools into a curriculum
-            your people learn by <em>building real things</em> at work — reviewed by the AI
+            your people learn by <em>building real things</em> at work - reviewed by the AI
             Guide.
           </p>
 

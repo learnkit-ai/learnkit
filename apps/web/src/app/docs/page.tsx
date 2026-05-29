@@ -7,14 +7,14 @@ import { DocsSidebar } from '@/components/docs/DocsSidebar';
 import { SITE_URL } from '@/lib/seo-data';
 
 export const metadata: Metadata = {
-  title: 'Docs — LearnKit AI',
+  title: 'Docs - LearnKit AI',
   description:
     'API reference and quickstart for @learnkit-ai/core and @learnkit-ai/react. Install, generate a learning path, and render it in three steps.',
   alternates: { canonical: '/docs' },
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/docs`,
-    title: 'LearnKit AI Docs — API reference and quickstart',
+    title: 'LearnKit AI Docs - API reference and quickstart',
     description:
       'API reference and quickstart for @learnkit-ai/core and @learnkit-ai/react.',
   },
@@ -284,7 +284,7 @@ isRoleSupported('Astronaut');         // false`}</CodePane>
 
           <SubAnchor id="use-learnkit" label="useLearnKit(input)" />
           <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 12px' }}>
-            Headless hook. Returns <Pill>{`{ path, error }`}</Pill>. Build your own UI on top —
+            Headless hook. Returns <Pill>{`{ path, error }`}</Pill>. Build your own UI on top -
             the hook handles input validation and memoizes the result.
           </p>
           <CodePane>{`import { useLearnKit } from '@learnkit-ai/react';
@@ -314,7 +314,7 @@ function MyCustomPath() {
             <Pill>@learnkit-ai/schemas</Pill>. No manual type duplication. Import from
             either the schemas package directly or from your consuming package.
           </p>
-          <CodePane>{`// LearningPathInput — the contract. Will not change without a major version bump.
+          <CodePane>{`// LearningPathInput - the contract. Will not change without a major version bump.
 type LearningPathInput = {
   role:           string                              // from getSupportedRoles()
   tools:          string[]                            // from getSupportedTools()
@@ -323,7 +323,7 @@ type LearningPathInput = {
   companyContext?: string                             // optional, max 500 chars
 }
 
-// LearningPath — the output
+// LearningPath - the output
 type LearningPath = {
   id:    string
   input: LearningPathInput
@@ -347,10 +347,10 @@ type Lesson = {
           {/* Theming */}
           <Anchor id="theming" label="Theming" />
           <p style={{ fontSize: 15, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 12px' }}>
-            <Pill>@learnkit-ai/react</Pill> uses CSS custom properties only — no Tailwind.
+            <Pill>@learnkit-ai/react</Pill> uses CSS custom properties only - no Tailwind.
             Three built-in themes ship out of the box. Override any token in your own CSS.
           </p>
-          <CodePane>{`/* Built-in themes — pass as the theme prop */
+          <CodePane>{`/* Built-in themes - pass as the theme prop */
 theme="warm"       // warm paper, terracotta accent (default)
 theme="midnight"   // dark ink, blue accent
 theme="technical"  // neutral gray, green accent
@@ -402,7 +402,7 @@ pnpm dev`}</CodePane>
             >
               CONTRIBUTING.md
             </Link>{' '}
-            for the commit and PR conventions. Apache-2.0 — use it, fork it, ship it.
+            for the commit and PR conventions. Apache-2.0 - use it, fork it, ship it.
           </p>
         </article>
       </div>

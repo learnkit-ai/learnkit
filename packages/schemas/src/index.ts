@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 /**
- * LearnKit AI — Zod schemas and inferred TypeScript types.
+ * LearnKit AI - Zod schemas and inferred TypeScript types.
  * Apache-2.0. https://learnkit-ai.com
  */
 

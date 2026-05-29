@@ -18,7 +18,7 @@ const DISTRIBUTIONS: Distribution[] = [
     desc: 'Use the components in any React app.',
     command: 'pnpm add @learnkit-ai/react',
     bullets: [
-      'Apache-2.0 — commercial use allowed',
+      'Apache-2.0 - commercial use allowed',
       '<LearningPath />, <AIGuide />, useLearnKit()',
       'No Tailwind dependency · CSS variables only',
       'Three built-in themes · drop into any host',
@@ -83,7 +83,7 @@ export function UseItYourWay() {
               margin: '12px auto 0',
             }}
           >
-            No paid tier. No usage fee. Apache-2.0 from end to end — install it, fork it, embed
+            No paid tier. No usage fee. Apache-2.0 from end to end - install it, fork it, embed
             it, deploy it. We do not gate features behind a credit card.
           </p>
         </div>

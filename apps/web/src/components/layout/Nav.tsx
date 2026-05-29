@@ -100,7 +100,7 @@ export function Nav() {
         </a>
       </div>
 
-      {/* Mobile hamburger button — visible only when lk-nav-links is hidden */}
+      {/* Mobile hamburger button - visible only when lk-nav-links is hidden */}
       <button
         className="lk-nav-hamburger"
         onClick={() => setOpen((o) => !o)}

@@ -39,7 +39,7 @@ describe('generateLessonContent', () => {
     expect(content.rubric.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('is deterministic — same lesson always returns the same content', () => {
+  it('is deterministic - same lesson always returns the same content', () => {
     const lesson = getFirstLesson();
     const a = generateLessonContent(lesson);
     const b = generateLessonContent(lesson);

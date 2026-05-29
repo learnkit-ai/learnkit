@@ -52,7 +52,7 @@ export function TutorWidget() {
             }}
           >
             A React component, a Web Component, or a vanilla JS bundle. White-label the avatar,
-            the voice, and the lesson library — keep your brand, get the pedagogy.
+            the voice, and the lesson library - keep your brand, get the pedagogy.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {FEATURES.map((f) => (

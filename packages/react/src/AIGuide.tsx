@@ -13,7 +13,7 @@ export interface AIGuideProps {
 const SIZE_MAP = { sm: 24, md: 32, lg: 44 };
 
 /**
- * AIGuide — a small avatar + a one-line tip.
+ * AIGuide - a small avatar + a one-line tip.
  * Drop-in for surfacing AI Guide reviews and hints inside any host UI.
  */
 export function AIGuide({

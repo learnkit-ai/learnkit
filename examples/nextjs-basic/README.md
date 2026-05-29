@@ -17,7 +17,7 @@ Open [http://localhost:3001](http://localhost:3001).
 
 - `<LearningPath input={...} />` from `@learnkit-ai/react`
 - The `<AIGuide />` tip card
-- Zero backend, zero API key, zero LLM call — the path is computed deterministically from the input
+- Zero backend, zero API key, zero LLM call - the path is computed deterministically from the input
 
 Edit `src/app/page.tsx` to change the role, tools, or goal and watch the path update.
 

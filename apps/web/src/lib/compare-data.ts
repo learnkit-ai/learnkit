@@ -26,7 +26,7 @@ export const COMPARISONS: ComparisonPage[] = [
     role: 'Software Engineer',
     tagline: 'Claude vs ChatGPT for Software Engineers',
     intro:
-      'Both Claude and ChatGPT can write, review, and explain code — but they make different trade-offs that matter when you are shipping production software. This comparison covers the dimensions engineers actually care about.',
+      'Both Claude and ChatGPT can write, review, and explain code - but they make different trade-offs that matter when you are shipping production software. This comparison covers the dimensions engineers actually care about.',
     verdict:
       'Claude tends to be stronger for large-codebase reasoning, structured output, and following constrained system prompts without drift. ChatGPT wins on ecosystem breadth, Code Interpreter for exploratory data work, and the GPT Store for pre-built task-specific models. Most senior engineers use both with purpose-built prompts rather than picking one.',
     points: [
@@ -70,7 +70,7 @@ export const COMPARISONS: ComparisonPage[] = [
     role: 'Software Engineer',
     tagline: 'Cursor vs GitHub Copilot for Software Engineers',
     intro:
-      'Cursor and GitHub Copilot both put AI inside your editor — but they are built on different premises about what AI-assisted development looks like. Copilot optimizes for autocomplete flow; Cursor optimizes for multi-file reasoning and agent-driven edits.',
+      'Cursor and GitHub Copilot both put AI inside your editor - but they are built on different premises about what AI-assisted development looks like. Copilot optimizes for autocomplete flow; Cursor optimizes for multi-file reasoning and agent-driven edits.',
     verdict:
       'Cursor is the stronger choice for engineers who want to hand off multi-file tasks, run agents, and iterate on the codebase as a whole. Copilot is better embedded in GitHub workflows, has lower friction for teams that standardize on VSCode, and its Chat and PR Review features integrate directly with your GitHub Actions and pull request cycle.',
     points: [
@@ -116,7 +116,7 @@ export const COMPARISONS: ComparisonPage[] = [
     intro:
       'Data analysts need AI that handles long documents, reasons carefully about numbers, and integrates with the tools you already use. Claude and Gemini take different approaches to each of these.',
     verdict:
-      'Claude is stronger for careful, citation-honest analysis of long documents and complex datasets pasted into the context. Gemini wins on Google Workspace integration — if your org runs on Sheets, Docs, and BigQuery, Gemini in Workspace is already embedded in your workflow. For standalone analysis work, Claude\'s document reasoning is more reliable.',
+      'Claude is stronger for careful, citation-honest analysis of long documents and complex datasets pasted into the context. Gemini wins on Google Workspace integration - if your org runs on Sheets, Docs, and BigQuery, Gemini in Workspace is already embedded in your workflow. For standalone analysis work, Claude\'s document reasoning is more reliable.',
     points: [
       {
         dimension: 'Long-document analysis',
@@ -202,9 +202,9 @@ export const COMPARISONS: ComparisonPage[] = [
     role: 'Software Engineer',
     tagline: 'Windsurf vs Cursor for Software Engineers',
     intro:
-      'Both Windsurf and Cursor are AI-first IDEs built on VS Code\'s foundation — but they have different philosophies. Windsurf\'s Cascade model is trained for multi-step autonomous reasoning; Cursor\'s strength is in the explicitness of Composer and deep codebase indexing.',
+      'Both Windsurf and Cursor are AI-first IDEs built on VS Code\'s foundation - but they have different philosophies. Windsurf\'s Cascade model is trained for multi-step autonomous reasoning; Cursor\'s strength is in the explicitness of Composer and deep codebase indexing.',
     verdict:
-      'Windsurf\'s Cascade is more autonomous and better at planning multi-step changes without hand-holding. Cursor gives you more control over every step — better for engineers who want to review before applying. The best choice comes down to your trust level: high-trust autonomous agent or explicit pair-programmer. Most teams that switch from Copilot land on Cursor for familiarity, then graduate some engineers to Windsurf for larger refactors.',
+      'Windsurf\'s Cascade is more autonomous and better at planning multi-step changes without hand-holding. Cursor gives you more control over every step - better for engineers who want to review before applying. The best choice comes down to your trust level: high-trust autonomous agent or explicit pair-programmer. Most teams that switch from Copilot land on Cursor for familiarity, then graduate some engineers to Windsurf for larger refactors.',
     points: [
       {
         dimension: 'Autonomous task completion',

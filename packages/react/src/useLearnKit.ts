@@ -11,7 +11,7 @@ export interface UseLearnKitResult {
 }
 
 /**
- * useLearnKit — synchronous, deterministic. The path is computed from input on render.
+ * useLearnKit - synchronous, deterministic. The path is computed from input on render.
  * Loading state is always false because `generateLearningPath` is pure.
  */
 export function useLearnKit(input: LearningPathInput | null | undefined): UseLearnKitResult {

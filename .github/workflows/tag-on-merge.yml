@@ -1,0 +1,28 @@
+name: Tag and Release on Version Bump
+
+# Step 2 of 3: fires when a bump PR (chore/bump-vX.Y.Z) merges into main.
+# Creates the git tag and GitHub Release, which triggers publish.yml.
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  tag-and-release:
+    if: contains(github.event.head_commit.message, 'chore/bump-v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create tag and GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(node -p "require('./packages/core/package.json').version")
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+          gh release create "v$VERSION" \
+            --title "v$VERSION" \
+            --generate-notes
